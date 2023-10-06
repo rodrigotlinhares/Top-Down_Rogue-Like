@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Projectile projectile;
+
     private Rigidbody2D body;
     private Vector2 velocity;
+    private bool dashing = false;
+    private int dashMultiplier = 4;
+    private int dashTime = 250;
     private float movementSpeed = 4f;
 
     // Start is called before the first frame update
@@ -18,16 +24,37 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity.x = 0f;
-        velocity.y = 0f;
-        if (Input.GetKey(KeyCode.A))
-            velocity.x = -movementSpeed;
-        if (Input.GetKey(KeyCode.D))
-            velocity.x = movementSpeed;
-        if (Input.GetKey(KeyCode.W))
-            velocity.y = movementSpeed;
-        if (Input.GetKey(KeyCode.S))
-            velocity.y = -movementSpeed;
+        if (!dashing)
+        {
+            velocity.x = 0f;
+            velocity.y = 0f;
+            if (Input.GetKey(KeyCode.A))
+                velocity.x = -movementSpeed;
+            if (Input.GetKey(KeyCode.D))
+                velocity.x = movementSpeed;
+            if (Input.GetKey(KeyCode.W))
+                velocity.y = movementSpeed;
+            if (Input.GetKey(KeyCode.S))
+                velocity.y = -movementSpeed;
+            body.velocity = velocity;
+            if (Input.GetKey(KeyCode.Space))
+                StartCoroutine(Dash());
+        }
+    }
+
+    private void Shoot()
+    {
+    }
+
+    IEnumerator Dash()
+    {
+        dashing = true;
+        DateTime start = DateTime.Now;
+        velocity.x *= dashMultiplier;
+        velocity.y *= dashMultiplier;
         body.velocity = velocity;
+        while ((DateTime.Now - start).Milliseconds < dashTime)
+            yield return null;
+        dashing = false;
     }
 }
