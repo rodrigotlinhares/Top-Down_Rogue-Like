@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -40,10 +41,16 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
                 StartCoroutine(Dash());
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            Shoot(Input.mousePosition);
     }
 
-    private void Shoot()
+    private void Shoot(Vector3 click)
     {
+        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(click) - body.position;
+        direction.Normalize();
+        Projectile clone = Instantiate(projectile, body.transform);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction);
     }
 
     IEnumerator Dash()
