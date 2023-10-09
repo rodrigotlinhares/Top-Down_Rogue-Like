@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1423128033342044671}
   - component: {fileID: -7912800906446936234}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

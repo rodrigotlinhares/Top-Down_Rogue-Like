@@ -13,13 +13,13 @@ public class Player : MonoBehaviour
     private bool dashing = false;
     private int dashMultiplier = 4;
     private int dashTime = 250;
+    private int shootForce = 1000;
     private float movementSpeed = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        velocity = body.velocity;
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(click) - body.position;
         direction.Normalize();
         Projectile clone = Instantiate(projectile, body.transform);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction*shootForce);
     }
 
     IEnumerator Dash()
