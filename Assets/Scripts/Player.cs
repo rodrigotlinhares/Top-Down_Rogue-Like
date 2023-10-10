@@ -10,10 +10,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body;
     private Vector2 velocity;
-    private bool dashing = false;
+    private bool inputEnabled = true;
+    private int health = 5;
     private int dashMultiplier = 4;
     private int dashTime = 250;
+    private int iFrames = 250;
     private int shootForce = 1000;
+    private int knockbackForce = 500;
     private float movementSpeed = 4f;
 
     // Start is called before the first frame update
@@ -25,7 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dashing)
+        if (inputEnabled)
         {
             velocity.x = 0f;
             velocity.y = 0f;
@@ -40,9 +43,9 @@ public class Player : MonoBehaviour
             body.velocity = velocity;
             if (Input.GetKey(KeyCode.Space))
                 StartCoroutine(Dash());
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+                Shoot(Input.mousePosition);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            Shoot(Input.mousePosition);
     }
 
     private void Shoot(Vector3 click)
@@ -53,15 +56,35 @@ public class Player : MonoBehaviour
         clone.GetComponent<Rigidbody2D>().AddForce(direction*shootForce);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>())
+        {
+            StartCoroutine(TakeDamage(collision.gameObject));
+        }
+    }
+
     IEnumerator Dash()
     {
-        dashing = true;
+        inputEnabled = false;
         DateTime start = DateTime.Now;
         velocity.x *= dashMultiplier;
         velocity.y *= dashMultiplier;
         body.velocity = velocity;
         while ((DateTime.Now - start).Milliseconds < dashTime)
             yield return null;
-        dashing = false;
+        inputEnabled = true;
+    }
+
+    IEnumerator TakeDamage(GameObject other)
+    {
+        inputEnabled = false;
+        health--;
+        Vector2 direction = (body.position - other.GetComponent<Rigidbody2D>().position).normalized;
+        body.AddForce(direction * knockbackForce);
+        DateTime start = DateTime.Now;
+        while ((DateTime.Now - start).Milliseconds < iFrames)
+            yield return null;
+        inputEnabled = true;
     }
 }
