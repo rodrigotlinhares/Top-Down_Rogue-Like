@@ -7,6 +7,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Projectile projectile;
+    public delegate void PlayerDeath();
+    public static event PlayerDeath OnDeath;
 
     private Rigidbody2D body;
     private Vector2 velocity;
@@ -30,8 +32,7 @@ public class Player : MonoBehaviour
     {
         if (inputEnabled)
         {
-            velocity.x = 0f;
-            velocity.y = 0f;
+            velocity = Vector2.zero;
             if (Input.GetKey(KeyCode.A))
                 velocity.x = -movementSpeed;
             if (Input.GetKey(KeyCode.D))
@@ -61,6 +62,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.GetComponent<Enemy>())
         {
             StartCoroutine(TakeDamage(collision.gameObject));
+            if (health < 1)
+            {
+                OnDeath();
+                Destroy(gameObject);
+            }
         }
     }
 

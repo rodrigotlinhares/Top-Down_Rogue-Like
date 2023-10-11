@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D playerBody;
     private int health = 20;
     private float movementSpeed = 3f;
+    private bool moving = true;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,27 @@ public class Enemy : MonoBehaviour
         playerBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
+    void OnEnable()
+    {
+        Player.OnDeath += DisableMovement;
+    }
+
+    void OnDisable()
+    {
+        Player.OnDeath -= DisableMovement;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+        if(moving)
+            body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+    }
+
+    private void DisableMovement()
+    {
+        moving = false;
+        body.velocity = Vector3.zero;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
