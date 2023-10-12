@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Packages/com.unity.ugui/Runtime/EventSystem/InputModules
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -329,16 +329,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Packages/com.unity.ugui/Runtime/EventSystem/InputModules
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\home\unity_projects\Top-Down Rogue-Like
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 56610000
-    m_LastClickedID: 24918
-    m_ExpandedIDs: 000000004461000000ca9a3bffffff7f
+    m_SelectedIDs: 74660000
+    m_LastClickedID: 26228
+    m_ExpandedIDs: 0000000074610000b2610000766600007866000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -366,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000044610000
+    m_ExpandedIDs: 0000000074610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,9 +506,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: ccbaffff12bbffff8cc4ffffc4c5ffff40c9fffff4e7ffff9ce8ffffeae8ffff30e9ffff78e9ffff42eaffff96ebfffffeebffff9cecffff14edffff64edffffb6edffff1afbffff
+      m_SelectedIDs: eaa9ffff
+      m_LastClickedID: -22038
+      m_ExpandedIDs: eaa9ffff96adffff7ab0ffff8eb3fffff8b9fffffee1ffffd4e2fffff6edffffdeeeffff6cf1ffffb2f2ffff1cf9ffff96f9ffff1afbffff56640000a8650000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -524,7 +524,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -901,9 +901,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.22957802, y: 0.75175846, z: 0.15913533}
+    m_Target: {x: -0.5661952, y: -0.0877942, z: -5.2796106}
     speed: 2
-    m_Value: {x: 0.22957802, y: 0.75175846, z: 0.15913533}
+    m_Value: {x: -0.5661952, y: -0.0877942, z: -5.2796106}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -953,9 +953,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.2175508
+    m_Target: 6.8868523
     speed: 2
-    m_Value: 7.2175508
+    m_Value: 6.8868523
   m_Ortho:
     m_Target: 1
     speed: 2
