@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     public Projectile projectile;
     public delegate void PlayerDeath();
     public static event PlayerDeath OnDeath;
+    public static string className;
 
     private Rigidbody2D body;
     private Vector2 velocity;
+    private ClassStats.Stats baseStats;
     private bool inputEnabled = true;
-    private int health = 5;
+    private int health;
     private int dashMultiplier = 4;
     private int dashTime = 250;
     private int iFrames = 250;
@@ -24,6 +26,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        baseStats = ClassStats.stats[className];
+        health = baseStats.health;
+        GetComponent<SpriteRenderer>().color = baseStats.color;
         body = GetComponent<Rigidbody2D>();
     }
 
