@@ -15,17 +15,38 @@ public class Player : MonoBehaviour
     private Vector2 velocity;
     private ClassStats.Stats baseStats;
     private bool inputEnabled = true;
-    private int health;
-    private int dashMultiplier = 4;
-    private int dashTime = 250;
-    private int iFrames = 250;
-    private int shootForce = 1000;
-    private int knockbackForce = 500;
+    private int health, dashMultiplier = 4, dashTime = 250, iFrames = 250, shootForce = 1000, knockbackForce = 500;
     private float movementSpeed = 4f;
+    private PlayerClass playerClass;
+
+    public struct PlayerClass
+    {
+        public int health;
+        public Action<Vector3> MainSkill, SecondarySkill, UtilitySkill;
+
+        public PlayerClass(int h, Action<Vector3> ms, Action<Vector3> ss, Action<Vector3> us)
+        {
+            health = h;
+            MainSkill = ms;
+            SecondarySkill = ss;
+            UtilitySkill = us;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        if(className == "Warrior")
+            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+        if (className == "Mage")
+            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+        if (className == "Rogue")
+            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+        if (className == "BloodMage")
+            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+        if (className == "Warlock")
+            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+
         baseStats = ClassStats.stats[className];
         health = baseStats.health;
         GetComponent<SpriteRenderer>().color = baseStats.color;
@@ -48,15 +69,15 @@ public class Player : MonoBehaviour
                 velocity.y = -movementSpeed;
             body.velocity = velocity;
             if (Input.GetKey(KeyCode.Space))
-                StartCoroutine(Dash());
+                Dash();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 Shoot(Input.mousePosition);
         }
     }
 
-    private void Shoot(Vector3 click)
+    private void Shoot(Vector3 target = default(Vector3))
     {
-        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(click) - body.position;
+        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(target) - body.position;
         direction.Normalize();
         Projectile clone = Instantiate(projectile, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction*shootForce);
@@ -75,7 +96,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator Dash()
+    private void Dash(Vector3 target = default(Vector3))
+    {
+        StartCoroutine(DDash());
+    }
+
+    IEnumerator DDash()
     {
         inputEnabled = false;
         DateTime start = DateTime.Now;

@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ClassChoice : MonoBehaviour
 {
     public Color color;
-    public delegate void Click(string s);
-    public static event Click OnClick;
+    public static Action<string> OnClick;
 
     public void Enable()
     {
