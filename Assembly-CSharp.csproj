@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\Class Choice.cs" />
+    <Compile Include="Assets\Scripts\WarriorAttack.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\UI Controller.cs" />
   </ItemGroup>
