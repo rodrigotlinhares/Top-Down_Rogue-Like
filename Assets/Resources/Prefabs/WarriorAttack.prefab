@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7936759472555445959}
   - component: {fileID: 4685713349733275192}
   m_Layer: 7
-  m_Name: Warrior Attack
+  m_Name: WarriorAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

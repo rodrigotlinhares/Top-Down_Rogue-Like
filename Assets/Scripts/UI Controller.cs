@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
 
     void StartGame(string playerClass)
     {
-        Player.className = playerClass;
+        PlayerController.className = playerClass;
         SceneManager.LoadSceneAsync("Game");
     }
 }

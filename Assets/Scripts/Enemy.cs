@@ -21,12 +21,12 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        Player.OnDeath += DisableMovement;
+        PlayerController.OnDeath += DisableMovement;
     }
 
     void OnDisable()
     {
-        Player.OnDeath -= DisableMovement;
+        PlayerController.OnDeath -= DisableMovement;
     }
 
     // Update is called once per frame

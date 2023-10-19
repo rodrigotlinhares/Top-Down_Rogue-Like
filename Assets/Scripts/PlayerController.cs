@@ -1,50 +1,37 @@
 using System;
 using System.Collections;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    public Rigidbody2D body;
     public Projectile projectile;
     public WarriorAttack warriorAttack;
-    public delegate void PlayerDeath();
-    public static event PlayerDeath OnDeath;
+    public static Action OnDeath;
     public static string className;
 
-    private Rigidbody2D body;
     private Vector2 velocity;
     private ClassStats.Stats baseStats;
-    private bool inputEnabled = true;
+    public bool inputEnabled = true;
     private int health, dashMultiplier = 4, dashTime = 250, iFrames = 250, shootForce = 1000, knockbackForce = 500;
     private float movementSpeed = 4f;
-    private PlayerClass playerClass;
 
-    public struct PlayerClass
+    public interface PlayerClass
     {
-        public int health;
-        public Action<Vector3> MainSkill, SecondarySkill, UtilitySkill;
-
-        public PlayerClass(int h, Action<Vector3> ms, Action<Vector3> ss, Action<Vector3> us)
-        {
-            health = h;
-            MainSkill = ms;
-            SecondarySkill = ss;
-            UtilitySkill = us;
-        }
+        int Health { get; set; }
+        PlayerController Controller { get; set; }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(className == "Warrior")
-            playerClass = new PlayerClass(ClassStats.stats[className].health, WarriorAttack, Shoot, Dash);
-        if (className == "Mage")
-            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
-        if (className == "Rogue")
-            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
-        if (className == "BloodMage")
-            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
-        if (className == "Warlock")
-            playerClass = new PlayerClass(ClassStats.stats[className].health, Shoot, Shoot, Dash);
+        PlayerClass playerClass;
+        if (className == "Warrior")
+        {
+            playerClass = gameObject.AddComponent<Warrior>();
+            playerClass.Controller = this;
+        }
 
         baseStats = ClassStats.stats[className];
         health = baseStats.health;
@@ -69,18 +56,7 @@ public class Player : MonoBehaviour
             body.velocity = velocity;
             if (Input.GetKey(KeyCode.Space))
                 Dash();
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-                playerClass.MainSkill(Input.mousePosition);
         }
-    }
-
-    private void WarriorAttack(Vector3 target = default(Vector3))
-    {
-        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(target) - body.position;
-        direction.Normalize();
-        WarriorAttack clone = Instantiate(warriorAttack, body.transform);
-        clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * 350);
     }
 
     private void Shoot(Vector3 target = default(Vector3))
@@ -88,7 +64,7 @@ public class Player : MonoBehaviour
         Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(target) - body.position;
         direction.Normalize();
         Projectile clone = Instantiate(projectile, body.transform);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction*shootForce);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * shootForce);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
