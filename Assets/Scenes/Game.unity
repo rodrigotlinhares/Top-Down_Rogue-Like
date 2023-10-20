@@ -612,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 730944590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87, y: 0.07255851, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,8 +630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503ceaf54c3c2c74dab076190e5253ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
   projectile: {fileID: -7912800906446936234, guid: 6582fc4fe11d6104fb0aef1e6456fe6e, type: 3}
   warriorAttack: {fileID: 4685713349733275192, guid: fe130735f25357f46ac575a6db275149, type: 3}
+  inputEnabled: 1
 --- !u!50 &730944594
 Rigidbody2D:
   serializedVersion: 4
@@ -802,7 +804,7 @@ GameObject:
   - component: {fileID: 1261330310}
   - component: {fileID: 1261330314}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd538172b969d4493ecf67d15a1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 730944593}
 --- !u!1 &1315725809
 GameObject:
   m_ObjectHideFlags: 0

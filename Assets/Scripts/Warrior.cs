@@ -6,13 +6,16 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
 {
     public PlayerController Controller { get; set; }
     public int Health { get; set; }
-    private WarriorAttack mainAttack;
+
+    private bool blocking = false;
+    private WarriorAttack attack;
+    private WarriorBlock block, blockClone;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainAttack = Resources.Load<WarriorAttack>("Prefabs/WarriorAttack");
-        Debug.Log(mainAttack);
+        attack = Resources.Load<WarriorAttack>("Prefabs/WarriorAttack");
+        block = Resources.Load<WarriorBlock>("Prefabs/WarriorBlock");
     }
 
     // Update is called once per frame
@@ -21,16 +24,40 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
         if (Controller.inputEnabled)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
-                MainAttack(Input.mousePosition);
+                Attack(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                BeginBlocking();
+            if (Input.GetKey(KeyCode.Mouse1) && blocking)
+                Block(Input.mousePosition);
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+                StopBlocking();
         }
     }
 
-    private void MainAttack(Vector3 target)
+    private void Attack(Vector3 target)
     {
-        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(target) - Controller.body.position;
-        direction.Normalize();
-        WarriorAttack clone = Instantiate(mainAttack, Controller.body.transform);
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - Controller.body.position).normalized;
+        WarriorAttack clone = Instantiate(attack, Controller.body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * 350);
+    }
+
+    private void BeginBlocking()
+    {
+        blocking = true;
+        blockClone = Instantiate(block, Controller.body.transform);
+    }
+
+    private void Block(Vector3 target)
+    {
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - Controller.body.position).normalized;
+        blockClone.transform.position = Controller.body.position + direction;
+        blockClone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+    }
+
+    private void StopBlocking()
+    {
+        blocking = false;
+        Destroy(blockClone.gameObject);
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public PlayerController player;
+
     private Rigidbody2D body;
     private Rigidbody2D playerBody;
     private int health = 20;
@@ -16,7 +18,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        playerBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
     void OnEnable()
@@ -32,8 +33,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moving)
-            body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+        if (moving)
+            body.velocity = (player.GetComponent<Rigidbody2D>().position - body.position).normalized * movementSpeed;
     }
 
     private void DisableMovement()
