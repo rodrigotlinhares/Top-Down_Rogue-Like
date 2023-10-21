@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     public PlayerController player;
 
     private Rigidbody2D body;
-    private Rigidbody2D playerBody;
     private int health = 20;
     private float movementSpeed = 3f;
     private bool moving = true;
@@ -22,12 +21,12 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerController.OnDeath += DisableMovement;
+        PlayerController.OnDeath += Stop;
     }
 
     void OnDisable()
     {
-        PlayerController.OnDeath -= DisableMovement;
+        PlayerController.OnDeath -= Stop;
     }
 
     // Update is called once per frame
@@ -37,7 +36,7 @@ public class Enemy : MonoBehaviour
             body.velocity = (player.GetComponent<Rigidbody2D>().position - body.position).normalized * movementSpeed;
     }
 
-    private void DisableMovement()
+    private void Stop()
     {
         moving = false;
         body.velocity = Vector3.zero;
@@ -49,5 +48,15 @@ public class Enemy : MonoBehaviour
             health--;
         if (health < 1)
             Destroy(gameObject);
+    }
+
+    public IEnumerator Stun(int time)
+    {
+        moving = false;
+        body.velocity = Vector2.zero;
+        DateTime start = DateTime.Now;
+        while ((DateTime.Now - start).TotalMilliseconds < time)
+            yield return null;
+        moving = true;
     }
 }

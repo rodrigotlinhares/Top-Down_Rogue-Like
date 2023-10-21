@@ -19,7 +19,7 @@ public class WarriorAttack : MonoBehaviour
     IEnumerator Dissipate()
     {
         DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).Milliseconds < 200)
+        while ((DateTime.Now - start).TotalMilliseconds < 200)
             yield return null;
         Destroy(gameObject);
     }

@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     public WarriorAttack warriorAttack;
     public static Action OnDeath;
     public static string className;
+    public bool InputEnabled { get; set; }
 
     private Vector2 velocity;
-    private ClassStats.Stats baseStats;
-    public bool inputEnabled = true;
-    private int health, dashMultiplier = 4, dashTime = 250, iFrames = 250, shootForce = 1000, knockbackForce = 500;
+    private PlayerClass playerClass;
+    private int iFrames = 250, shootForce = 1000, knockbackForce = 500;
     private float movementSpeed = 4f;
 
     public interface PlayerClass
@@ -26,23 +26,21 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerClass playerClass;
+        InputEnabled = true;
         if (className == "Warrior")
         {
             playerClass = gameObject.AddComponent<Warrior>();
             playerClass.Controller = this;
         }
 
-        baseStats = ClassStats.stats[className];
-        health = baseStats.health;
-        GetComponent<SpriteRenderer>().color = baseStats.color;
+        GetComponent<SpriteRenderer>().color = ClassStats.stats[className].color;
         body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inputEnabled)
+        if (InputEnabled)
         {
             velocity = Vector2.zero;
             if (Input.GetKey(KeyCode.A))
@@ -54,8 +52,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.S))
                 velocity.y = -movementSpeed;
             body.velocity = velocity;
-            if (Input.GetKey(KeyCode.Space))
-                Dash();
         }
     }
 
@@ -67,45 +63,20 @@ public class PlayerController : MonoBehaviour
         clone.GetComponent<Rigidbody2D>().AddForce(direction * shootForce);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public IEnumerator TakeDamage(GameObject other)
     {
-        if (collision.gameObject.GetComponent<Enemy>())
+        InputEnabled = false;
+        playerClass.Health--;
+        if (playerClass.Health < 1)
         {
-            StartCoroutine(TakeDamage(collision.gameObject));
-            if (health < 1)
-            {
-                OnDeath();
-                Destroy(gameObject);
-            }
+            OnDeath();
+            Destroy(gameObject);
         }
-    }
-
-    private void Dash(Vector3 target = default(Vector3))
-    {
-        StartCoroutine(DDash());
-    }
-
-    IEnumerator DDash()
-    {
-        inputEnabled = false;
-        DateTime start = DateTime.Now;
-        velocity.x *= dashMultiplier;
-        velocity.y *= dashMultiplier;
-        body.velocity = velocity;
-        while ((DateTime.Now - start).Milliseconds < dashTime)
-            yield return null;
-        inputEnabled = true;
-    }
-
-    IEnumerator TakeDamage(GameObject other)
-    {
-        inputEnabled = false;
-        health--;
         Vector2 direction = (body.position - other.GetComponent<Rigidbody2D>().position).normalized;
         body.AddForce(direction * knockbackForce);
         DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).Milliseconds < iFrames)
+        while ((DateTime.Now - start).TotalMilliseconds < iFrames)
             yield return null;
-        inputEnabled = true;
+        InputEnabled = true;
     }
 }
