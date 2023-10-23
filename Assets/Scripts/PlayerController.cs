@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D body;
-    public Projectile projectile;
+    public MageAttack projectile;
     public WarriorAttack warriorAttack;
     public static Action OnDeath;
     public static string className;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 velocity;
     private PlayerClass playerClass;
-    private int iFrames = 250, shootForce = 1000, knockbackForce = 500;
+    private int iFrames = 250, knockbackForce = 500;
     private float movementSpeed = 4f;
 
     public interface PlayerClass
@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
         if (className == "Warrior")
         {
             playerClass = gameObject.AddComponent<Warrior>();
+            playerClass.Controller = this;
+        }
+        if (className == "Mage")
+        {
+            playerClass = gameObject.AddComponent<Mage>();
             playerClass.Controller = this;
         }
 
@@ -53,14 +58,6 @@ public class PlayerController : MonoBehaviour
                 velocity.y = -movementSpeed;
             body.velocity = velocity;
         }
-    }
-
-    private void Shoot(Vector3 target = default(Vector3))
-    {
-        Vector2 direction = (Vector2)Camera.main.ScreenToWorldPoint(target) - body.position;
-        direction.Normalize();
-        Projectile clone = Instantiate(projectile, body.transform);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * shootForce);
     }
 
     public IEnumerator TakeDamage(GameObject other)

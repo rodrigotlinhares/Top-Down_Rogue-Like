@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6167653874145632521}
   - component: {fileID: -1965123061509424585}
   - component: {fileID: -7790805764739613935}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: WarriorBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

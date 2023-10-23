@@ -9,14 +9,13 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
     public PlayerController Controller { get; set; }
     public int Health { get; set; }
 
-    private int chargeMultiplier = 4, chargeTime = 250, chargeStunTime = 250, chargeForce = 1000;
-    private bool blocking = false, charging = false;
+    private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250, chargeStunTime = 250, chargeForce = 1000;
+    private bool charging = false;
     private string className = "Warrior";
     private Rigidbody2D body;
     private WarriorAttack attack;
     private WarriorBlock block, blockClone;
 
-    // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -25,7 +24,6 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
         block = Resources.Load<WarriorBlock>("Prefabs/WarriorBlock");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Controller.InputEnabled)
@@ -34,7 +32,7 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
                 BeginBlocking();
-            if (Input.GetKey(KeyCode.Mouse1) && blocking)
+            if (Input.GetKey(KeyCode.Mouse1))
                 Block(Input.mousePosition);
             if (Input.GetKeyUp(KeyCode.Mouse1))
                 StopBlocking();
@@ -48,12 +46,11 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - Controller.body.position).normalized;
         WarriorAttack clone = Instantiate(attack, Controller.body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * 350);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
     }
 
     private void BeginBlocking()
     {
-        blocking = true;
         blockClone = Instantiate(block, Controller.body.transform);
     }
 
@@ -66,7 +63,6 @@ public class Warrior : MonoBehaviour, PlayerController.PlayerClass
 
     private void StopBlocking()
     {
-        blocking = false;
         Destroy(blockClone.gameObject);
     }
 

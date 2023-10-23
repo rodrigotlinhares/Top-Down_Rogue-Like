@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>())
+        if (collision.gameObject.GetComponent<MageAttack>())
             health--;
         if (health < 1)
             Destroy(gameObject);
