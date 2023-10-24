@@ -53,12 +53,14 @@ public class Mage : MonoBehaviour, PlayerController.PlayerClass
 
     private void Shield()
     {
-        shieldClone.transform.position = body.transform.position;
+        if (shieldClone)
+            shieldClone.transform.position = body.transform.position;
     }
 
     private void StopShielding()
     {
-        Destroy(shieldClone.gameObject);
+        if (shieldClone)
+            Destroy(shieldClone.gameObject);
     }
 
     private void Blink()

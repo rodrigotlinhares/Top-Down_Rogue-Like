@@ -64,9 +64,12 @@
     <Compile Include="Assets\Scripts\WarriorAttack.cs" />
     <Compile Include="Assets\Scripts\MageShield.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
+    <Compile Include="Assets\Scripts\RogueParry.cs" />
     <Compile Include="Assets\Scripts\WarriorBlock.cs" />
+    <Compile Include="Assets\Scripts\RogueAttack.cs" />
     <Compile Include="Assets\Scripts\MageAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Rogue.cs" />
     <Compile Include="Assets\Scripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\UI Controller.cs" />
   </ItemGroup>

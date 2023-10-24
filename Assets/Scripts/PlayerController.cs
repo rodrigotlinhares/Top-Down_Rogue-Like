@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviour
             playerClass = gameObject.AddComponent<Mage>();
             playerClass.Controller = this;
         }
+        if (className == "Rogue")
+        {
+            playerClass = gameObject.AddComponent<Rogue>();
+            playerClass.Controller = this;
+        }
 
         GetComponent<SpriteRenderer>().color = ClassStats.stats[className].color;
         body = GetComponent<Rigidbody2D>();
