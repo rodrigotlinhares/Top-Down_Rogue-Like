@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.Collections.AllocatorManager;
 
-public class Mage : MonoBehaviour, PlayerController.PlayerClass
+public class Mage : PlayerController
 {
-    public PlayerController Controller { get; set; }
-    public int Health { get; set; }
-
     private int attackForce = 1000, blinkDistance = 3;
-    private string className = "Mage";
-    private Rigidbody2D body;
     private MageAttack attack;
     private MageShield shield, shieldClone;
     private Bounds blinkBounds;
 
     private void Start()
     {
+        health = ClassStats.stats[className].health;
         body = GetComponent<Rigidbody2D>();
-        Health = ClassStats.stats[className].health;
         attack = Resources.Load<MageAttack>("Prefabs/MageAttack");
         shield = Resources.Load<MageShield>("Prefabs/MageShield");
         blinkBounds = GameObject.Find("BlinkBounds").GetComponent<SpriteRenderer>().bounds;
     }
     void Update()
     {
-        if (Controller.InputEnabled)
+        if (inputEnabled)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 Attack(Input.mousePosition);
@@ -48,7 +43,7 @@ public class Mage : MonoBehaviour, PlayerController.PlayerClass
     }
     private void BeginShielding()
     {
-        shieldClone = Instantiate(shield, Controller.body.transform);
+        shieldClone = Instantiate(shield, body.transform);
     }
 
     private void Shield()
@@ -66,5 +61,11 @@ public class Mage : MonoBehaviour, PlayerController.PlayerClass
     private void Blink()
     {
         body.position = blinkBounds.ClosestPoint(body.position + body.velocity.normalized * blinkDistance);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>())
+            StartCoroutine(TakeDamage(collision.gameObject));
     }
 }

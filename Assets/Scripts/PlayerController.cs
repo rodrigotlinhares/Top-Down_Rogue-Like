@@ -5,52 +5,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D body;
-    public MageAttack projectile;
-    public WarriorAttack warriorAttack;
-    public static Action OnDeath;
+    protected Rigidbody2D body;
+    protected Vector2 velocity;
+    protected static bool inputEnabled = true;
+    protected private int iFrames = 250, knockbackForce = 500, health;
+    protected float movementSpeed = 4f;
+
     public static string className;
-    public bool InputEnabled { get; set; }
-
-    private Vector2 velocity;
-    private PlayerClass playerClass;
-    private int iFrames = 250, knockbackForce = 500;
-    private float movementSpeed = 4f;
-
-    public interface PlayerClass
-    {
-        int Health { get; set; }
-        PlayerController Controller { get; set; }
-    }
+    public static Action OnDeath;
 
     // Start is called before the first frame update
     void Start()
     {
-        InputEnabled = true;
         if (className == "Warrior")
-        {
-            playerClass = gameObject.AddComponent<Warrior>();
-            playerClass.Controller = this;
-        }
-        if (className == "Mage")
-        {
-            playerClass = gameObject.AddComponent<Mage>();
-            playerClass.Controller = this;
-        }
-        if (className == "Rogue")
-        {
-            playerClass = gameObject.AddComponent<Rogue>();
-            playerClass.Controller = this;
-        }
+            gameObject.AddComponent<Warrior>();
+        else if (className == "Mage")
+            gameObject.AddComponent<Mage>();
+        else if (className == "Rogue")
+            gameObject.AddComponent<Rogue>();
 
-        GetComponent<SpriteRenderer>().color = ClassStats.stats[className].color;
         body = GetComponent<Rigidbody2D>();
+        GetComponent<SpriteRenderer>().color = ClassStats.stats[className].color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (InputEnabled)
+        if (inputEnabled)
         {
             velocity = Vector2.zero;
             if (Input.GetKey(KeyCode.A))
@@ -65,11 +46,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public IEnumerator TakeDamage(GameObject other)
+    protected IEnumerator TakeDamage(GameObject other)
     {
-        InputEnabled = false;
-        playerClass.Health--;
-        if (playerClass.Health < 1)
+        inputEnabled = false;
+        health--;
+        if (health < 1)
         {
             OnDeath();
             Destroy(gameObject);
@@ -79,6 +60,6 @@ public class PlayerController : MonoBehaviour
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < iFrames)
             yield return null;
-        InputEnabled = true;
+        inputEnabled = true;
     }
 }
