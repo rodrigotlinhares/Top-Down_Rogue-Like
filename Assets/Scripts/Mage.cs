@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Unity.Collections.AllocatorManager;
 
 public class Mage : PlayerController
 {
@@ -12,8 +9,10 @@ public class Mage : PlayerController
 
     private void Start()
     {
-        health = ClassStats.stats[className].health;
+        currentHealth = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
+        movement = GetComponent<PlayerMovement>();
+        playerCollision = GetComponent<PlayerCollision>();
         attack = Resources.Load<MageAttack>("Prefabs/MageAttack");
         shield = Resources.Load<MageShield>("Prefabs/MageShield");
         blinkBounds = GameObject.Find("BlinkBounds").GetComponent<SpriteRenderer>().bounds;
@@ -22,6 +21,7 @@ public class Mage : PlayerController
     {
         if (inputEnabled)
         {
+            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -61,11 +61,5 @@ public class Mage : PlayerController
     private void Blink()
     {
         body.position = blinkBounds.ClosestPoint(body.position + body.velocity.normalized * blinkDistance);
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<Enemy>())
-            StartCoroutine(TakeDamage(collision.gameObject));
     }
 }

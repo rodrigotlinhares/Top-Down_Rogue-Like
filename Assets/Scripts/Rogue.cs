@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static Unity.Collections.AllocatorManager;
 
 public class Rogue : PlayerController
 {
@@ -16,16 +12,18 @@ public class Rogue : PlayerController
 
     void Start()
     {
-        health = ClassStats.stats[className].health;
+        currentHealth = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
+        movement = GetComponent<PlayerMovement>();
+        playerCollision = GetComponent<PlayerCollision>();
         attack = Resources.Load<RogueAttack>("Prefabs/RogueAttack");
         parry = Resources.Load<RogueParry>("Prefabs/RogueParry");
-
     }
     void Update()
     {
         if (inputEnabled)
         {
+            movement.Move();
             if (Input.GetKey(KeyCode.Mouse0) && !attackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1) && !parryOnCooldown)
@@ -76,11 +74,11 @@ public class Rogue : PlayerController
     private IEnumerator Fade(Vector2 direction)
     {
         SpriteShapeRenderer ssr = parryClone.GetComponent<SpriteShapeRenderer>();
-        float stepSize = ssr.color.a / parryFadeDuration;
+        float fadeStep = ssr.color.a / parryFadeDuration;
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < parryFadeDuration)
         {
-            ssr.color = new Color(ssr.color.r, ssr.color.g, ssr.color.b, ssr.color.a - stepSize);
+            ssr.color = new Color(ssr.color.r, ssr.color.g, ssr.color.b, ssr.color.a - fadeStep);
             parryClone.transform.position = body.position + direction;
             yield return null;
         }
@@ -97,10 +95,5 @@ public class Rogue : PlayerController
             yield return null;
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
         inputEnabled = true;
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<Enemy>())
-            StartCoroutine(TakeDamage(collision.gameObject));
     }
 }

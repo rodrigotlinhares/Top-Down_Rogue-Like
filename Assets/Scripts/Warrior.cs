@@ -1,20 +1,23 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class Warrior : PlayerController
 {
-    private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250, chargeStunTime = 250, chargeForce = 1000;
-    private bool blocking = false, charging = false;
+    private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
+    private bool blocking = false;
     private WarriorAttack attack;
     private WarriorBlock block, blockClone;
+    private PlayerCollision chargeCollision;
 
     void Start()
     {
-        health = ClassStats.stats[className].health;
+        currentHealth = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
+        movement = GetComponent<PlayerMovement>();
+        playerCollision = GetComponent<PlayerCollision>();
+        chargeCollision = gameObject.AddComponent<ChargeCollision>();
+        chargeCollision.enabled = false;
         attack = Resources.Load<WarriorAttack>("Prefabs/WarriorAttack");
         block = Resources.Load<WarriorBlock>("Prefabs/WarriorBlock");
     }
@@ -23,6 +26,7 @@ public class Warrior : PlayerController
     {
         if (inputEnabled)
         {
+            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -66,30 +70,12 @@ public class Warrior : PlayerController
     IEnumerator Charge()
     {
         inputEnabled = false;
-        charging = true;
+        chargeCollision.enabled = true;
         body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < chargeTime)
             yield return null;
         inputEnabled = true;
-        charging = false;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy && charging)
-        {
-            body.velocity = Vector2.zero;
-            Vector2 direction = ((Vector2)collision.transform.position - GetComponent<Rigidbody2D>().position).normalized;
-            enemy.StartCoroutine(enemy.Stun(chargeStunTime));
-            collision.rigidbody.AddForce(direction * chargeForce);
-        }
-        if (enemy && !charging)
-        {
-            if (blockClone)
-                StopBlocking();
-            StartCoroutine(TakeDamage(collision.gameObject));
-        }
+        chargeCollision.enabled = false;
     }
 }
