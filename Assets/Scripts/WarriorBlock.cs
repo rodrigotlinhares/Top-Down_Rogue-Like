@@ -12,7 +12,7 @@ public class WarriorBlock : MonoBehaviour
         if (enemy)
         {
             Vector2 direction = ((Vector2)collision.transform.position - GetComponent<Rigidbody2D>().position).normalized;
-            enemy.StartCoroutine(enemy.Stun(stunTime));
+            StartCoroutine(enemy.DisableMovement(stunTime));
             collision.rigidbody.AddForce(direction * stunForce);
         }
     }

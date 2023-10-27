@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 730944596}
   - component: {fileID: 730944597}
   - component: {fileID: 730944598}
+  - component: {fileID: 730944599}
   - component: {fileID: 730944594}
   - component: {fileID: 730944595}
   m_Layer: 6
@@ -743,6 +744,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90773e990a722794baa1ad8c5fbe0a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 250
+--- !u!114 &730944599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730944590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ddc206fbb8f594ebf65ccf9aad3fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 500
 --- !u!1 &937587543
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +855,7 @@ GameObject:
   - component: {fileID: 1261330314}
   - component: {fileID: 1261330315}
   - component: {fileID: 1261330316}
+  - component: {fileID: 1261330317}
   - component: {fileID: 1261330311}
   - component: {fileID: 1261330310}
   m_Layer: 8
@@ -1000,6 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd538172b969d4493ecf67d15a1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stun: {fileID: 0}
 --- !u!114 &1261330315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +1044,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   player: {fileID: 730944593}
+--- !u!114 &1261330317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261330309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ddc206fbb8f594ebf65ccf9aad3fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 500
 --- !u!1 &1315725809
 GameObject:
   m_ObjectHideFlags: 0
