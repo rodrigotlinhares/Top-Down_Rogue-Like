@@ -10,8 +10,7 @@ public class Enemy : MonoBehaviour
 
     public Stun stun;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = GetComponent<Health>();
         movement = GetComponent<EnemyMovement>();
@@ -21,12 +20,12 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        FindObjectOfType<PlayerController>().GetComponent<Health>().Death += DisableMovementForever;
+        FindObjectOfType<Character>().GetComponent<Health>().Death += DisableMovementForever;
     }
 
     void OnDisable()
     {
-        FindObjectOfType<PlayerController>().GetComponent<Health>().Death -= DisableMovementForever; // TODO this is causing a null pointer when the game ends
+        FindObjectOfType<Character>().GetComponent<Health>().Death -= DisableMovementForever; // TODO this is causing a null pointer when the game ends
     }
 
     private void DisableMovementForever()

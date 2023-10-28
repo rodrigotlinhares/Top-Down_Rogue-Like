@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class ClassChoice : MonoBehaviour
 {
+    [SerializeField]
+    private int classID;
+
     public Color color;
-    public static Action<string> OnClick;
+    public static Action<int> OnClick;
 
     public void Enable()
     {
@@ -18,6 +21,6 @@ public class ClassChoice : MonoBehaviour
 
     public void ChooseClass()
     {
-        OnClick(name);
+        OnClick(classID);
     }
 }

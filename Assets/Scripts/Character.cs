@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Character : MonoBehaviour
 {
     protected Health currentHealth;
     protected PlayerCollision playerCollision;
@@ -12,22 +12,13 @@ public class PlayerController : MonoBehaviour
     protected private int iFrames = 250, knockbackForce = 500;
 
     public static bool inputEnabled = true;
-    public static string className;
 
-    // Start is called before the first frame update
-    void Start()
+    protected void Awake()
     {
-        if (className == "Warrior")
-            gameObject.AddComponent<Warrior>();
-        else if (className == "Mage")
-            gameObject.AddComponent<Mage>();
-        else if (className == "Rogue")
-            gameObject.AddComponent<Rogue>();
-        else if (className == "Blood Mage")
-            gameObject.AddComponent<BloodMage>();
-
+        currentHealth = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
-        GetComponent<SpriteRenderer>().color = ClassStats.stats[className].color;
+        movement = GetComponent<PlayerMovement>();
+        playerCollision = GetComponent<PlayerCollision>();
     }
 
     public static IEnumerator DisableInput(int duration)

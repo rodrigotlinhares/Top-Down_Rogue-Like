@@ -2294,6 +2294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74902789594d5fd4d9250fd2203c09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classID: 4
   color: {r: 0.36862746, g: 0.16078432, b: 0.5568628, a: 1}
 --- !u!1 &1643306003
 GameObject:
@@ -2455,6 +2456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74902789594d5fd4d9250fd2203c09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classID: 2
   color: {r: 0.77254903, g: 0.76862746, b: 0.2, a: 1}
 --- !u!1 &1645183799
 GameObject:
@@ -2932,6 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74902789594d5fd4d9250fd2203c09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classID: 1
   color: {r: 0.22745098, g: 0.62352943, b: 0.6431373, a: 1}
 --- !u!1 &1883906819
 GameObject:
@@ -3093,6 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74902789594d5fd4d9250fd2203c09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classID: 0
   color: {r: 0.5019608, g: 0.28627452, b: 0.19215687, a: 1}
 --- !u!1 &1904396675
 GameObject:
@@ -3338,6 +3342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74902789594d5fd4d9250fd2203c09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classID: 3
   color: {r: 0.8980392, g: 0.1764706, b: 0.07058824, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

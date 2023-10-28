@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
@@ -23,7 +20,7 @@ public class PlayerCollision : MonoBehaviour
         {
             playerHealth.TakeDamage();
             stun.Activate(collision.gameObject.transform.position);
-            StartCoroutine(PlayerController.DisableInput(duration));
+            StartCoroutine(Character.DisableInput(duration));
         }
     }
 }

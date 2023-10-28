@@ -1,22 +1,23 @@
 using UnityEngine;
 
-public class Mage : PlayerController
+public class Mage : Character
 {
-    private int attackForce = 1000, blinkDistance = 3;
+    [SerializeField]
     private MageAttack attack;
-    private MageShield shield, shieldClone;
+
+    [SerializeField]
+    private MageShield shield;
+
+    private int attackForce = 1000, blinkDistance = 3;
+    private MageShield shieldClone;
     private Bounds blinkBounds;
 
-    private void Start()
+    new private void Awake()
     {
-        currentHealth = GetComponent<Health>();
-        body = GetComponent<Rigidbody2D>();
-        movement = GetComponent<PlayerMovement>();
-        playerCollision = GetComponent<PlayerCollision>();
-        attack = Resources.Load<MageAttack>("Prefabs/MageAttack");
-        shield = Resources.Load<MageShield>("Prefabs/MageShield");
+        base.Awake();
         blinkBounds = GameObject.Find("BlinkBounds").GetComponent<SpriteRenderer>().bounds;
     }
+
     void Update()
     {
         if (inputEnabled)

@@ -1,23 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BloodMage : PlayerController
+public class BloodMage : Character
 {
-    private BloodMageAttack attack, attackClone;
+    [SerializeField]
+    private BloodMageAttack attack;
+
+    private BloodMageAttack attackClone;
     private bool attacking = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentHealth = GetComponent<Health>();
-        body = GetComponent<Rigidbody2D>();
-        movement = GetComponent<PlayerMovement>();
-        playerCollision = GetComponent<PlayerCollision>();
-        attack = Resources.Load<BloodMageAttack>("Prefabs/BloodMageAttack");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (inputEnabled)

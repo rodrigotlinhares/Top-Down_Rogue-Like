@@ -2,27 +2,27 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Warrior : PlayerController
+public class Warrior : Character
 {
+    [SerializeField]
+    private WarriorAttack attack;
+
+    [SerializeField]
+    private WarriorBlock block;
+
     private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
-    private WarriorAttack attack;
-    private WarriorBlock block, blockClone;
+    private WarriorBlock blockClone;
     private PlayerCollision chargeCollision;
 
-    void Start()
+    new private void Awake()
     {
-        currentHealth = GetComponent<Health>();
-        body = GetComponent<Rigidbody2D>();
-        movement = GetComponent<PlayerMovement>();
-        playerCollision = GetComponent<PlayerCollision>();
+        base.Awake();
         chargeCollision = gameObject.AddComponent<ChargeCollision>();
         chargeCollision.enabled = false;
-        attack = Resources.Load<WarriorAttack>("Prefabs/WarriorAttack");
-        block = Resources.Load<WarriorBlock>("Prefabs/WarriorBlock");
     }
 
-    void Update()
+    private void Update()
     {
         if (inputEnabled)
         {

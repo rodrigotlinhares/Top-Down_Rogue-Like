@@ -3,22 +3,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Rogue : PlayerController
+public class Rogue : Character
 {
+    [SerializeField]
+    private RogueAttack attack;
+
+    [SerializeField]
+    private RogueParry parry;
+
     private int attackForce = 350, attackCooldown = 300, parryCooldown = 400, attackSide = 1, parryFadeDuration = 300, dashMultiplier = 4, dashTime = 250;
     private bool attackOnCooldown = false, parryOnCooldown = false;
-    private RogueAttack attack;
-    private RogueParry parry, parryClone;
+    private RogueParry parryClone;
 
-    void Start()
-    {
-        currentHealth = GetComponent<Health>();
-        body = GetComponent<Rigidbody2D>();
-        movement = GetComponent<PlayerMovement>();
-        playerCollision = GetComponent<PlayerCollision>();
-        attack = Resources.Load<RogueAttack>("Prefabs/RogueAttack");
-        parry = Resources.Load<RogueParry>("Prefabs/RogueParry");
-    }
     void Update()
     {
         if (inputEnabled)

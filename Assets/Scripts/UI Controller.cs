@@ -13,9 +13,9 @@ public class UIController : MonoBehaviour
         ClassChoice.OnClick -= StartGame;
     }
 
-    void StartGame(string playerClass)
+    void StartGame(int classID)
     {
-        PlayerController.className = playerClass;
+        PlayerPrefs.SetInt("classID", classID);
         SceneManager.LoadSceneAsync("Game");
     }
 }
