@@ -1,11 +1,8 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Movement
 {
-    [SerializeField]
-    private float movementSpeed;
-
-    private Rigidbody2D body, playerBody;
+    private Rigidbody2D playerBody;
 
     void Start()
     {

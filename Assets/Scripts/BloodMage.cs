@@ -10,7 +10,7 @@ public class BloodMage : Character
 
     void Update()
     {
-        if (inputEnabled)
+        if (movement.enabled)
         {
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))

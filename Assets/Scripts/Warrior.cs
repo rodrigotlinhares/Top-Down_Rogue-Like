@@ -13,18 +13,20 @@ public class Warrior : Character
     private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
     private WarriorBlock blockClone;
-    private PlayerCollision chargeCollision;
+
+    [NonSerialized]
+    public ChargeCollision chargeCollision;
 
     new private void Awake()
     {
         base.Awake();
-        chargeCollision = gameObject.AddComponent<ChargeCollision>();
+        chargeCollision = gameObject.GetComponent<ChargeCollision>();
         chargeCollision.enabled = false;
     }
 
     private void Update()
     {
-        if (inputEnabled)
+        if (movement.enabled)
         {
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -69,13 +71,13 @@ public class Warrior : Character
 
     IEnumerator Charge()
     {
-        inputEnabled = false;
+        movement.enabled = false;
         chargeCollision.enabled = true;
         body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < chargeTime)
             yield return null;
-        inputEnabled = true;
+        movement.enabled = true;
         chargeCollision.enabled = false;
     }
 }

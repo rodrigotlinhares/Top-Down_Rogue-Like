@@ -2,30 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
-    private Health currentHealth;
-    private EnemyMovement movement;
-    private Rigidbody2D body;
-
-    public Stun stun;
-
-    void Awake()
-    {
-        currentHealth = GetComponent<Health>();
-        movement = GetComponent<EnemyMovement>();
-        stun = GetComponent<Stun>();
-        body = GetComponent<Rigidbody2D>();
-    }
-
     void OnEnable()
     {
         FindObjectOfType<Character>().GetComponent<Health>().Death += DisableMovementForever;
-    }
-
-    void OnDisable()
-    {
-        FindObjectOfType<Character>().GetComponent<Health>().Death -= DisableMovementForever; // TODO this is causing a null pointer when the game ends
     }
 
     private void DisableMovementForever()
@@ -36,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<MageAttack>())
+        if (collision.gameObject.tag == "Projectile")
             currentHealth.TakeDamage();
     }
 

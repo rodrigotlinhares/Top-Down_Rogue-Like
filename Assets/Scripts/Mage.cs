@@ -15,12 +15,12 @@ public class Mage : Character
     new private void Awake()
     {
         base.Awake();
-        blinkBounds = GameObject.Find("BlinkBounds").GetComponent<SpriteRenderer>().bounds;
+        blinkBounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
     }
 
     void Update()
     {
-        if (inputEnabled)
+        if (movement.enabled)
         {
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))

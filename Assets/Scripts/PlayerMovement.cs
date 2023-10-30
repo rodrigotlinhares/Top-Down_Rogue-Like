@@ -1,17 +1,9 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
-    [SerializeField]
-    private float movementSpeed;
-    private Vector2 velocity;
-    private Rigidbody2D body;
-
-    void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-    }
-
     public void Move()
     {
         velocity = Vector2.zero;

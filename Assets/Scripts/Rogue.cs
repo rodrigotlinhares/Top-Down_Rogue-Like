@@ -17,7 +17,7 @@ public class Rogue : Character
 
     void Update()
     {
-        if (inputEnabled)
+        if (movement.enabled)
         {
             movement.Move();
             if (Input.GetKey(KeyCode.Mouse0) && !attackOnCooldown)
@@ -84,12 +84,12 @@ public class Rogue : Character
     IEnumerator Dash()
     {
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
-        inputEnabled = false;
+        movement.enabled = false;
         body.velocity = new Vector2(body.velocity.x * dashMultiplier, body.velocity.y * dashMultiplier);
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < dashTime)
             yield return null;
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
-        inputEnabled = true;
+        movement.enabled = true;
     }
 }
