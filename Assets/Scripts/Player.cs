@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Player : MonoBehaviour
 {
     protected Health currentHealth;
-    protected BaseCollision collision;
+    protected PlayerCollision collision;
     protected PlayerMovement movement;
     protected Rigidbody2D body;
     protected private int iFrames = 250, knockbackForce = 500;
@@ -15,6 +15,6 @@ public class Character : MonoBehaviour
         currentHealth = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
-        collision = GetComponent<BaseCollision>();
+        collision = GetComponent<PlayerCollision>();
     }
 }

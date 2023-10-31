@@ -11,12 +11,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private int minDistance;
 
-    private Character player;
+    private Player player;
     private Bounds bounds;
 
     private void Start()
     {
-        player = FindObjectOfType<Character>();
+        player = FindObjectOfType<Player>();
         bounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
         MakeEnemy();
     }

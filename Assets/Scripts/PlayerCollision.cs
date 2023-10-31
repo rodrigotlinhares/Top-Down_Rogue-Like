@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class BaseCollision : MonoBehaviour
+public class PlayerCollision : MonoBehaviour
 {
     [SerializeField]
     protected int duration;
-    protected Health playerHealth;
+    protected Health health;
     protected Stun stun;
     protected Movement movement;
 
     protected virtual void Awake()
     {
-        playerHealth = GetComponent<Health>();
+        health = GetComponent<Health>();
         stun = GetComponent<Stun>();
         movement = GetComponent<Movement>();
     }
@@ -19,7 +19,7 @@ public class BaseCollision : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Enemy>())
         {
-            playerHealth.TakeDamage();
+            health.TakeDamage();
             stun.Activate(collision.gameObject.transform.position);
             StartCoroutine(movement.Disable(duration));
         }

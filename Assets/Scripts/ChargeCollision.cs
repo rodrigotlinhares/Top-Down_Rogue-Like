@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class ChargeCollision : BaseCollision
+public class ChargeCollision : PlayerCollision
 {
     private Rigidbody2D body;
 
     protected override void Awake()
     {
         base.Awake();
-        duration = 250; // TODO remove
         body = GetComponent<Rigidbody2D>();
+        enabled = false;
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)

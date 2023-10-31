@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             if(Death != null)
-                Death();
+                Death?.Invoke();
             Destroy(gameObject);
         }
     }

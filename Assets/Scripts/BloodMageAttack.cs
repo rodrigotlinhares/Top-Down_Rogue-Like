@@ -1,11 +1,12 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BloodMageAttack : MonoBehaviour
 {
-    public void Resize(Vector2 v1, Vector2 v2)
+    public void Resize(Vector2 p1, Vector2 p2)
     {
-        GetComponent<LineRenderer>().SetPosition(0, v1);
-        GetComponent<LineRenderer>().SetPosition(1, v2);
-        GetComponent<CircleCollider2D>().transform.position = v2;
+        GetComponent<LineRenderer>().SetPosition(0, p1);
+        GetComponent<LineRenderer>().SetPosition(1, p2);
+        GetComponent<CircleCollider2D>().transform.position = p2;
     }
 }

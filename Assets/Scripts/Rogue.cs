@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Rogue : Character
+public class Rogue : Player
 {
     [SerializeField]
     private RogueAttack attack;

@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class BloodMage : Character
+public class BloodMage : Player
 {
     [SerializeField]
     private BloodMageAttack attack;
-
     private BloodMageAttack attackClone;
     private bool attacking = false;
 
@@ -36,7 +35,6 @@ public class BloodMage : Character
     private void StopAttacking()
     {
         attacking = false;
-        if (attackClone)
-            Destroy(attackClone.gameObject);
+        Destroy(attackClone.gameObject);
     }
 }

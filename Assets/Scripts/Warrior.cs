@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Warrior : Character
+public class Warrior : Player
 {
     [SerializeField]
     private WarriorAttack attack;
@@ -21,7 +21,6 @@ public class Warrior : Character
     {
         base.Awake();
         chargeCollision = gameObject.GetComponent<ChargeCollision>();
-        chargeCollision.enabled = false;
     }
 
     private void Update()
