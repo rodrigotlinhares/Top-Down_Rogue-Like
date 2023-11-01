@@ -4,7 +4,10 @@ public class BloodMage : Player
 {
     [SerializeField]
     private BloodMageAttack attack;
+    [SerializeField]
+    private BloodMageProjectile projectile;
     private BloodMageAttack attackClone;
+    private int projectileForce = 250;
     private bool attacking = false;
 
     void Update()
@@ -13,28 +16,37 @@ public class BloodMage : Player
         {
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
-                BeginAttacking();
+                BeingBeam();
             if (Input.GetKey(KeyCode.Mouse0) && attacking)
-                Attack(Input.mousePosition);
+                Beam(Input.mousePosition);
             if (Input.GetKeyUp(KeyCode.Mouse0) && attacking)
-                StopAttacking();
+                StopBeam();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                Shoot(Input.mousePosition);
         }
     }
-    private void BeginAttacking()
+    private void BeingBeam()
     {
         attacking = true;
         attackClone = Instantiate(attack, body.transform);
     }
 
-    private void Attack(Vector3 target)
+    private void Beam(Vector3 target)
     {
         if (attackClone)
             attackClone.Resize(body.position, (Vector2)Camera.main.ScreenToWorldPoint(target));
     }
 
-    private void StopAttacking()
+    private void StopBeam()
     {
         attacking = false;
         Destroy(attackClone.gameObject);
+    }
+    private void Shoot(Vector3 target)
+    {
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
+        BloodMageProjectile clone = Instantiate(projectile, body.transform);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
+        health.TakeDamage(10);
     }
 }

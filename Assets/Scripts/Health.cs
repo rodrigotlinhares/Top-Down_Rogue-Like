@@ -4,17 +4,32 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private int health;
+    public int maxHealth;
+    private int currentHealth;
+    public Action Die;
+    public Action<int> TakeDamage;
 
-    public Action Death;
-
-    public void TakeDamage()
+    private void Awake()
     {
-        health--;
-        if (health <= 0)
+        currentHealth = maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        TakeDamage += Lower;
+    }
+
+    private void OnDisable()
+    {
+        TakeDamage -= Lower;
+    }
+
+    private void Lower(int amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
         {
-            if(Death != null)
-                Death?.Invoke();
+            Die?.Invoke();
             Destroy(gameObject);
         }
     }

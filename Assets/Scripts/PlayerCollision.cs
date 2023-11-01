@@ -19,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Enemy>())
         {
-            health.TakeDamage();
+            health.TakeDamage?.Invoke(10);
             stun.Activate(collision.gameObject.transform.position);
             StartCoroutine(movement.Disable(duration));
         }

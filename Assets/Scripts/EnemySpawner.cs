@@ -31,6 +31,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Enemy clone = Instantiate(enemy, position, Quaternion.identity);
-        clone.GetComponent<Health>().Death += MakeEnemy;
+        clone.GetComponent<Health>().Die += MakeEnemy;
     }
 }

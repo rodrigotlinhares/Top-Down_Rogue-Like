@@ -67,11 +67,13 @@
     <Compile Include="Assets\Scripts\Class Choice.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
+    <Compile Include="Assets\BloodMageProjectile.cs" />
     <Compile Include="Assets\Scripts\WarriorAttack.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\MageShield.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\BloodMageAttack.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
     <Compile Include="Assets\Scripts\RogueParry.cs" />

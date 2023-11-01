@@ -21,6 +21,6 @@ public class ClassChoice : MonoBehaviour
 
     public void ChooseClass()
     {
-        OnClick(classID);
+        OnClick?.Invoke(classID);
     }
 }

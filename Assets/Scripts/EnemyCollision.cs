@@ -27,6 +27,6 @@ public class EnemyCollision : MonoBehaviour
             stun.Activate(collision.gameObject.transform.position);
         }
         else if (collision.gameObject.tag == "Projectile")
-            health.TakeDamage();
+            health.TakeDamage?.Invoke(10);
     }
 }

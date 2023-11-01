@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2465233663604609307}
   - component: {fileID: -5195435596384415757}
   m_Layer: 7
-  m_Name: BloodMageAttack
+  m_Name: BloodMageBeam
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

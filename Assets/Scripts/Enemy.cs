@@ -15,7 +15,14 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().Death += DisableMovementForever;
+        GameObject.FindAnyObjectByType<Player>().GetComponent<Health>().Die += DisableMovementForever;
+    }
+
+    void OnDisable()
+    {
+        Player player = GameObject.FindAnyObjectByType<Player>();
+        if (player)
+            player.GetComponent<Health>().Die -= DisableMovementForever;
     }
 
     private void DisableMovementForever()

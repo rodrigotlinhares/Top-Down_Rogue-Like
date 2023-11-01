@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: -2479344931396099570, guid: eaea96bd033e3294d95e5875b7fd8a63, type: 3}
+  projectile: {fileID: 7425305865144156113, guid: 120b26a1b442d1e4fbbeaa7432d58c24, type: 3}
 --- !u!114 &8027431339846311981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2c5b3533283094e895fa5953135fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  maxHealth: 100
 --- !u!114 &8163144198348081783
 MonoBehaviour:
   m_ObjectHideFlags: 0
