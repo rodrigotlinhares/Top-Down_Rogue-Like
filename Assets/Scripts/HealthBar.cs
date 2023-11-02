@@ -21,12 +21,17 @@ public class HealthBar : MonoBehaviour
         playerHealth.TakeDamage -= Lower;
     }
 
-    public void Lower(int health)
+    public void Lower(float health)
     {
         slider.value -= health;
     }
 
-    public void SetMaxHealth(int health)
+    public void Raise(float health)
+    {
+        slider.value += health;
+    }
+
+    public void SetMaxHealth(float health)
     {
         slider.maxValue = health;
         slider.value = slider.maxValue;

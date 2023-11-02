@@ -12,6 +12,6 @@ public class EnemyMovement : Movement
 
     public void Update()
     {
-        //body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+        body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
     }
 }

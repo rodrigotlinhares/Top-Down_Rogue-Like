@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    public int maxHealth;
-    private int currentHealth;
+    public float maxHealth;
+    private float currentHealth;
     public Action Die;
-    public Action<int> TakeDamage;
+    public Action<float> TakeDamage;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class Health : MonoBehaviour
         TakeDamage -= Lower;
     }
 
-    private void Lower(int amount)
+    private void Lower(float amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)

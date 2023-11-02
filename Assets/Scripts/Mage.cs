@@ -42,6 +42,7 @@ public class Mage : Player
         MageAttack clone = Instantiate(attack, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
     }
+
     private void BeginShielding()
     {
         shieldClone = Instantiate(shield, body.transform);

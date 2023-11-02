@@ -531,52 +531,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &570804657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570804659}
-  - component: {fileID: 570804658}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &570804658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570804657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d481cb204ea3a488f7f53899c35887, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
-  minDistance: 5
---- !u!4 &570804659
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570804657}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730944590
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730944592}
   - component: {fileID: 730944593}
+  - component: {fileID: 730944594}
   m_Layer: 6
   m_Name: GameController
   m_TagString: Untagged
@@ -626,6 +581,21 @@ MonoBehaviour:
   - {fileID: 5798289671628942632, guid: 549a8d66474996c4493bf1c079a488b9, type: 3}
   - {fileID: 1947662658657968190, guid: 1af7d94a8269efa4194985ae6b3ba11e, type: 3}
   - {fileID: 2209624220527218803, guid: 7e551af7b564d4c4a827fd29b9ac7583, type: 3}
+  - {fileID: 6057301453252728293, guid: 772e5b95cffc790489b8694538d825d8, type: 3}
+--- !u!114 &730944594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730944590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d481cb204ea3a488f7f53899c35887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
+  minDistance: 5
 --- !u!1 &937587543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1439,5 @@ SceneRoots:
   - {fileID: 1315725811}
   - {fileID: 730944592}
   - {fileID: 2099763237}
-  - {fileID: 570804659}
   - {fileID: 1483225017}
   - {fileID: 2137316714}

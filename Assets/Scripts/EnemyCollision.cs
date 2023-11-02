@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     [SerializeField]
-    protected int duration;
-    protected Health health;
-    protected Stun stun;
-    protected Movement movement;
+    private int duration;
+    private Health health;
+    private Stun stun;
+    private Movement movement;
+    new private DamageAnimation animation;
 
     protected virtual void Awake()
     {
         health = GetComponent<Health>();
         stun = GetComponent<Stun>();
         movement = GetComponent<Movement>();
+        animation = GetComponent<DamageAnimation>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,6 +29,9 @@ public class EnemyCollision : MonoBehaviour
             stun.Activate(collision.gameObject.transform.position);
         }
         else if (collision.gameObject.tag == "Projectile")
-            health.TakeDamage?.Invoke(10);
+        {
+            health.TakeDamage?.Invoke(1);
+            StartCoroutine(animation.ChangeColor());
+        }
     }
 }
