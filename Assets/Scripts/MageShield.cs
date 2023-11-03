@@ -6,8 +6,6 @@ public class MageShield : MonoBehaviour
     {
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy)
-        {
             Destroy(gameObject);
-        }
     }
 }

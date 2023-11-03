@@ -3,17 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    void OnEnable()
+    private void Start()
     {
-        ClassChoice.OnClick += StartGame;
+        EventSystem.events.OnClassClick += StartGame;
     }
 
-    void OnDisable()
+    private void OnDestroy()
     {
-        ClassChoice.OnClick -= StartGame;
+        EventSystem.events.OnClassClick -= StartGame;
     }
 
-    void StartGame(int classID)
+    private void StartGame(int classID)
     {
         PlayerPrefs.SetInt("classID", classID);
         SceneManager.LoadSceneAsync("Game");

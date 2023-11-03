@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 378790098105654773}
   - component: {fileID: 1114636600250394673}
   - component: {fileID: 1947662658657968190}
-  - component: {fileID: 6862974064670643770}
+  - component: {fileID: 5734909476313278072}
   - component: {fileID: 8910618176368179038}
   - component: {fileID: 8463522564981651516}
   - component: {fileID: 6786806672990741162}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: -5382345704456177527, guid: 3d5a779e1dc91d744b3535b2723729d7, type: 3}
   parry: {fileID: 2471941241805475186, guid: 97764766d2afccf4c9cafe98c55459a1, type: 3}
---- !u!114 &6862974064670643770
+--- !u!114 &5734909476313278072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2490179627467459766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2c5b3533283094e895fa5953135fc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a0163beb05bda24890ea817627db62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100

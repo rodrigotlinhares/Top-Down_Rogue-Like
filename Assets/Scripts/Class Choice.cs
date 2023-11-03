@@ -4,10 +4,9 @@ using UnityEngine;
 public class ClassChoice : MonoBehaviour
 {
     [SerializeField]
-    private int classID;
-
-    public Color color;
-    public static Action<int> OnClick;
+    private int classId;
+    [SerializeField]
+    private Color color;
 
     public void Enable()
     {
@@ -21,6 +20,6 @@ public class ClassChoice : MonoBehaviour
 
     public void ChooseClass()
     {
-        OnClick?.Invoke(classID);
+        EventSystem.events.OnClassClick(classId);
     }
 }

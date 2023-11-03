@@ -13,16 +13,14 @@ public class Enemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    void OnEnable()
+    private void Start()
     {
-        GameObject.FindAnyObjectByType<Player>().GetComponent<Health>().Die += DisableMovementForever;
+        EventSystem.events.OnPlayerDeath += DisableMovementForever;
     }
 
-    void OnDisable()
+    private void OnDestroy()
     {
-        Player player = GameObject.FindAnyObjectByType<Player>();
-        if (player)
-            player.GetComponent<Health>().Die -= DisableMovementForever;
+        EventSystem.events.OnPlayerDeath -= DisableMovementForever;
     }
 
     private void DisableMovementForever()

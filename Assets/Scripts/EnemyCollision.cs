@@ -6,14 +6,14 @@ public class EnemyCollision : MonoBehaviour
 {
     [SerializeField]
     private int duration;
-    private Health health;
+    private EnemyHealth health;
     private Stun stun;
     private Movement movement;
     new private DamageAnimation animation;
 
     protected virtual void Awake()
     {
-        health = GetComponent<Health>();
+        health = GetComponent<EnemyHealth>();
         stun = GetComponent<Stun>();
         movement = GetComponent<Movement>();
         animation = GetComponent<DamageAnimation>();
@@ -28,10 +28,12 @@ public class EnemyCollision : MonoBehaviour
             StartCoroutine(movement.Disable(duration));
             stun.Activate(collision.gameObject.transform.position);
         }
-        else if (collision.gameObject.tag == "Projectile")
+        else if (collision.gameObject.CompareTag("Projectile"))
         {
-            health.TakeDamage?.Invoke(1);
+            health.Lower(10);
             StartCoroutine(animation.ChangeColor());
         }
+        else if (collision.gameObject.CompareTag("WarlockProjectile"))
+            StartCoroutine(health.LowerOverTime(10));
     }
 }

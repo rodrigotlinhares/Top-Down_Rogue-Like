@@ -13,27 +13,35 @@ public class HealthBar : MonoBehaviour
     {
         playerHealth = Object.FindAnyObjectByType<Player>().GetComponent<Health>();
         SetMaxHealth(playerHealth.maxHealth);
-        playerHealth.TakeDamage += Lower;
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        playerHealth.TakeDamage -= Lower;
+        EventSystem.events.OnPlayerDamageTaken += Lower;
+        EventSystem.events.OnEnemyLeechDamageTaken += Raise;
     }
 
-    public void Lower(float health)
+    private void OnDestroy()
     {
-        slider.value -= health;
+        EventSystem.events.OnPlayerDamageTaken -= Lower;
+        EventSystem.events.OnEnemyLeechDamageTaken -= Raise;
     }
 
-    public void Raise(float health)
+    public void Lower(float amount)
     {
-        slider.value += health;
+        slider.value -= amount;
     }
 
-    public void SetMaxHealth(float health)
+    public void Raise(float amount)
     {
-        slider.maxValue = health;
+        slider.value += amount;
+        if (slider.value > playerHealth.maxHealth)
+            slider.value = playerHealth.maxHealth;
+    }
+
+    public void SetMaxHealth(float amount)
+    {
+        slider.maxValue = amount;
         slider.value = slider.maxValue;
     }
 }

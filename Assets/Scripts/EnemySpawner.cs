@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private Enemy enemy;
-
-    [SerializeField]
-    private int minDistance;
-
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private int minDistance;
     private Player player;
     private Bounds bounds;
 
@@ -19,6 +15,12 @@ public class EnemySpawner : MonoBehaviour
         player = FindObjectOfType<Player>();
         bounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
         MakeEnemy();
+        EventSystem.events.OnEnemyDeath += MakeEnemy;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnEnemyDeath -= MakeEnemy;
     }
 
     private void MakeEnemy()
@@ -30,7 +32,6 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
         }
 
-        Enemy clone = Instantiate(enemy, position, Quaternion.identity);
-        clone.GetComponent<Health>().Die += MakeEnemy;
+        Instantiate(enemy, position, Quaternion.identity);
     }
 }

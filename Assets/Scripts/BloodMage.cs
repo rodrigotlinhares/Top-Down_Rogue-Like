@@ -47,6 +47,7 @@ public class BloodMage : Player
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         BloodMageProjectile clone = Instantiate(projectile, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
-        health.TakeDamage(10);
+        health.Lower(10);
+        EventSystem.events.OnPlayerDamageTaken(10);
     }
 }
