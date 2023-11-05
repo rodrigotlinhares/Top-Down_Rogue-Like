@@ -34,6 +34,9 @@ public class EnemyCollision : MonoBehaviour
             StartCoroutine(animation.ChangeColor());
         }
         else if (collision.gameObject.CompareTag("WarlockProjectile"))
+        {
+            GetComponent<Explosion>().enabled = true;
             StartCoroutine(health.LowerOverTime(10));
+        }
     }
 }

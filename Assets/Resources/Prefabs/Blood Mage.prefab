@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: -2479344931396099570, guid: eaea96bd033e3294d95e5875b7fd8a63, type: 3}
   projectile: {fileID: 7425305865144156113, guid: 120b26a1b442d1e4fbbeaa7432d58c24, type: 3}
+  bloodPool: {fileID: -4837916889943551269, guid: 7ca7d9f2562705340be4e2c5268c1021, type: 3}
 --- !u!114 &89721632392227870
 MonoBehaviour:
   m_ObjectHideFlags: 0

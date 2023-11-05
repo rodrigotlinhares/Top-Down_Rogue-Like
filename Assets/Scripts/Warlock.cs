@@ -15,6 +15,8 @@ public class Warlock : Player
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 Attack(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                ExplodeDots();
         }
     }
 
@@ -23,5 +25,10 @@ public class Warlock : Player
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         WarlockAttack clone = Instantiate(attack, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
+    }
+
+    private void ExplodeDots()
+    {
+        EventSystem.events.WarlockExplodeDots();
     }
 }

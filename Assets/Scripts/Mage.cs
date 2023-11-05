@@ -27,8 +27,6 @@ public class Mage : Player
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
                 BeginShielding();
-            if (Input.GetKey(KeyCode.Mouse1))
-                Shield();
             if (Input.GetKeyUp(KeyCode.Mouse1))
                 StopShielding();
             if (Input.GetKeyDown(KeyCode.Space))
@@ -46,12 +44,6 @@ public class Mage : Player
     private void BeginShielding()
     {
         shieldClone = Instantiate(shield, body.transform);
-    }
-
-    private void Shield()
-    {
-        if (shieldClone)
-            shieldClone.transform.position = body.transform.position;
     }
 
     private void StopShielding()

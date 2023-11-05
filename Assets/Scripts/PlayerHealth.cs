@@ -15,7 +15,7 @@ public class PlayerHealth : Health
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            EventSystem.events.OnPlayerDeath();
+            EventSystem.events.PlayerDeath();
             Destroy(gameObject);
         }
     }

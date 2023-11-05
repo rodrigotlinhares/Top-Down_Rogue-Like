@@ -23,6 +23,12 @@ public class EventSystem : MonoBehaviour
         OnEnemyLeechDamageTaken?.Invoke(amount);
     }
 
+    public Action OnWarlockExplodeDots;
+    public void WarlockExplodeDots()
+    {
+        OnWarlockExplodeDots?.Invoke();
+    }
+
     public Action OnPlayerDeath;
     public void PlayerDeath()
     {
@@ -33,6 +39,12 @@ public class EventSystem : MonoBehaviour
     public void EnemyDeath()
     {
         OnEnemyDeath?.Invoke();
+    }
+
+    public Action OnBloodPoolDissipate;
+    public void BloodPoolDissipate()
+    {
+        OnBloodPoolDissipate?.Invoke();
     }
 
     public Action<int> OnClassClick;

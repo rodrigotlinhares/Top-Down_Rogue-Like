@@ -20,6 +20,6 @@ public class ClassChoice : MonoBehaviour
 
     public void ChooseClass()
     {
-        EventSystem.events.OnClassClick(classId);
+        EventSystem.events.ClassClick(classId);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealth : Health
@@ -9,7 +10,7 @@ public class EnemyHealth : Health
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            EventSystem.events.OnEnemyDeath();
+            EventSystem.events.EnemyDeath();
             Destroy(gameObject);
         }
     }

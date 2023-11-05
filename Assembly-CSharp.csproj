@@ -62,9 +62,11 @@
     <Compile Include="Assets\Scripts\Stun.cs" />
     <Compile Include="Assets\Scripts\ChargeCollision.cs" />
     <Compile Include="Assets\Scripts\DamageAnimation.cs" />
+    <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\Class Stats.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\WarlockAttack.cs" />
+    <Compile Include="Assets\Scripts\BloodMagePool.cs" />
     <Compile Include="Assets\Scripts\Warlock.cs" />
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Class Choice.cs" />

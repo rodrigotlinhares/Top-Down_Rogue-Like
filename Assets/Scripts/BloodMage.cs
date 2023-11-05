@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class BloodMage : Player
 {
-    [SerializeField]
-    private BloodMageAttack attack;
-    [SerializeField]
-    private BloodMageProjectile projectile;
+    [SerializeField] private BloodMageAttack attack;
+    [SerializeField] private BloodMageProjectile projectile;
+    [SerializeField] private BloodMagePool bloodPool;
     private BloodMageAttack attackClone;
     private int projectileForce = 250;
     private bool attacking = false;
+
+    private void Start()
+    {
+        EventSystem.events.OnBloodPoolDissipate += Solidify;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnBloodPoolDissipate -= Solidify;
+    }
 
     void Update()
     {
@@ -16,16 +25,18 @@ public class BloodMage : Player
         {
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
-                BeingBeam();
+                BeginBeam();
             if (Input.GetKey(KeyCode.Mouse0) && attacking)
                 Beam(Input.mousePosition);
             if (Input.GetKeyUp(KeyCode.Mouse0) && attacking)
                 StopBeam();
             if (Input.GetKeyDown(KeyCode.Mouse1))
                 Shoot(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Space))
+                Liquefy();
         }
     }
-    private void BeingBeam()
+    private void BeginBeam()
     {
         attacking = true;
         attackClone = Instantiate(attack, body.transform);
@@ -48,6 +59,19 @@ public class BloodMage : Player
         BloodMageProjectile clone = Instantiate(projectile, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
         health.Lower(10);
-        EventSystem.events.OnPlayerDamageTaken(10);
+        EventSystem.events.PlayerDamageTaken(10);
+    }
+
+    private void Liquefy()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        Physics2D.IgnoreLayerCollision(6, 8);
+        Instantiate(bloodPool, body.transform);
+    }
+
+    private void Solidify()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        Physics2D.IgnoreLayerCollision(6, 8, false);
     }
 }

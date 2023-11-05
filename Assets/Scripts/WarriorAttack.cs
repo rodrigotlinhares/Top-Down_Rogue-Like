@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class WarriorAttack : MonoBehaviour
 {
-    void Start()
+    private void Awake()
     {
         StartCoroutine(Dissipate());
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
 
-    IEnumerator Dissipate()
+    private IEnumerator Dissipate()
     {
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < 200)
