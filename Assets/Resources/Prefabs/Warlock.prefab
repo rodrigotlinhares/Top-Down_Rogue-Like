@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: -4123886298998358058, guid: ec7a1c006666b4b4d802714673c905a7, type: 3}
+  knock: {fileID: -8000696336709302698, guid: 0dfc52d01f293a04ea37559df9bd0b43, type: 3}
 --- !u!114 &2688477451860072571
 MonoBehaviour:
   m_ObjectHideFlags: 0

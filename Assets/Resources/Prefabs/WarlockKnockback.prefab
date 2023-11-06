@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9148185694195951657}
   - component: {fileID: -6389390732940318643}
   - component: {fileID: -7936759472555445959}
-  - component: {fileID: 4685713349733275192}
+  - component: {fileID: -8000696336709302698}
   m_Layer: 7
-  m_Name: WarriorAttack
+  m_Name: WarlockKnockback
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,7 +180,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0004942417, y: 0.5423814}
@@ -223,7 +223,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4685713349733275192
+--- !u!114 &-8000696336709302698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,6 +232,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 760399759198926065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3baf607aed572048b523b98b5d44a48, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c8a9f4b54d35a94185b8b506e61d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

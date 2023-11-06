@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\BloodMageProjectile.cs" />
     <Compile Include="Assets\Scripts\BloodMageAttack.cs" />
+    <Compile Include="Assets\Scripts\WarlockKnockback.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
     <Compile Include="Assets\Scripts\RogueParry.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />

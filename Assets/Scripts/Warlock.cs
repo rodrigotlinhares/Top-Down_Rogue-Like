@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Warlock : Player
 {
-    [SerializeField]
-    private WarlockAttack attack;
-    private int attackForce = 10;
+    [SerializeField] private WarlockAttack attack;
+    [SerializeField] private WarlockKnockback knock;
+    private int attackForce = 10, knockbackForce = 200;
 
     private void Update()
     {
@@ -17,6 +17,8 @@ public class Warlock : Player
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
                 ExplodeDots();
+            if (Input.GetKeyDown(KeyCode.Space))
+                ShootKnockback(Input.mousePosition);
         }
     }
 
@@ -30,5 +32,13 @@ public class Warlock : Player
     private void ExplodeDots()
     {
         EventSystem.events.WarlockExplodeDots();
+    }
+
+    private void ShootKnockback(Vector3 target)
+    {
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
+        WarlockKnockback clone = Instantiate(knock, body.transform);
+        clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * knockbackForce);
     }
 }

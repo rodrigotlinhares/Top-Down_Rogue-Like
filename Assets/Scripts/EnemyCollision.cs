@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
@@ -18,6 +19,7 @@ public class EnemyCollision : MonoBehaviour
         movement = GetComponent<Movement>();
         animation = GetComponent<DamageAnimation>();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Warrior warrior = collision.gameObject.GetComponent<Warrior>();
@@ -35,8 +37,22 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("WarlockProjectile"))
         {
-            GetComponent<Explosion>().enabled = true;
+            GetComponent<Enemy>().explosive = true;
             StartCoroutine(health.LowerOverTime(10));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.GetComponent<WarlockKnockback>())
+        {
+            StartCoroutine(movement.Disable(duration));
+            stun.Activate(trigger.gameObject.transform.position);
+        }
+        else if (trigger.gameObject.CompareTag("Projectile"))
+        {
+            health.Lower(10);
+            StartCoroutine(animation.ChangeColor());
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - WarlockProjectile
   - Explosion
+  - Wall
   layers:
   - Default
   - TransparentFX

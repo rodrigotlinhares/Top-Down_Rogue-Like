@@ -8,12 +8,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Explosion explosion;
     private EnemyMovement movement;
     private Rigidbody2D body;
+    [NonSerialized] public bool explosive = false;
 
     private void Awake()
     {
         movement = GetComponent<EnemyMovement>();
         body = GetComponent<Rigidbody2D>();
-        GetComponent<Explosion>().enabled = false;
     }
 
     private void Start()
@@ -28,9 +28,9 @@ public class Enemy : MonoBehaviour
         EventSystem.events.OnPlayerDeath -= DisableMovementForever;
     }
 
-    private void Explode()
+    public void Explode()
     {
-        if (GetComponent<Explosion>().enabled)
+        if(explosive)
             Instantiate(explosion, transform);
     }
 
