@@ -35,8 +35,7 @@ public class BloodMagePool : MonoBehaviour
     private IEnumerator Dissipate()
     {
         DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < 10000)
-            yield return null;
+        yield return new WaitForSeconds(3f);
         EventSystem.events.BloodPoolDissipate();
         Destroy(gameObject);
     }

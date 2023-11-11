@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Warrior : Player
 {
-    [SerializeField]
-    private WarriorAttack attack;
-
-    [SerializeField]
-    private WarriorBlock block;
-
+    [SerializeField] private WarriorAttack attack;
+    [SerializeField] private WarriorBlock block;
     private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
     private WarriorBlock blockClone;
 
-    [NonSerialized]
-    public ChargeCollision chargeCollision;
+    [NonSerialized] public ChargeCollision chargeCollision;
 
     new private void Awake()
     {
@@ -28,21 +23,22 @@ public class Warrior : Player
         if (movement.enabled)
         {
             movement.Move();
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))
                 BeginBlocking();
-            if (Input.GetKey(KeyCode.Mouse1) && blocking)
-                Block(Input.mousePosition);
-            if (Input.GetKeyUp(KeyCode.Mouse1) && blocking)
-                StopBlocking();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
                 StartCoroutine(Charge());
         }
+        if (Input.GetKey(KeyCode.Mouse1) && blocking)
+            Block(Input.mousePosition);
+        if (Input.GetKeyUp(KeyCode.Mouse1) && blocking)
+            StopBlocking();
     }
 
     private void Attack(Vector3 target)
     {
+        StartCoroutine(Cooldown(result => mainAttackOnCooldown = result, mainAttackCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         WarriorAttack clone = Instantiate(attack, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -70,6 +66,7 @@ public class Warrior : Player
 
     IEnumerator Charge()
     {
+        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
         movement.enabled = false;
         chargeCollision.enabled = true;
         body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);

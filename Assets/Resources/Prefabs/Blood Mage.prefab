@@ -103,6 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9930eb78d1fc5414fa3cf63913b406fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainAttackCooldown: 0
+  secAttackCooldown: 2
+  utilityCooldown: 5
   attack: {fileID: -2479344931396099570, guid: eaea96bd033e3294d95e5875b7fd8a63, type: 3}
   projectile: {fileID: 7425305865144156113, guid: 120b26a1b442d1e4fbbeaa7432d58c24, type: 3}
   bloodPool: {fileID: -4837916889943551269, guid: 7ca7d9f2562705340be4e2c5268c1021, type: 3}

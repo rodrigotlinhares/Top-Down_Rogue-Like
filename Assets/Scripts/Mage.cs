@@ -23,19 +23,20 @@ public class Mage : Player
         if (movement.enabled)
         {
             movement.Move();
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
                 BeginShielding();
             if (Input.GetKeyUp(KeyCode.Mouse1))
                 StopShielding();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
                 Blink();
         }
     }
 
     private void Attack(Vector3 target)
     {
+        StartCoroutine(Cooldown(result => mainAttackOnCooldown = result, mainAttackCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         MageAttack clone = Instantiate(attack, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
@@ -43,6 +44,7 @@ public class Mage : Player
 
     private void BeginShielding()
     {
+        StartCoroutine(Cooldown(result => secAttackOnCooldown = result, secAttackCooldown));
         shieldClone = Instantiate(shield, body.transform);
     }
 
@@ -54,6 +56,7 @@ public class Mage : Player
 
     private void Blink()
     {
+        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
         body.position = blinkBounds.ClosestPoint(body.position + body.velocity.normalized * blinkDistance);
     }
 }

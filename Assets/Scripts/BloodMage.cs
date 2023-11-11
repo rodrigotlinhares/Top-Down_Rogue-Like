@@ -30,9 +30,9 @@ public class BloodMage : Player
                 Beam(Input.mousePosition);
             if (Input.GetKeyUp(KeyCode.Mouse0) && attacking)
                 StopBeam();
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
                 Shoot(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
                 Liquefy();
         }
     }
@@ -55,6 +55,7 @@ public class BloodMage : Player
     }
     private void Shoot(Vector3 target)
     {
+        StartCoroutine(Cooldown(result => secAttackOnCooldown = result, secAttackCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         BloodMageProjectile clone = Instantiate(projectile, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
@@ -64,6 +65,7 @@ public class BloodMage : Player
 
     private void Liquefy()
     {
+        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
         GetComponent<SpriteRenderer>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 8);
         Instantiate(bloodPool, body.transform);

@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField]
-    protected int duration;
+    [SerializeField] protected int duration;
     protected Health health;
     protected Stun stun;
     protected Movement movement;

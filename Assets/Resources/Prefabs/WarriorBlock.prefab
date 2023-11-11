@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4085093227375267827}
   - component: {fileID: -6167653874145632521}
   - component: {fileID: -1965123061509424585}
-  - component: {fileID: 7521903334847299577}
+  - component: {fileID: 4946503978628204884}
   m_Layer: 6
   m_Name: WarriorBlock
   m_TagString: Untagged
@@ -223,7 +223,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7521903334847299577
+--- !u!114 &4946503978628204884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

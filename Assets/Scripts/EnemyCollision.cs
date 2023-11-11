@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
-    [SerializeField]
-    private int duration;
+    [SerializeField] private int duration;
     private EnemyHealth health;
     private Stun stun;
     private Movement movement;

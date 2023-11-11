@@ -103,8 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf3f428db1b2d14a94164463d6a9704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainAttackCooldown: 0.5
+  secAttackCooldown: 0
+  utilityCooldown: 1
   attack: {fileID: 4685713349733275192, guid: fe130735f25357f46ac575a6db275149, type: 3}
-  block: {fileID: 7521903334847299577, guid: 4ba581fd9233f654f9147ddd4508dadb, type: 3}
+  block: {fileID: 4946503978628204884, guid: 4ba581fd9233f654f9147ddd4508dadb, type: 3}
 --- !u!114 &3333026246822973106
 MonoBehaviour:
   m_ObjectHideFlags: 0

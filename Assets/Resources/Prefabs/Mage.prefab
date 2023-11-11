@@ -103,6 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe900453bec5b741b037739083735e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainAttackCooldown: 0.5
+  secAttackCooldown: 3
+  utilityCooldown: 1
   attack: {fileID: -7912800906446936234, guid: 6582fc4fe11d6104fb0aef1e6456fe6e, type: 3}
   shield: {fileID: 7740058909679495421, guid: d820144504c077943ba8635df17b3007, type: 3}
 --- !u!114 &325413389816717144
