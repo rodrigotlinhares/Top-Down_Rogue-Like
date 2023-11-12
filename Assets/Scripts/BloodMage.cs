@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BloodMage : Player
+public class BloodMage : Character
 {
     [SerializeField] private BloodMageAttack attack;
     [SerializeField] private BloodMageProjectile projectile;
@@ -8,6 +8,13 @@ public class BloodMage : Player
     private BloodMageAttack attackClone;
     private int projectileForce = 250;
     private bool attacking = false;
+
+    private new void Awake()
+    {
+        base.Awake();
+        health = GetComponent<Health>();
+        movement = GetComponent<PlayerMovement>();
+    }
 
     private void Start()
     {

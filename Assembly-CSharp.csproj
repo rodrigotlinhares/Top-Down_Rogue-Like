@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\WarlockAttack.cs" />
     <Compile Include="Assets\Scripts\BloodMagePool.cs" />
+    <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Warlock.cs" />
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Class Choice.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\MageShield.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\CCollision.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\BloodMageProjectile.cs" />
     <Compile Include="Assets\Scripts\BloodMageAttack.cs" />

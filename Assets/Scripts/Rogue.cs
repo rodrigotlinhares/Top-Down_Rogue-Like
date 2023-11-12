@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Rogue : Player
+public class Rogue : Character
 {
     [SerializeField]
     private RogueAttack attack;
@@ -14,6 +14,12 @@ public class Rogue : Player
     private int attackForce = 350, attackSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
     private float dashTime = 0.25f;
     private RogueParry parryClone;
+
+    private new void Awake()
+    {
+        base.Awake();
+        movement = GetComponent<PlayerMovement>();
+    }
 
     void Update()
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Warrior : Player
+public class Warrior : Character
 {
     [SerializeField] private WarriorAttack attack;
     [SerializeField] private WarriorBlock block;
@@ -15,6 +15,7 @@ public class Warrior : Player
     new private void Awake()
     {
         base.Awake();
+        movement = GetComponent<PlayerMovement>();
         chargeCollision = gameObject.GetComponent<ChargeCollision>();
     }
 

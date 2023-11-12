@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mage : Player
+public class Mage : Character
 {
     [SerializeField]
     private MageAttack attack;
@@ -15,6 +15,7 @@ public class Mage : Player
     new private void Awake()
     {
         base.Awake();
+        movement = GetComponent<PlayerMovement>();
         blinkBounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
     }
 

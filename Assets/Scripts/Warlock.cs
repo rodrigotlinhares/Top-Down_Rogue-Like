@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warlock : Player
+public class Warlock : Character
 {
     [SerializeField] private WarlockAttack attack;
     [SerializeField] private WarlockKnockback knock;
     private int attackForce = 10, knockbackForce = 200;
+
+    private new void Awake()
+    {
+        base.Awake();
+        movement = GetComponent<PlayerMovement>();
+    }
 
     private void Update()
     {

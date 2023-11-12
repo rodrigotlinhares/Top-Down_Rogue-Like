@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class PlayerCollision : CCollision
 {
-    [SerializeField] protected int duration;
-    protected Health health;
-    protected Stun stun;
-    protected Movement movement;
+    private PlayerHealth health;
 
-    protected virtual void Awake()
+    protected new void Awake()
     {
-        health = GetComponent<Health>();
-        stun = GetComponent<Stun>();
+        base.Awake();
+        health = GetComponent<PlayerHealth>();
         movement = GetComponent<Movement>();
     }
 

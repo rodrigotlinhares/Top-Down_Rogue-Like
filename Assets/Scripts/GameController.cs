@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Player[] classes;
+    [SerializeField] private Character[] classes;
 
     public void Awake()
     {

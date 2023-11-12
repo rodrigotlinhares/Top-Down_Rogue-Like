@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        playerHealth = Object.FindAnyObjectByType<Player>().GetComponent<Health>();
+        playerHealth = Object.FindAnyObjectByType<Character>().GetComponent<Health>();
         SetMaxHealth(playerHealth.maxHealth);
     }
 

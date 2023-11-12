@@ -4,7 +4,7 @@ public class ChargeCollision : PlayerCollision
 {
     private Rigidbody2D body;
 
-    protected override void Awake()
+    private new void Awake()
     {
         base.Awake();
         body = GetComponent<Rigidbody2D>();

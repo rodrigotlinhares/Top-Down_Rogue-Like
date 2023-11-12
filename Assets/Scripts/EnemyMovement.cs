@@ -4,14 +4,15 @@ public class EnemyMovement : Movement
 {
     private Rigidbody2D playerBody;
 
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
-    public void Update()
+    public override void Move()
     {
-        body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+        if(enabled)
+            body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
     }
 }

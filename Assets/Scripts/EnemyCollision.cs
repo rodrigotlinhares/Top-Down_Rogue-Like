@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class EnemyCollision : MonoBehaviour
+public class EnemyCollision : CCollision
 {
-    [SerializeField] private int duration;
     private EnemyHealth health;
-    private Stun stun;
-    private Movement movement;
     new private DamageAnimation animation;
 
-    protected virtual void Awake()
+    private new void Awake()
     {
+        base.Awake();
         health = GetComponent<EnemyHealth>();
-        stun = GetComponent<Stun>();
         movement = GetComponent<Movement>();
         animation = GetComponent<DamageAnimation>();
     }
@@ -32,6 +29,7 @@ public class EnemyCollision : MonoBehaviour
         else if (collision.gameObject.CompareTag("Projectile"))
         {
             health.Lower(10);
+            StartCoroutine(GetComponent<Enemy>().IFrames());
             StartCoroutine(animation.ChangeColor());
         }
         else if (collision.gameObject.CompareTag("WarlockProjectile"))
@@ -51,6 +49,17 @@ public class EnemyCollision : MonoBehaviour
         else if (trigger.gameObject.CompareTag("Projectile"))
         {
             health.Lower(10);
+            StartCoroutine(GetComponent<Enemy>().IFrames());
+            StartCoroutine(animation.ChangeColor());
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag("Projectile"))
+        {
+            health.Lower(10);
+            StartCoroutine(GetComponent<Enemy>().IFrames());
             StartCoroutine(animation.ChangeColor());
         }
     }

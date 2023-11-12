@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
-    public void Move()
+    public override void Move()
     {
         velocity = Vector2.zero;
         if (Input.GetKey(KeyCode.A))

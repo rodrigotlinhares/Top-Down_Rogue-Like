@@ -7,12 +7,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy enemy;
     [SerializeField] private int minDistance;
-    private Player player;
+    private Character player;
     private Bounds bounds;
 
     private void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Character>();
         bounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
         MakeEnemy();
         MakeEnemy();
