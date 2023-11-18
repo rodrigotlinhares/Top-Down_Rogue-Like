@@ -8,6 +8,7 @@ TagManager:
   - WarlockProjectile
   - Explosion
   - Wall
+  - HealthPickup
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Projectile
   - Enemy
-  - 
+  - Item
   - 
   - 
   - 

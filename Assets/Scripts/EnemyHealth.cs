@@ -14,6 +14,11 @@ public class EnemyHealth : Health
             Die();
     }
 
+    public override void Raise(float amount)
+    {
+        currentHealth += amount;
+    }
+
     private void Die()
     {
         if (!dead)
@@ -30,7 +35,7 @@ public class EnemyHealth : Health
         {
             yield return new WaitForSeconds(1f);
             Lower(amount);
-            EventSystem.events.EnemyLeechDamageTaken(amount);
+            EventSystem.events.OnEnemyLeechDamageTaken(amount);
         }
     }
 }

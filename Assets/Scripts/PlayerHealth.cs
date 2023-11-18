@@ -20,10 +20,11 @@ public class PlayerHealth : Health
         }
     }
 
-    private void Raise(float amount)
+    public override void Raise(float amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+        EventSystem.events.OnPlayerHealed(amount);
     }
 }

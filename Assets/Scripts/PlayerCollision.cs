@@ -21,4 +21,10 @@ public class PlayerCollision : CCollision
             StartCoroutine(movement.Disable(duration));
         }
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<HealthPickup>())
+            health.Raise(10);
+    }
 }

@@ -18,13 +18,13 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         EventSystem.events.OnPlayerDamageTaken += Lower;
-        EventSystem.events.OnEnemyLeechDamageTaken += Raise;
+        EventSystem.events.OnPlayerHealed += Raise;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnPlayerDamageTaken -= Lower;
-        EventSystem.events.OnEnemyLeechDamageTaken -= Raise;
+        EventSystem.events.OnPlayerHealed -= Raise;
     }
 
     public void Lower(float amount)

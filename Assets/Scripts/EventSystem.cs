@@ -12,9 +12,15 @@ public class EventSystem : MonoBehaviour
     }
 
     public Action<float> OnPlayerDamageTaken;
-    public void PlayerDamageTaken(int amount)
+    public void PlayerDamageTaken(float amount)
     {
         OnPlayerDamageTaken?.Invoke(amount);
+    }
+
+    public Action<float> OnPlayerHealed;
+    public void PlayerHealed(float amount)
+    {
+        OnPlayerHealed?.Invoke(amount);
     }
 
     public Action<float> OnEnemyLeechDamageTaken;

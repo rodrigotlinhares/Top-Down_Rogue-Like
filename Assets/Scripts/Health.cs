@@ -14,4 +14,5 @@ public abstract class Health : MonoBehaviour
     }
 
     public abstract void Lower(float amount);
+    public abstract void Raise(float amount);
 }

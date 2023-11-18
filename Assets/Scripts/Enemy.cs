@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     [SerializeField] private Explosion explosion;
+    [SerializeField] private HealthPickup pickup;
     [NonSerialized] public bool explosive = false;
     private float iFramesDuation = 0.25f;
 
@@ -23,6 +24,8 @@ public class Enemy : Character
 
     private void OnDestroy()
     {
+        if (UnityEngine.Random.value > 0.8f)
+            Instantiate(pickup, body.transform.position, body.transform.rotation);
         EventSystem.events.OnWarlockExplodeDots -= Explode;
         EventSystem.events.OnPlayerDeath -= DisableMovementForever;
     }
