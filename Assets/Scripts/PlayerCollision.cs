@@ -20,6 +20,11 @@ public class PlayerCollision : CCollision
             stun.Activate(collision.gameObject.transform.position);
             StartCoroutine(movement.Disable(duration));
         }
+        else if (collision.gameObject.GetComponent<EnemyAttack>())
+        {
+            health.Lower(10);
+            EventSystem.events.PlayerDamageTaken(10);
+        }
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

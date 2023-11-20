@@ -104,9 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd538172b969d4493ecf67d15a1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainAttackCooldown: 0
+  mainAttackCooldown: 3
   secAttackCooldown: 0
   utilityCooldown: 0
+  attack: {fileID: 2327634760143505841, guid: 01813d32f44d0f3479a0462a24b1336a, type: 3}
   explosion: {fileID: -1457952733568182235, guid: b39bcc2ffdab3bd419199b9582e08cbd, type: 3}
   pickup: {fileID: 4790776746154698701, guid: 35babaa60c2b2f747b197c6b9b7a8000, type: 3}
 --- !u!114 &6189011526033994625
