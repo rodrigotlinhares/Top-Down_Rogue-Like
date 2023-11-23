@@ -29,6 +29,18 @@ public class EventSystem : MonoBehaviour
         OnEnemyLeechDamageTaken?.Invoke(amount);
     }
 
+    public Action<float> OnPlayerManaSpent;
+    public void PlayerManaSpent(float amount)
+    {
+        OnPlayerManaSpent?.Invoke(amount);
+    }
+
+    public Action<float> OnPlayerManaRecovered;
+    public void PlayerManaRecovered(float amount)
+    {
+        OnPlayerManaRecovered?.Invoke(amount);
+    }
+
     public Action OnWarlockExplodeDots;
     public void WarlockExplodeDots()
     {

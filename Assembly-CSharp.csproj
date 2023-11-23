@@ -65,11 +65,13 @@
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\Class Stats.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\ResourceBar.cs" />
     <Compile Include="Assets\Scripts\WarlockAttack.cs" />
     <Compile Include="Assets\Scripts\BloodMagePool.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Warlock.cs" />
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
+    <Compile Include="Assets\Scripts\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Class Choice.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
@@ -92,11 +94,13 @@
     <Compile Include="Assets\Scripts\WarriorBlock.cs" />
     <Compile Include="Assets\Scripts\RogueAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\MageBigAttack.cs" />
     <Compile Include="Assets\Scripts\MageAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Rogue.cs" />
     <Compile Include="Assets\Scripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\UI Controller.cs" />
+    <Compile Include="Assets\Scripts\PlayerMana.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>

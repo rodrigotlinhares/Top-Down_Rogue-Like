@@ -9,7 +9,7 @@ TagManager:
   - Explosion
   - Wall
   - HealthPickup
-  - EnemyProjectile
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX

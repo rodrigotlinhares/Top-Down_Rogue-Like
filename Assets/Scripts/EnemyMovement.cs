@@ -12,7 +12,7 @@ public class EnemyMovement : Movement
 
     public override void Move()
     {
-        if(enabled)
-            body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
+        //if(enabled)
+        //    body.velocity = (playerBody.position - body.position).normalized * movementSpeed;
     }
 }

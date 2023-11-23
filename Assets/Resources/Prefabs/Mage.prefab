@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4680495451219039800}
   - component: {fileID: 5798289671628942632}
   - component: {fileID: 325413389816717144}
+  - component: {fileID: 1637870924532007823}
   - component: {fileID: 675392669524693419}
   - component: {fileID: 2820815104052133307}
   - component: {fileID: 2401044851715960998}
@@ -107,6 +108,7 @@ MonoBehaviour:
   secAttackCooldown: 3
   utilityCooldown: 1
   attack: {fileID: -7912800906446936234, guid: 6582fc4fe11d6104fb0aef1e6456fe6e, type: 3}
+  bigAttack: {fileID: 6832381075930401447, guid: 382912358b0074246ab0c1621adc6713, type: 3}
   shield: {fileID: 7740058909679495421, guid: d820144504c077943ba8635df17b3007, type: 3}
 --- !u!114 &325413389816717144
 MonoBehaviour:
@@ -121,6 +123,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1637870924532007823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776751633770512257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b45158ebd83b6459b93769ee92dcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 100
 --- !u!114 &675392669524693419
 MonoBehaviour:
   m_ObjectHideFlags: 0

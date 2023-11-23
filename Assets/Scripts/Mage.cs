@@ -1,14 +1,14 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Mage : Character
 {
-    [SerializeField]
-    private MageAttack attack;
+    [SerializeField] private MageAttack attack;
+    [SerializeField] private MageBigAttack bigAttack;
+    [SerializeField] private MageShield shield;
 
-    [SerializeField]
-    private MageShield shield;
-
-    private int attackForce = 1000, blinkDistance = 3;
+    private int attackForce = 1000, blinkDistance = 3, bigAttackCharge = 0, bigAttackMaxCharge = 200;
     private MageShield shieldClone;
     private Bounds blinkBounds;
 
@@ -26,12 +26,12 @@ public class Mage : Character
             movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
-                BeginShielding();
-            if (Input.GetKeyUp(KeyCode.Mouse1))
-                StopShielding();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                StartCoroutine(ChargeBigAttack());
             if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
-                Blink();
+                BeginShielding();
+            if (Input.GetKeyUp(KeyCode.Space))
+                StopShielding();
         }
     }
 
@@ -41,6 +41,29 @@ public class Mage : Character
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         MageAttack clone = Instantiate(attack, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
+    }
+
+    private void BigAttack(Vector3 target)
+    {
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
+        MageBigAttack clone = Instantiate(bigAttack, body.transform);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
+        EventSystem.events.PlayerManaSpent(10);
+    }
+
+    private IEnumerator ChargeBigAttack()
+    {
+        bigAttackCharge = 0;
+        while (Input.GetKey(KeyCode.Mouse1))
+        {
+            bigAttackCharge++;
+            if (bigAttackCharge >= bigAttackMaxCharge)
+            {
+                BigAttack(Input.mousePosition);
+                break;
+            }
+            yield return null;
+        }
     }
 
     private void BeginShielding()
