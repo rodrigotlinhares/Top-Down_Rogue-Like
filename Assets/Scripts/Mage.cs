@@ -7,9 +7,9 @@ public class Mage : Character
     [SerializeField] private MageAttack attack;
     [SerializeField] private MageBigAttack bigAttack;
     [SerializeField] private MageShield shield;
-
     private int attackForce = 1000, blinkDistance = 3, bigAttackCharge = 0, bigAttackMaxCharge = 200;
     private MageShield shieldClone;
+    private PlayerMovement movement;
     private Bounds blinkBounds;
 
     new private void Awake()
@@ -23,7 +23,6 @@ public class Mage : Character
     {
         if (movement.enabled)
         {
-            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))

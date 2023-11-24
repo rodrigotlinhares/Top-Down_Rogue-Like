@@ -2,9 +2,18 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : Movement
+public class PlayerMovement : MonoBehaviour
 {
-    public override void Move()
+    [SerializeField] protected float movementSpeed;
+    private Vector2 velocity;
+    private Rigidbody2D body;
+
+    private void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
     {
         velocity = Vector2.zero;
         if (Input.GetKey(KeyCode.A))
@@ -16,5 +25,13 @@ public class PlayerMovement : Movement
         if (Input.GetKey(KeyCode.S))
             velocity.y = -movementSpeed;
         body.velocity = velocity;
+    }
+    public IEnumerator Disable(int duration)
+    {
+        enabled = false;
+        DateTime start = DateTime.Now;
+        while ((DateTime.Now - start).TotalMilliseconds < duration)
+            yield return null;
+        enabled = true;
     }
 }

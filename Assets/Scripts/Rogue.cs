@@ -5,15 +5,12 @@ using UnityEngine.U2D;
 
 public class Rogue : Character
 {
-    [SerializeField]
-    private RogueAttack attack;
-
-    [SerializeField]
-    private RogueParry parry;
-
+    [SerializeField] private RogueAttack attack;
+    [SerializeField] private RogueParry parry;
     private int attackForce = 350, attackSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
     private float dashTime = 0.25f;
     private RogueParry parryClone;
+    private PlayerMovement movement;
 
     private new void Awake()
     {
@@ -25,7 +22,6 @@ public class Rogue : Character
     {
         if (movement.enabled)
         {
-            movement.Move();
             if (Input.GetKey(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)

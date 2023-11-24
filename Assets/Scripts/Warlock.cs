@@ -7,6 +7,7 @@ public class Warlock : Character
     [SerializeField] private WarlockAttack attack;
     [SerializeField] private WarlockKnockback knock;
     private int attackForce = 10, knockbackForce = 200;
+    private PlayerMovement movement;
 
     private new void Awake()
     {
@@ -18,7 +19,6 @@ public class Warlock : Character
     {
         if (movement.enabled)
         {
-            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)

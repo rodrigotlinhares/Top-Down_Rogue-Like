@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    [SerializeField] private Enemy[] enemies;
     [SerializeField] private int minDistance;
     private Character player;
     private Bounds bounds;
@@ -33,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
         }
 
-        Instantiate(enemy, position, Quaternion.identity);
+        //Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)], position, Quaternion.identity);
+        Instantiate(enemies[1], position, Quaternion.identity);
     }
 }

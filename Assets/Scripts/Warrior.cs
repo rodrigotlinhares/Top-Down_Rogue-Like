@@ -9,6 +9,7 @@ public class Warrior : Character
     private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
     private WarriorBlock blockClone;
+    private PlayerMovement movement;
 
     [NonSerialized] public ChargeCollision chargeCollision;
 
@@ -23,7 +24,6 @@ public class Warrior : Character
     {
         if (movement.enabled)
         {
-            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
                 Attack(Input.mousePosition);
             if (Input.GetKeyDown(KeyCode.Mouse1))

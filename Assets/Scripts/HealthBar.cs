@@ -7,14 +7,10 @@ public class HealthBar : ResourceBar
 {
     private Health playerHealth;
 
-    private void OnEnable()
+    private void Start()
     {
         playerHealth = Object.FindAnyObjectByType<Character>().GetComponent<Health>();
         SetMax(playerHealth.maxHealth);
-    }
-
-    private void Start()
-    {
         EventSystem.events.OnPlayerDamageTaken += Lower;
         EventSystem.events.OnPlayerHealed += Raise;
     }

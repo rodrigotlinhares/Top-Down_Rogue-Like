@@ -696,7 +696,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d481cb204ea3a488f7f53899c35887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
+  enemies:
+  - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
+  - {fileID: 3315206737804338905, guid: ec20f380e4070fb439c2ed2cd8262686, type: 3}
   minDistance: 5
 --- !u!1 &937587543
 GameObject:

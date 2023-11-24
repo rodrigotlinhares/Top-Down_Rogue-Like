@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Stun : MonoBehaviour
 {
-    [SerializeField]
-    private int force;
+    [SerializeField] private int force;
 
     private Rigidbody2D body;
 

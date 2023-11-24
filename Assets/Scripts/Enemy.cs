@@ -6,51 +6,31 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : Character
 {
-    [SerializeField] private EnemyAttack attack;
     [SerializeField] private Explosion explosion;
     [SerializeField] private HealthPickup pickup;
     [NonSerialized] public bool explosive = false;
-    private int attackForce = 200;
-    private float iFramesDuation = 0.25f;
-    private Rigidbody2D playerBody;
+    private float iFramesDuration = 0.25f;
+    private EnemyMovement movement;
 
-    private new void Awake()
+    protected new void Awake()
     {
         base.Awake();
         movement = GetComponent<EnemyMovement>();
-        playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected void Start()
     {
         EventSystem.events.OnWarlockExplodeDots += Explode;
-        EventSystem.events.OnPlayerDeath += DisableMovementForever;
     }
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
         if (UnityEngine.Random.value > 0.8f)
             Instantiate(pickup, body.transform.position, body.transform.rotation);
         EventSystem.events.OnWarlockExplodeDots -= Explode;
-        EventSystem.events.OnPlayerDeath -= DisableMovementForever;
     }
 
-    private void Update()
-    {
-        movement.Move();
-        if (!mainAttackOnCooldown)
-            Attack();
-    }
-
-    private void Attack()
-    {
-        StartCoroutine(Cooldown(result => mainAttackOnCooldown = result, mainAttackCooldown));
-        Vector2 direction = (playerBody.position - body.position).normalized;
-        EnemyAttack clone = Instantiate(attack, body.transform.position, body.transform.rotation);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
-    }
-
-    public void Explode()
+    protected void Explode()
     {
         if(explosive)
             Instantiate(explosion, transform);
@@ -59,7 +39,7 @@ public class Enemy : Character
     public IEnumerator IFrames()
     {
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Projectile");
-        yield return new WaitForSeconds(iFramesDuation);
+        yield return new WaitForSeconds(iFramesDuration);
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
     }
 

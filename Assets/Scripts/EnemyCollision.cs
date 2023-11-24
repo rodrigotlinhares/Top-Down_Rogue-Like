@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class EnemyCollision : CCollision
+public class EnemyCollision : MonoBehaviour
 {
+    [SerializeField] protected int duration;
     private EnemyHealth health;
+    private EnemyMovement movement;
+    private Stun stun;
     new private DamageAnimation animation;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
         health = GetComponent<EnemyHealth>();
-        movement = GetComponent<Movement>();
+        movement = GetComponent<EnemyMovement>();
         animation = GetComponent<DamageAnimation>();
     }
 

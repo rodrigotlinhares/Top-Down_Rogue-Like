@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class PlayerCollision : CCollision
+public class PlayerCollision : MonoBehaviour
 {
+    [SerializeField] protected int duration;
     private PlayerHealth health;
+    private PlayerMovement movement;
+    private Stun stun;
 
-    protected new void Awake()
+    protected void Awake()
     {
-        base.Awake();
         health = GetComponent<PlayerHealth>();
-        movement = GetComponent<Movement>();
+        movement = GetComponent<PlayerMovement>();
+        stun = GetComponent<Stun>();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -20,7 +23,7 @@ public class PlayerCollision : CCollision
             stun.Activate(collision.gameObject.transform.position);
             StartCoroutine(movement.Disable(duration));
         }
-        else if (collision.gameObject.GetComponent<EnemyAttack>())
+        else if (collision.gameObject.GetComponent<EnemyProjectile>())
         {
             health.Lower(10);
             EventSystem.events.PlayerDamageTaken(10);

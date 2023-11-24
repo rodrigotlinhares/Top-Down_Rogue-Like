@@ -5,6 +5,7 @@ public class BloodMage : Character
     [SerializeField] private BloodMageAttack attack;
     [SerializeField] private BloodMageProjectile projectile;
     [SerializeField] private BloodMagePool bloodPool;
+    private PlayerMovement movement;
     private BloodMageAttack attackClone;
     private int projectileForce = 250;
     private bool attacking = false;
@@ -30,7 +31,6 @@ public class BloodMage : Character
     {
         if (movement.enabled)
         {
-            movement.Move();
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 BeginBeam();
             if (Input.GetKey(KeyCode.Mouse0) && attacking)
