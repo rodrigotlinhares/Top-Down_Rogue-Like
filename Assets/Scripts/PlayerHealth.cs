@@ -1,7 +1,15 @@
 using UnityEngine;
 
-public class PlayerHealth : Health
+public class PlayerHealth : MonoBehaviour
 {
+    public float maxHealth;
+    private float currentHealth;
+
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+    }
+
     private void Start()
     {
         EventSystem.events.OnEnemyLeechDamageTaken += Raise;
@@ -12,7 +20,7 @@ public class PlayerHealth : Health
         EventSystem.events.OnEnemyLeechDamageTaken -= Raise;
     }
 
-    public override void Lower(float amount)
+    public void Lower(float amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
@@ -22,7 +30,7 @@ public class PlayerHealth : Health
         }
     }
 
-    public override void Raise(float amount)
+    public void Raise(float amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)

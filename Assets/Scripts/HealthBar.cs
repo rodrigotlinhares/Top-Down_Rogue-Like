@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class HealthBar : ResourceBar
 {
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
-        playerHealth = Object.FindAnyObjectByType<Character>().GetComponent<Health>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         SetMax(playerHealth.maxHealth);
         EventSystem.events.OnPlayerDamageTaken += Lower;
         EventSystem.events.OnPlayerHealed += Raise;

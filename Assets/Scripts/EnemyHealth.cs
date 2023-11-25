@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyHealth : Health
+public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] public float maxHealth;
+    protected float currentHealth;
     private bool dead = false;
 
-    public override void Lower(float amount)
+    protected void Awake()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void Lower(float amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
             Die();
-    }
-
-    public override void Raise(float amount)
-    {
-        currentHealth += amount;
     }
 
     private void Die()

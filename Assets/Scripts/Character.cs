@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    protected Health health;
     protected Rigidbody2D body;
     protected bool mainAttackOnCooldown = false, secAttackOnCooldown = false, utilityOnCooldown = false;
     [SerializeField] protected float mainAttackCooldown, secAttackCooldown, utilityCooldown;

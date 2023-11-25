@@ -10,12 +10,12 @@ public class Enemy : Character
     [SerializeField] private HealthPickup pickup;
     [NonSerialized] public bool explosive = false;
     private float iFramesDuration = 0.25f;
-    private EnemyMovement movement;
+    private EnemyFollowMovement movement;
 
     protected new void Awake()
     {
         base.Awake();
-        movement = GetComponent<EnemyMovement>();
+        movement = GetComponent<EnemyFollowMovement>();
     }
 
     protected void Start()

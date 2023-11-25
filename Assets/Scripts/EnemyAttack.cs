@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        InvokeRepeating("Attack", 0f, 1f);
+        InvokeRepeating("Attack", 0f, 3f);
     }
 
     protected void Attack()

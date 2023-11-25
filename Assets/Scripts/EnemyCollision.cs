@@ -7,14 +7,14 @@ public class EnemyCollision : MonoBehaviour
 {
     [SerializeField] protected int duration;
     private EnemyHealth health;
-    private EnemyMovement movement;
+    private EnemyFollowMovement movement;
     private Stun stun;
     new private DamageAnimation animation;
 
     private void Awake()
     {
         health = GetComponent<EnemyHealth>();
-        movement = GetComponent<EnemyMovement>();
+        movement = GetComponent<EnemyFollowMovement>();
         animation = GetComponent<DamageAnimation>();
     }
 

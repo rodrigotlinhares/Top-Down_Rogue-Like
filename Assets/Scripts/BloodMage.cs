@@ -5,6 +5,7 @@ public class BloodMage : Character
     [SerializeField] private BloodMageAttack attack;
     [SerializeField] private BloodMageProjectile projectile;
     [SerializeField] private BloodMagePool bloodPool;
+    private PlayerHealth health;
     private PlayerMovement movement;
     private BloodMageAttack attackClone;
     private int projectileForce = 250;
@@ -13,7 +14,7 @@ public class BloodMage : Character
     private new void Awake()
     {
         base.Awake();
-        health = GetComponent<Health>();
+        health = GetComponent<PlayerHealth>();
         movement = GetComponent<PlayerMovement>();
     }
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6033534750884544709}
   - component: {fileID: 3315206737804338905}
   - component: {fileID: 6189011526033994625}
-  - component: {fileID: 3078388106632864716}
   - component: {fileID: -7076376566668162627}
   - component: {fileID: -6530923980433952204}
   - component: {fileID: 5052821947067492884}
@@ -108,8 +107,6 @@ MonoBehaviour:
   mainAttackCooldown: 3
   secAttackCooldown: 0
   utilityCooldown: 0
-  attackForce: 50
-  attack: {fileID: 6233582398911824690, guid: a5b6e1658300e074fb502b18b928ccf6, type: 3}
   explosion: {fileID: -1457952733568182235, guid: b39bcc2ffdab3bd419199b9582e08cbd, type: 3}
   pickup: {fileID: 4790776746154698701, guid: 35babaa60c2b2f747b197c6b9b7a8000, type: 3}
 --- !u!114 &6189011526033994625
@@ -125,19 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
---- !u!114 &3078388106632864716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385301402005509604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d955318d1f997ca43aacf89037661039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 3
 --- !u!114 &-7076376566668162627
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,6 +19,11 @@ public class Mage : Character
         blinkBounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
     }
 
+    private void Start()
+    {
+        Resources.FindObjectsOfTypeAll<ManaBar>()[0].gameObject.SetActive(true);
+    }
+
     void Update()
     {
         if (movement.enabled)

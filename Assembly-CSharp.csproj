@@ -71,13 +71,13 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Warlock.cs" />
     <Compile Include="Assets\Scripts\EnemyCollision.cs" />
+    <Compile Include="Assets\EnemyZoningMovement.cs" />
     <Compile Include="Assets\Scripts\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Class Choice.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\WarriorAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\MageShield.cs" />
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
@@ -85,9 +85,9 @@
     <Compile Include="Assets\Scripts\BloodMageProjectile.cs" />
     <Compile Include="Assets\Scripts\BloodMageAttack.cs" />
     <Compile Include="Assets\Scripts\WarlockKnockback.cs" />
+    <Compile Include="Assets\Scripts\EnemyFollowMovement.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
     <Compile Include="Assets\Scripts\RogueParry.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\BloodMage.cs" />
     <Compile Include="Assets\Scripts\WarriorBlock.cs" />

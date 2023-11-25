@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &424448263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -699,6 +699,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
   - {fileID: 3315206737804338905, guid: ec20f380e4070fb439c2ed2cd8262686, type: 3}
+  - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
   minDistance: 5
 --- !u!1 &937587543
 GameObject:
@@ -1255,7 +1256,7 @@ RectTransform:
   m_Father: {fileID: 424448263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
