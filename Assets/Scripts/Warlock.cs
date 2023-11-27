@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Warlock : Character
 {
-    [SerializeField] private WarlockAttack attack;
-    [SerializeField] private WarlockKnockback knock;
+    [SerializeField] private Corruption corruption;
+    [SerializeField] private Demon demon;
+    [SerializeField] private float corruptionCooldown, explosionCooldown, demonCooldown;
+    private bool corruptionOnCooldown = false, explosionOnCooldown = false, demonOnCooldown = false;
     private int attackForce = 10, knockbackForce = 200;
+    private Rigidbody2D body;
     private PlayerMovement movement;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
+        body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
     }
 
@@ -19,34 +22,34 @@ public class Warlock : Character
     {
         if (movement.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !mainAttackOnCooldown)
-                Attack(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
-                ExplodeDots();
-            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
-                ShootKnockback(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !corruptionOnCooldown)
+                Corrupt(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !explosionOnCooldown)
+                ExplodeCorruption();
+            if (Input.GetKeyDown(KeyCode.Space) && !demonOnCooldown)
+                SummonDemon(Input.mousePosition);
         }
     }
 
-    private void Attack(Vector3 target)
+    private void Corrupt(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => mainAttackOnCooldown = result, mainAttackCooldown));
+        StartCoroutine(Cooldown(result => corruptionOnCooldown = result, corruptionCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        WarlockAttack clone = Instantiate(attack, body.transform);
+        Corruption clone = Instantiate(corruption, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
     }
 
-    private void ExplodeDots()
+    private void ExplodeCorruption()
     {
-        StartCoroutine(Cooldown(result => secAttackOnCooldown = result, secAttackCooldown));
+        StartCoroutine(Cooldown(result => explosionOnCooldown = result, explosionCooldown));
         EventSystem.events.WarlockExplodeDots();
     }
 
-    private void ShootKnockback(Vector3 target)
+    private void SummonDemon(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
+        StartCoroutine(Cooldown(result => demonOnCooldown = result, demonCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        WarlockKnockback clone = Instantiate(knock, body.transform);
+        Demon clone = Instantiate(demon, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * knockbackForce);
     }

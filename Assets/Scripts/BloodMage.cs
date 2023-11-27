@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class BloodMage : Character
 {
-    [SerializeField] private BloodMageAttack attack;
-    [SerializeField] private BloodMageProjectile projectile;
-    [SerializeField] private BloodMagePool bloodPool;
+    [SerializeField] private LifeDrain lifeDrain;
+    [SerializeField] private BloodOrb bloodOrb;
+    [SerializeField] private BloodPool bloodPool;
+    [SerializeField] int orbHealthCost;
+    [SerializeField] private float poolCooldown;
+    private bool poolOnCooldown = false;
+    private Rigidbody2D body;
     private PlayerHealth health;
     private PlayerMovement movement;
-    private BloodMageAttack attackClone;
+    private LifeDrain attackClone;
     private int projectileForce = 250;
     private bool attacking = false;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
+        body = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
         movement = GetComponent<PlayerMovement>();
     }
@@ -33,47 +37,46 @@ public class BloodMage : Character
         if (movement.enabled)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
-                BeginBeam();
+                BeginDrain();
             if (Input.GetKey(KeyCode.Mouse0) && attacking)
-                Beam(Input.mousePosition);
+                Drain(Input.mousePosition);
             if (Input.GetKeyUp(KeyCode.Mouse0) && attacking)
-                StopBeam();
-            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
-                Shoot(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
+                StopDrain();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                LaunchOrb(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Space) && !poolOnCooldown)
                 Liquefy();
         }
     }
-    private void BeginBeam()
+    private void BeginDrain()
     {
         attacking = true;
-        attackClone = Instantiate(attack, body.transform);
+        attackClone = Instantiate(lifeDrain, body.transform);
     }
 
-    private void Beam(Vector3 target)
+    private void Drain(Vector3 target)
     {
         if (attackClone)
             attackClone.Resize(body.position, (Vector2)Camera.main.ScreenToWorldPoint(target));
     }
 
-    private void StopBeam()
+    private void StopDrain()
     {
         attacking = false;
         Destroy(attackClone.gameObject);
     }
-    private void Shoot(Vector3 target)
+    private void LaunchOrb(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => secAttackOnCooldown = result, secAttackCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        BloodMageProjectile clone = Instantiate(projectile, body.transform);
+        BloodOrb clone = Instantiate(bloodOrb, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
-        health.Lower(10);
-        EventSystem.events.PlayerDamageTaken(10);
+        health.Lower(orbHealthCost);
+        EventSystem.events.PlayerDamageTaken(orbHealthCost);
     }
 
     private void Liquefy()
     {
-        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
+        StartCoroutine(Cooldown(result => poolOnCooldown = result, poolCooldown));
         GetComponent<SpriteRenderer>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 8);
         Instantiate(bloodPool, body.transform);

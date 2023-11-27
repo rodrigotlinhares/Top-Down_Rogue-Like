@@ -2,17 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    protected Rigidbody2D body;
-    protected bool mainAttackOnCooldown = false, secAttackOnCooldown = false, utilityOnCooldown = false;
-    [SerializeField] protected float mainAttackCooldown, secAttackCooldown, utilityCooldown;
-
-    protected void Awake()
-    {
-        body = GetComponent<Rigidbody2D>();
-    }
-
     protected IEnumerator Cooldown(Action<bool> flag, float time)
     {
         flag(true);

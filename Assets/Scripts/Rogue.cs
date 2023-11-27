@@ -5,16 +5,19 @@ using UnityEngine.U2D;
 
 public class Rogue : Character
 {
-    [SerializeField] private RogueAttack attack;
-    [SerializeField] private RogueParry parry;
-    private int attackForce = 350, attackSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
+    [SerializeField] private Stab stab;
+    [SerializeField] private Parry parry;
+    [SerializeField] private float stabCooldown, parryCooldown, dashCooldown;
+    private bool stabOnCooldown = false, parryOnCooldown = false, dashOnCooldown = false;
+    private int stabForce = 350, stabSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
     private float dashTime = 0.25f;
-    private RogueParry parryClone;
+    private Rigidbody2D body;
+    private Parry parryClone;
     private PlayerMovement movement;
 
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
+        body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
     }
 
@@ -22,37 +25,37 @@ public class Rogue : Character
     {
         if (movement.enabled)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && !mainAttackOnCooldown)
-                Attack(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Mouse1) && !secAttackOnCooldown)
+            if (Input.GetKey(KeyCode.Mouse0) && !stabOnCooldown)
+                Stab(Input.mousePosition);
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !parryOnCooldown)
                 Parry(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Space) && !utilityOnCooldown)
+            if (Input.GetKeyDown(KeyCode.Space) && !dashOnCooldown)
                 StartCoroutine(Dash());
         }
     }
 
-    private void Attack(Vector3 target)
+    private void Stab(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => mainAttackOnCooldown = result, mainAttackCooldown));
+        StartCoroutine(Cooldown(result => stabOnCooldown = result, stabCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        RogueAttack clone = Instantiate(attack, body.transform);
+        Stab clone = Instantiate(stab, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        clone.transform.position += (Vector3)(Vector2.Perpendicular(direction) * 0.2f * attackSide);
-        attackSide *= -1;
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
+        clone.transform.position += (Vector3)(Vector2.Perpendicular(direction) * 0.2f * stabSide);
+        stabSide *= -1;
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * stabForce);
     }
 
     private void Parry(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => secAttackOnCooldown = result, secAttackCooldown));
+        StartCoroutine(Cooldown(result => parryOnCooldown = result, parryCooldown));
         parryClone = Instantiate(parry, body.transform);
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         parryClone.transform.position = body.position + direction;
         parryClone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        StartCoroutine(Fade(direction));
+        StartCoroutine(FadeParry(direction));
     }
 
-    private IEnumerator Fade(Vector2 direction)
+    private IEnumerator FadeParry(Vector2 direction)
     {
         SpriteShapeRenderer ssr = parryClone.GetComponent<SpriteShapeRenderer>();
         float fadeStep = ssr.color.a / parryFadeDuration;
@@ -68,7 +71,7 @@ public class Rogue : Character
 
     IEnumerator Dash()
     {
-        StartCoroutine(Cooldown(result => utilityOnCooldown = result, utilityCooldown));
+        StartCoroutine(Cooldown(result => dashOnCooldown = result, dashCooldown));
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         movement.enabled = false;
         body.velocity = new Vector2(body.velocity.x * dashMultiplier, body.velocity.y * dashMultiplier);

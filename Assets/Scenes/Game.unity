@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
+  - {fileID: 3315206737804338905, guid: bcbcb2b13c72f99498a0d28ec560ae7d, type: 3}
   - {fileID: 3315206737804338905, guid: ec20f380e4070fb439c2ed2cd8262686, type: 3}
   - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
   minDistance: 5
