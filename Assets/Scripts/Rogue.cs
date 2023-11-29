@@ -36,7 +36,7 @@ public class Rogue : Character
 
     private void Stab(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => stabOnCooldown = result, stabCooldown));
+        StartCoroutine(Utils.Cooldown(result => stabOnCooldown = result, stabCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Stab clone = Instantiate(stab, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -47,7 +47,7 @@ public class Rogue : Character
 
     private void Parry(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => parryOnCooldown = result, parryCooldown));
+        StartCoroutine(Utils.Cooldown(result => parryOnCooldown = result, parryCooldown));
         parryClone = Instantiate(parry, body.transform);
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         parryClone.transform.position = body.position + direction;
@@ -71,7 +71,7 @@ public class Rogue : Character
 
     IEnumerator Dash()
     {
-        StartCoroutine(Cooldown(result => dashOnCooldown = result, dashCooldown));
+        StartCoroutine(Utils.Cooldown(result => dashOnCooldown = result, dashCooldown));
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         movement.enabled = false;
         body.velocity = new Vector2(body.velocity.x * dashMultiplier, body.velocity.y * dashMultiplier);

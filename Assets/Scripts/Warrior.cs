@@ -42,7 +42,7 @@ public class Warrior : Character
 
     private void Attack(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => slashOnCooldown = result, slashCooldown));
+        StartCoroutine(Utils.Cooldown(result => slashOnCooldown = result, slashCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Slash clone = Instantiate(slash, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -70,7 +70,7 @@ public class Warrior : Character
 
     IEnumerator Charge()
     {
-        StartCoroutine(Cooldown(result => chargeOnCooldown = result, chargeCooldown));
+        StartCoroutine(Utils.Cooldown(result => chargeOnCooldown = result, chargeCooldown));
         movement.enabled = false;
         chargeCollision.enabled = true;
         body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);

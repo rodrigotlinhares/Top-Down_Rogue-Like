@@ -76,7 +76,8 @@ public class BloodMage : Character
 
     private void Liquefy()
     {
-        StartCoroutine(Cooldown(result => poolOnCooldown = result, poolCooldown));
+        StartCoroutine(Utils.Cooldown(result => poolOnCooldown = result, poolCooldown));
+        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
         GetComponent<SpriteRenderer>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 8);
         Instantiate(bloodPool, body.transform);
@@ -84,6 +85,7 @@ public class BloodMage : Character
 
     private void Solidify()
     {
+        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
         GetComponent<SpriteRenderer>().enabled = true;
         Physics2D.IgnoreLayerCollision(6, 8, false);
     }

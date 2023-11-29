@@ -8,4 +8,9 @@ public class HealthPickup : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnApplicationQuit()
+    {
+        Destroy(gameObject);
+    }
 }

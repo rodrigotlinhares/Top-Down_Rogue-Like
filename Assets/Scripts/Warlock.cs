@@ -33,7 +33,7 @@ public class Warlock : Character
 
     private void Corrupt(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => corruptionOnCooldown = result, corruptionCooldown));
+        StartCoroutine(Utils.Cooldown(result => corruptionOnCooldown = result, corruptionCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Corruption clone = Instantiate(corruption, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
@@ -41,13 +41,13 @@ public class Warlock : Character
 
     private void ExplodeCorruption()
     {
-        StartCoroutine(Cooldown(result => explosionOnCooldown = result, explosionCooldown));
+        StartCoroutine(Utils.Cooldown(result => explosionOnCooldown = result, explosionCooldown));
         EventSystem.events.WarlockExplodeDots();
     }
 
     private void SummonDemon(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => demonOnCooldown = result, demonCooldown));
+        StartCoroutine(Utils.Cooldown(result => demonOnCooldown = result, demonCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Demon clone = Instantiate(demon, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);

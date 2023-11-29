@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BloodPool : MonoBehaviour
 {
-    private bool offCooldown = true;
+    private bool onCooldown = false;
+    private float tickRate = 1f;
 
     private void Awake()
     {
@@ -17,19 +18,12 @@ public class BloodPool : MonoBehaviour
     private void Update()
     {
         transform.position = transform.parent.position;
-        if (offCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (!onCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             EventSystem.events.OnEnemyLeechDamageTaken(10);
-            StartCoroutine(Cooldown());
+            StartCoroutine(Utils.Cooldown(result => onCooldown = result, tickRate));
         }
 
-    }
-
-    private IEnumerator Cooldown()
-    {
-        offCooldown = false;
-        yield return new WaitForSeconds(1);
-        offCooldown = true;
     }
         
     private IEnumerator Dissipate()

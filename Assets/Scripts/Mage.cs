@@ -43,7 +43,7 @@ public class Mage : Character
 
     private void LaunchArcaneBolt(Vector3 target)
     {
-        StartCoroutine(Cooldown(result => boltOnCooldown = result, boltCooldown));
+        StartCoroutine(Utils.Cooldown(result => boltOnCooldown = result, boltCooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         ArcaneBolt clone = Instantiate(arcaneBolt, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
