@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ArcaneBolt : MonoBehaviour
+public class ArcaneBolt : PlayerAttack
 {
     void OnCollisionEnter2D(Collision2D collision)
     {

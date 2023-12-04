@@ -7,9 +7,9 @@ public class Rogue : Character
 {
     [SerializeField] private Stab stab;
     [SerializeField] private Parry parry;
-    [SerializeField] private float stabCooldown, parryCooldown, dashCooldown;
+    [SerializeField] private float dashCooldown;
     private bool stabOnCooldown = false, parryOnCooldown = false, dashOnCooldown = false;
-    private int stabForce = 350, stabSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
+    private int stabForce = 600, stabSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
     private float dashTime = 0.25f;
     private Rigidbody2D body;
     private Parry parryClone;
@@ -36,7 +36,7 @@ public class Rogue : Character
 
     private void Stab(Vector3 target)
     {
-        StartCoroutine(Utils.Cooldown(result => stabOnCooldown = result, stabCooldown));
+        StartCoroutine(Utils.Cooldown(result => stabOnCooldown = result, stab.cooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Stab clone = Instantiate(stab, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -47,7 +47,7 @@ public class Rogue : Character
 
     private void Parry(Vector3 target)
     {
-        StartCoroutine(Utils.Cooldown(result => parryOnCooldown = result, parryCooldown));
+        StartCoroutine(Utils.Cooldown(result => parryOnCooldown = result, parry.cooldown));
         parryClone = Instantiate(parry, body.transform);
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         parryClone.transform.position = body.position + direction;

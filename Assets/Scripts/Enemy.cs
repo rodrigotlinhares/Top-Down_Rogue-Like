@@ -8,7 +8,6 @@ public class Enemy : Character
     [SerializeField] private HealthPickup pickup;
     [NonSerialized] public bool explosive = false;
     private Rigidbody2D body;
-    private float iFramesDuration = 0.25f;
 
     private void Awake()
     {
@@ -33,10 +32,10 @@ public class Enemy : Character
             Instantiate(explosion, transform);
     }
 
-    public IEnumerator IFrames()
+    public IEnumerator IFrames(float duration)
     {
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Projectile");
-        yield return new WaitForSeconds(iFramesDuration);
+        yield return new WaitForSeconds(duration);
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
     }
 }

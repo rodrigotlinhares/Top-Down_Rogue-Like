@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Explosion : MonoBehaviour
+public class Explosion : PlayerAttack
 {
+    [SerializeField] new public static float cooldown;
     private int fadeDuration = 600;
 
     private void Awake()

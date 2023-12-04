@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Slash : MonoBehaviour
+public class Slash : PlayerAttack
 {
+    [SerializeField] private float duration;
+
     private void Awake()
     {
         StartCoroutine(Dissipate());

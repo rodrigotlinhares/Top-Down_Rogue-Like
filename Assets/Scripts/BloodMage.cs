@@ -5,8 +5,6 @@ public class BloodMage : Character
     [SerializeField] private LifeDrain lifeDrain;
     [SerializeField] private BloodOrb bloodOrb;
     [SerializeField] private BloodPool bloodPool;
-    [SerializeField] int orbHealthCost;
-    [SerializeField] private float poolCooldown;
     private bool poolOnCooldown = false;
     private Rigidbody2D body;
     private PlayerHealth health;
@@ -70,13 +68,13 @@ public class BloodMage : Character
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         BloodOrb clone = Instantiate(bloodOrb, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
-        health.Lower(orbHealthCost);
-        EventSystem.events.PlayerDamageTaken(orbHealthCost);
+        health.Lower(bloodOrb.healthCost);
+        EventSystem.events.PlayerDamageTaken(bloodOrb.healthCost);
     }
 
     private void Liquefy()
     {
-        StartCoroutine(Utils.Cooldown(result => poolOnCooldown = result, poolCooldown));
+        StartCoroutine(Utils.Cooldown(result => poolOnCooldown = result, bloodPool.cooldown));
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
         GetComponent<SpriteRenderer>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 8);

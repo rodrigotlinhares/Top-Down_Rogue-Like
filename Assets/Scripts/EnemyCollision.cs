@@ -7,6 +7,7 @@ public class EnemyCollision : MonoBehaviour
 {
     private EnemyHealth health;
     private Stun stun;
+    private Enemy enemy;
     new private DamageAnimation animation;
 
     private void Awake()
@@ -14,6 +15,7 @@ public class EnemyCollision : MonoBehaviour
         health = GetComponent<EnemyHealth>();
         animation = GetComponent<DamageAnimation>();
         stun = GetComponent<Stun>();
+        enemy = GetComponent<Enemy>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,14 +27,13 @@ public class EnemyCollision : MonoBehaviour
             stun.Activate(collision.gameObject.transform.position);
         else if (collision.gameObject.CompareTag("Projectile"))
         {
-            health.Lower(10);
-            StartCoroutine(GetComponent<Enemy>().IFrames());
+            health.Lower(collision.gameObject.GetComponent<PlayerAttack>().damage);
             StartCoroutine(animation.ChangeColor());
         }
         else if (collision.gameObject.CompareTag("WarlockProjectile"))
         {
-            GetComponent<Enemy>().explosive = true;
-            StartCoroutine(health.LowerOverTime(10));
+            enemy.explosive = true;
+            StartCoroutine(health.LowerOverTime(collision.gameObject.GetComponent<Corruption>().damagePerSecond));
         }
     }
 
@@ -40,20 +41,13 @@ public class EnemyCollision : MonoBehaviour
     {
         if (trigger.gameObject.GetComponent<Demon>())
             stun.Activate(trigger.gameObject.transform.position);
-        else if (trigger.gameObject.CompareTag("Projectile"))
-        {
-            health.Lower(10);
-            StartCoroutine(GetComponent<Enemy>().IFrames());
-            StartCoroutine(animation.ChangeColor());
-        }
     }
 
     private void OnTriggerStay2D(Collider2D trigger)
     {
         if (trigger.gameObject.CompareTag("Projectile"))
         {
-            health.Lower(10);
-            StartCoroutine(GetComponent<Enemy>().IFrames());
+            health.Lower(trigger.gameObject.GetComponent<PlayerAttack>().damage);
             StartCoroutine(animation.ChangeColor());
         }
     }

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Demon.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\DemonWallCollisionCheck.cs" />
     <Compile Include="Assets\Scripts\EnemyFollowMovement.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\BloodMage.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\ArcaneShield.cs" />
+    <Compile Include="Assets\Scripts\StationaryEnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Parry.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\ArcaneBolt.cs" />

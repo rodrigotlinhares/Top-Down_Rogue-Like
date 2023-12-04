@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2f457523782fd4bb18a433a12fe10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  iframesDuration: 0.25
+  cooldown: 0.5

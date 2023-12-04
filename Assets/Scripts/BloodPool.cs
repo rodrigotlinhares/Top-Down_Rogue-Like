@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BloodPool : MonoBehaviour
 {
-    private bool onCooldown = false;
-    private float tickRate = 1f;
+    [SerializeField] public float cooldown;
+    [SerializeField] private float tickInterval;
+    private bool tickOnCooldown = false;
 
     private void Awake()
     {
@@ -18,10 +20,10 @@ public class BloodPool : MonoBehaviour
     private void Update()
     {
         transform.position = transform.parent.position;
-        if (!onCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (!tickOnCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             EventSystem.events.OnEnemyLeechDamageTaken(10);
-            StartCoroutine(Utils.Cooldown(result => onCooldown = result, tickRate));
+            StartCoroutine(Utils.Cooldown(result => tickOnCooldown = result, tickInterval));
         }
 
     }

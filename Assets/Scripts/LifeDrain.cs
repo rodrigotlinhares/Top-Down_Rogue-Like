@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class LifeDrain : MonoBehaviour
+public class LifeDrain : PlayerAttack
 {
     public void Resize(Vector2 p1, Vector2 p2)
     {

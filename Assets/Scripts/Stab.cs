@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Stab : MonoBehaviour
+public class Stab : PlayerAttack
 {
+    [SerializeField] private float duration;
+
     void Start()
     {
         StartCoroutine(Dissipate());
@@ -17,7 +19,7 @@ public class Stab : MonoBehaviour
     IEnumerator Dissipate()
     {
         DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < 200)
+        while ((DateTime.Now - start).TotalSeconds < duration)
             yield return null;
         Destroy(gameObject);
     }

@@ -6,9 +6,9 @@ public class Warrior : Character
 {
     [SerializeField] private Slash slash;
     [SerializeField] private Block block;
-    [SerializeField] private float slashCooldown, chargeCooldown;
+    [SerializeField] private float chargeCooldown;
     private bool slashOnCooldown = false, chargeOnCooldown = false;
-    private int attackForce = 350, chargeMultiplier = 4, chargeTime = 250;
+    private int attackForce = 600, chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
     private Rigidbody2D body;
     private Block blockClone;
@@ -42,7 +42,7 @@ public class Warrior : Character
 
     private void Attack(Vector3 target)
     {
-        StartCoroutine(Utils.Cooldown(result => slashOnCooldown = result, slashCooldown));
+        StartCoroutine(Utils.Cooldown(result => slashOnCooldown = result, slash.cooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Slash clone = Instantiate(slash, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3315206737804338905}
   - component: {fileID: 6189011526033994625}
   - component: {fileID: -7076376566668162627}
-  - component: {fileID: -6530923980433952204}
+  - component: {fileID: -6408970663564933818}
   - component: {fileID: -2135814790197184649}
   - component: {fileID: 6600897102450224525}
   - component: {fileID: 3532458058991731229}
@@ -103,9 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd538172b969d4493ecf67d15a1ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainAttackCooldown: 3
-  secAttackCooldown: 0
-  utilityCooldown: 0
   explosion: {fileID: -1457952733568182235, guid: b39bcc2ffdab3bd419199b9582e08cbd, type: 3}
   pickup: {fileID: 4790776746154698701, guid: 35babaa60c2b2f747b197c6b9b7a8000, type: 3}
 --- !u!114 &6189011526033994625
@@ -135,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6233582398911824690, guid: a5b6e1658300e074fb502b18b928ccf6, type: 3}
   projectileForce: 50
---- !u!114 &-6530923980433952204
+--- !u!114 &-6408970663564933818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7385301402005509604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b3795dfd79a9d46bd128026274c8cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c724ed830834dd4ca4d7bac62d6a8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-2135814790197184649

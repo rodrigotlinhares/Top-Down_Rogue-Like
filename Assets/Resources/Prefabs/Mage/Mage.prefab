@@ -104,13 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe900453bec5b741b037739083735e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainAttackCooldown: 0
-  secAttackCooldown: 0
-  utilityCooldown: 0
   arcaneBolt: {fileID: -6602569123178703195, guid: 6582fc4fe11d6104fb0aef1e6456fe6e, type: 3}
-  arcanBlast: {fileID: 5625302343779244903, guid: 382912358b0074246ab0c1621adc6713, type: 3}
+  arcaneBlast: {fileID: 5625302343779244903, guid: 382912358b0074246ab0c1621adc6713, type: 3}
   arcaneShield: {fileID: 4411031670986816894, guid: d820144504c077943ba8635df17b3007, type: 3}
-  boltCooldown: 0.5
   blastManaCost: 10
 --- !u!114 &325413389816717144
 MonoBehaviour:
