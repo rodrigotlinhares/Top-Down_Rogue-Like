@@ -8,6 +8,7 @@ public class Enemy : Character
     [SerializeField] private HealthPickup pickup;
     [NonSerialized] public bool explosive = false;
     private Rigidbody2D body;
+    private bool appQuitting = false;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class Enemy : Character
 
     protected void OnDestroy()
     {
-        if (UnityEngine.Random.value > 0.8f)
+        if (!appQuitting && UnityEngine.Random.value > 0.8f)
             Instantiate(pickup, body.transform.position, body.transform.rotation);
         EventSystem.events.OnWarlockExplodeDots -= Explode;
     }
@@ -37,5 +38,10 @@ public class Enemy : Character
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Projectile");
         yield return new WaitForSeconds(duration);
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
+    }
+
+    private void OnApplicationQuit()
+    {
+        appQuitting = true;
     }
 }

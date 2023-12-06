@@ -48,14 +48,6 @@ public class Mage : Character
         clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
     }
 
-    private void LaunchArcaneBlast(Vector3 target)
-    {
-        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        ArcaneBlast clone = Instantiate(arcaneBlast, body.transform);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
-        EventSystem.events.PlayerManaSpent(arcaneBlast.manaCost);
-    }
-
     private IEnumerator ChargeArcaneBlast()
     {
         DateTime start = DateTime.Now;
@@ -68,6 +60,14 @@ public class Mage : Character
             }
             yield return null;
         }
+    }
+
+    private void LaunchArcaneBlast(Vector3 target)
+    {
+        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
+        ArcaneBlast clone = Instantiate(arcaneBlast, body.transform);
+        clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
+        EventSystem.events.PlayerManaSpent(arcaneBlast.manaCost);
     }
 
     private void BeginShielding()
