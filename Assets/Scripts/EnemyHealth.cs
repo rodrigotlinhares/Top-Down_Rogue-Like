@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public float maxHealth;
     protected float currentHealth;
     private bool dead = false;
+    private Coroutine routine;
 
     protected void Awake()
     {
@@ -31,13 +33,29 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public IEnumerator LowerOverTime(float amount)
+    public void Leech(float amount)
+    {
+        Lower(amount);
+        EventSystem.events.OnEnemyLeechDamageTaken(amount);
+    }
+
+    public void LeechOverTime(float amount)
+    {
+        routine = StartCoroutine(LeechRoutine(amount));
+    }
+
+    public void StopLeeching()
+    {
+        StopCoroutine(routine);
+    }
+
+    public IEnumerator LeechRoutine(float amount)
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
             Lower(amount);
             EventSystem.events.OnEnemyLeechDamageTaken(amount);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

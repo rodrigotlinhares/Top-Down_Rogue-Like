@@ -107,7 +107,6 @@ MonoBehaviour:
   arcaneBolt: {fileID: -6602569123178703195, guid: 6582fc4fe11d6104fb0aef1e6456fe6e, type: 3}
   arcaneBlast: {fileID: 5625302343779244903, guid: 382912358b0074246ab0c1621adc6713, type: 3}
   arcaneShield: {fileID: 4411031670986816894, guid: d820144504c077943ba8635df17b3007, type: 3}
-  blastManaCost: 10
 --- !u!114 &325413389816717144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMana: 100
+  regenAmount: 0.15
 --- !u!114 &675392669524693419
 MonoBehaviour:
   m_ObjectHideFlags: 0

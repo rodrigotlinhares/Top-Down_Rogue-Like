@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -30,10 +31,10 @@ public class EnemyCollision : MonoBehaviour
             health.Lower(collision.gameObject.GetComponent<PlayerAttack>().damage);
             StartCoroutine(animation.ChangeColor());
         }
-        else if (collision.gameObject.CompareTag("WarlockProjectile"))
+        else if (collision.gameObject.CompareTag("Corruption"))
         {
             enemy.explosive = true;
-            StartCoroutine(health.LowerOverTime(collision.gameObject.GetComponent<Corruption>().damagePerSecond));
+            health.LeechOverTime(collision.gameObject.GetComponent<Corruption>().damageOverTime);
         }
     }
 
@@ -41,14 +42,13 @@ public class EnemyCollision : MonoBehaviour
     {
         if (trigger.gameObject.GetComponent<Demon>())
             stun.Activate(trigger.gameObject.transform.position);
+        else if (trigger.gameObject.CompareTag("LifeDrain"))
+            health.LeechOverTime(trigger.gameObject.GetComponent<PlayerAttack>().damage);
     }
 
-    private void OnTriggerStay2D(Collider2D trigger)
+    private void OnTriggerExit2D(Collider2D trigger)
     {
-        if (trigger.gameObject.CompareTag("Projectile"))
-        {
-            health.Lower(trigger.gameObject.GetComponent<PlayerAttack>().damage);
-            StartCoroutine(animation.ChangeColor());
-        }
+        if (trigger.gameObject.CompareTag("LifeDrain"))
+            health.StopLeeching();
     }
 }

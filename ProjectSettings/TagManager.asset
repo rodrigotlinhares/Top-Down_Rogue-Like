@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
-  - WarlockProjectile
   - Explosion
   - Wall
   - HealthPickup
   - EnemyAttack
+  - LifeDrain
+  - Corruption
   layers:
   - Default
   - TransparentFX

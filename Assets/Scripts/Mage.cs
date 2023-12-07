@@ -13,11 +13,13 @@ public class Mage : Character
     private Rigidbody2D body;
     private ArcaneShield shieldClone;
     private PlayerMovement movement;
+    private PlayerMana mana;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
+        mana = GetComponent<PlayerMana>();
     }
 
     private void Start()
@@ -50,15 +52,18 @@ public class Mage : Character
 
     private IEnumerator ChargeArcaneBlast()
     {
-        DateTime start = DateTime.Now;
-        while (Input.GetKey(KeyCode.Mouse1))
+        if (mana.currentMana >= arcaneBlast.manaCost)
         {
-            if ((DateTime.Now - start).TotalSeconds > arcaneBlast.chargeTime)
+            DateTime start = DateTime.Now;
+            while (Input.GetKey(KeyCode.Mouse1))
             {
-                LaunchArcaneBlast(Input.mousePosition);
-                break;
+                if ((DateTime.Now - start).TotalSeconds > arcaneBlast.chargeTime)
+                {
+                    LaunchArcaneBlast(Input.mousePosition);
+                    break;
+                }
+                yield return null;
             }
-            yield return null;
         }
     }
 
@@ -67,7 +72,7 @@ public class Mage : Character
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         ArcaneBlast clone = Instantiate(arcaneBlast, body.transform);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
-        EventSystem.events.PlayerManaSpent(arcaneBlast.manaCost);
+        mana.Lower(arcaneBlast.manaCost);
     }
 
     private void BeginShielding()
