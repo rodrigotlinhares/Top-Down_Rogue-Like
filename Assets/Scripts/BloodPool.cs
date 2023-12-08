@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BloodPool : MonoBehaviour
+public class BloodPool : PlayerAttack
 {
-    [SerializeField] public float cooldown;
-    [SerializeField] private float tickInterval;
     private bool tickOnCooldown = false;
 
     private void Awake()
@@ -22,15 +20,14 @@ public class BloodPool : MonoBehaviour
         transform.position = transform.parent.position;
         if (!tickOnCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            EventSystem.events.OnEnemyLeechDamageTaken(10);
-            StartCoroutine(Utils.Cooldown(result => tickOnCooldown = result, tickInterval));
+            EventSystem.events.OnEnemyLeechDamageTaken(damage);
+            StartCoroutine(Utils.Cooldown(result => tickOnCooldown = result, Utils.tickInterval));
         }
 
     }
         
     private IEnumerator Dissipate()
     {
-        DateTime start = DateTime.Now;
         yield return new WaitForSeconds(3f);
         EventSystem.events.BloodPoolDissipate();
         Destroy(gameObject);

@@ -6,7 +6,6 @@ using UnityEngine.U2D;
 
 public class Explosion : PlayerAttack
 {
-    [SerializeField] new public static float cooldown;
     private int fadeDuration = 600;
 
     private void Awake()

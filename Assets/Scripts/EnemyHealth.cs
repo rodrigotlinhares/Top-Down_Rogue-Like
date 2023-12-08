@@ -55,7 +55,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Lower(amount);
             EventSystem.events.OnEnemyLeechDamageTaken(amount);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(Utils.tickInterval);
         }
     }
 }

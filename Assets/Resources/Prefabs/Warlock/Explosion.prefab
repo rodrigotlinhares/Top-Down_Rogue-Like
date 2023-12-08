@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8506e2a682ea3e4294bf5b02b36ff70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   cooldown: 2
 --- !u!50 &926650549225998383
 Rigidbody2D:

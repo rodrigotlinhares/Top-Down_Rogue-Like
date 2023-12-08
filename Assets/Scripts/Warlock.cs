@@ -6,6 +6,7 @@ public class Warlock : Character
 {
     [SerializeField] private Corruption corruption;
     [SerializeField] private Demon demon;
+    [SerializeField] private Explosion explosion;
     private bool corruptionOnCooldown = false, explosionOnCooldown = false, demonOnCooldown = false;
     private int attackForce = 10, knockbackForce = 200;
     private Rigidbody2D body;
@@ -40,7 +41,7 @@ public class Warlock : Character
 
     private void ExplodeCorruption()
     {
-        StartCoroutine(Utils.Cooldown(result => explosionOnCooldown = result, Explosion.cooldown));
+        StartCoroutine(Utils.Cooldown(result => explosionOnCooldown = result, explosion.cooldown));
         EventSystem.events.WarlockExplodeDots();
     }
 

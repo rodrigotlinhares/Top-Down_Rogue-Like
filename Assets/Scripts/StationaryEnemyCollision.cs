@@ -32,7 +32,9 @@ public class StationaryEnemyCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (trigger.gameObject.CompareTag("LifeDrain"))
+        if (trigger.gameObject.CompareTag("Projectile"))
+            health.Lower(trigger.gameObject.GetComponent<PlayerAttack>().damage);
+        else if (trigger.gameObject.CompareTag("LifeDrain"))
             health.LeechOverTime(trigger.gameObject.GetComponent<PlayerAttack>().damage);
     }
 

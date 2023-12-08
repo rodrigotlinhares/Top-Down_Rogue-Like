@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4567489689236770983}
   m_Layer: 7
   m_Name: Corruption
-  m_TagString: WarlockProjectile
+  m_TagString: Corruption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
