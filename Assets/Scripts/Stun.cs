@@ -4,6 +4,7 @@ using static UnityEngine.UI.Image;
 public class Stun : MonoBehaviour
 {
     [SerializeField] private int force;
+    public float duration;
 
     private Rigidbody2D body;
 

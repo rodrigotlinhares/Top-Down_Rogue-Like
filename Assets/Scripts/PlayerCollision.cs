@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField] protected int duration;
     private PlayerHealth health;
     private PlayerMovement movement;
     private Stun stun;
@@ -21,7 +20,7 @@ public class PlayerCollision : MonoBehaviour
             health.Lower(10);
             EventSystem.events.PlayerDamageTaken(10);
             stun.Activate(collision.gameObject.transform.position);
-            StartCoroutine(movement.Disable(duration));
+            StartCoroutine(movement.Disable());
         }
         else if (collision.gameObject.GetComponent<EnemyProjectile>())
         {

@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 500
+  duration: 0.25
 --- !u!50 &7636641720311352159
 Rigidbody2D:
   serializedVersion: 4

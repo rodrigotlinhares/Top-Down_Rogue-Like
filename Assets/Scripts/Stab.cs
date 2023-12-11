@@ -18,9 +18,7 @@ public class Stab : PlayerAttack
 
     IEnumerator Dissipate()
     {
-        DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalSeconds < duration)
-            yield return null;
+        yield return new WaitForSeconds(duration);
         Destroy(gameObject);
     }
 }

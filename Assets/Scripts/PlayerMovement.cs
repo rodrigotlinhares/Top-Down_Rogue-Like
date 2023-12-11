@@ -7,10 +7,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] protected float movementSpeed;
     private Vector2 velocity;
     private Rigidbody2D body;
+    private Stun stun;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        stun = GetComponent<Stun>();
     }
 
     private void Update()
@@ -26,12 +28,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -movementSpeed;
         body.velocity = velocity;
     }
-    public IEnumerator Disable(int duration)
+    public IEnumerator Disable()
     {
         enabled = false;
-        DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < duration)
-            yield return null;
+        yield return new WaitForSeconds(stun.duration);
         enabled = true;
     }
 }

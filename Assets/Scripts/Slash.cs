@@ -18,9 +18,7 @@ public class Slash : PlayerAttack
 
     private IEnumerator Dissipate()
     {
-        DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < 200)
-            yield return null;
+        yield return new WaitForSeconds(duration);
         Destroy(gameObject);
     }
 }
