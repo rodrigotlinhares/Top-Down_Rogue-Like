@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Warrior : Character
 {
-    [SerializeField] private Slash slash;
     [SerializeField] private Block block;
     [SerializeField] private float chargeCooldown;
     private bool slashOnCooldown = false, chargeOnCooldown = false;
-    private int attackForce = 600, chargeMultiplier = 4, chargeTime = 250;
+    private int chargeMultiplier = 4, chargeTime = 250;
     private bool blocking = false;
     private Rigidbody2D body;
     private Block blockClone;
     private PlayerMovement movement;
+    private PlayerAttack slash;
+    private Animator slashAnimator;
 
     [NonSerialized] public ChargeCollision chargeCollision;
 
@@ -21,6 +22,8 @@ public class Warrior : Character
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
         chargeCollision = gameObject.GetComponent<ChargeCollision>();
+        slash = GetComponentInChildren<PlayerAttack>();
+        slashAnimator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -44,9 +47,10 @@ public class Warrior : Character
     {
         StartCoroutine(Utils.Cooldown(result => slashOnCooldown = result, slash.cooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
-        Slash clone = Instantiate(slash, body.transform);
-        clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
+        Transform slashT = transform.Find("Slash");
+        slashT.transform.position = body.position + direction;
+        slashT.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+        slashAnimator.SetTrigger("Active");
     }
 
     private void BeginBlocking()

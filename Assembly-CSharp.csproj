@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Block.cs" />
     <Compile Include="Assets\Scripts\ResourceBar.cs" />
-    <Compile Include="Assets\Scripts\Slash.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Warlock.cs" />
     <Compile Include="Assets\Scripts\Stab.cs" />
@@ -86,6 +85,8 @@
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\Demon.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
+    <Compile Include="Assets\Scripts\WarriorSlashIdle.cs" />
+    <Compile Include="Assets\Scripts\WarriorSlash.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\DemonWallCollisionCheck.cs" />
