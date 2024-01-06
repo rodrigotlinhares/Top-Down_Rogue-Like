@@ -39,7 +39,7 @@ public class Rogue : Character
         StartCoroutine(Utils.Cooldown(result => stabOnCooldown = result, stab.cooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Stab clone = Instantiate(stab, body.transform);
-        clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        clone.transform.rotation = Quaternion.FromToRotation(new Vector3(-4.7f, -8.5f, 0), direction);
         clone.transform.position += (Vector3)(Vector2.Perpendicular(direction) * 0.2f * stabSide);
         stabSide *= -1;
         clone.GetComponent<Rigidbody2D>().AddForce(direction * stabForce);

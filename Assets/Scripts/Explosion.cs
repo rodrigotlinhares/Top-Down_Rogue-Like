@@ -6,8 +6,6 @@ using UnityEngine.U2D;
 
 public class Explosion : PlayerAttack
 {
-    private int fadeDuration = 600;
-
     private void Awake()
     {
         StartCoroutine(Fade());
@@ -15,14 +13,8 @@ public class Explosion : PlayerAttack
 
     private IEnumerator Fade()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        float fadeStep = sr.color.a / fadeDuration;
-        DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < fadeDuration)
-        {
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - fadeStep);
-            yield return null;
-        }
+        Animator animator = GetComponent<Animator>();
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);
     }
 }

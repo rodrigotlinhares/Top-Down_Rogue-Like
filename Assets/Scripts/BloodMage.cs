@@ -67,6 +67,7 @@ public class BloodMage : Character
     {
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         BloodOrb clone = Instantiate(bloodOrb, body.transform);
+        clone.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
         health.Lower(bloodOrb.healthCost);
         EventSystem.events.PlayerDamageTaken(bloodOrb.healthCost);

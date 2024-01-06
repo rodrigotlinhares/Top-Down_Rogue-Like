@@ -9,7 +9,7 @@ public class Mage : Character
     [SerializeField] private ArcaneBlast arcaneBlast;
     [SerializeField] private ArcaneShield arcaneShield;
     private bool boltOnCooldown = false;
-    private int boltForce = 1000;
+    private int boltForce = 300;
     private Rigidbody2D body;
     private ArcaneShield shieldClone;
     private PlayerMovement movement;
@@ -71,6 +71,7 @@ public class Mage : Character
     {
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         ArcaneBlast clone = Instantiate(arcaneBlast, body.transform);
+        clone.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * boltForce);
         mana.Lower(arcaneBlast.manaCost);
     }

@@ -8,7 +8,7 @@ public class Warlock : Character
     [SerializeField] private Demon demon;
     [SerializeField] private Explosion explosion;
     private bool corruptionOnCooldown = false, explosionOnCooldown = false, demonOnCooldown = false;
-    private int attackForce = 10, knockbackForce = 200;
+    private int attackForce = 5, knockbackForce = 200;
     private Rigidbody2D body;
     private PlayerMovement movement;
 
@@ -36,6 +36,7 @@ public class Warlock : Character
         StartCoroutine(Utils.Cooldown(result => corruptionOnCooldown = result, corruption.cooldown));
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(target) - body.position).normalized;
         Corruption clone = Instantiate(corruption, body.transform);
+        clone.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * attackForce);
     }
 
