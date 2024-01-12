@@ -35,7 +35,7 @@ AnimationClip:
     - time: 0.6
       value: {fileID: 2151224947491616891, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
     - time: 0.7
-      value: {fileID: -3108175847157726231, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
+      value: {fileID: 3145493790829507670, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -65,7 +65,7 @@ AnimationClip:
     - {fileID: -5574643295762834122, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
     - {fileID: 2922228786205272829, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
     - {fileID: 2151224947491616891, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
-    - {fileID: -3108175847157726231, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
+    - {fileID: 3145493790829507670, guid: 0cae6ab9210ff3f49ba7e2ed6d0e85d3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -90,4 +90,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: Attack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
