@@ -32,9 +32,9 @@ public class EnemyAttack : MonoBehaviour
 
     protected void Attack()
     {
-        Debug.Log("test");
         Vector2 direction = (playerBody.position - body.position).normalized;
-        EnemyProjectile clone = Instantiate(projectile, body.transform.position, body.transform.rotation);
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.right, direction);
+        EnemyProjectile clone = Instantiate(projectile, body.transform.position, rotation);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
         animator.SetBool("shooting", false);
     }

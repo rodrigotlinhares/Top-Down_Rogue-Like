@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -6157000760702794962}
   - component: {fileID: 5488144551301011465}
   - component: {fileID: 809817606623481524}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,10 +179,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.043699563, y: 0.9580286}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.41666672, y: -0.6021505}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6, y: 0.93}
     newSize: {x: 0.6, y: 0.93}
     adaptiveTilingThreshold: 0.5
