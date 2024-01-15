@@ -13,10 +13,10 @@ public class ChargeCollision : PlayerCollision
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (!enabled && enemy)
-            base.OnCollisionEnter2D(collision);
-        else if (enabled && enemy)
+        if (enabled && collision.gameObject.GetComponent<Enemy>())
             body.velocity = Vector3.zero;
+        else
+            base.OnCollisionEnter2D(collision);
+        
     }
 }

@@ -27,11 +27,7 @@ public class PlayerCollision : MonoBehaviour
             health.Lower(10);
             EventSystem.events.PlayerDamageTaken(10);
         }
-    }
-
-    protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<HealthPickup>())
+        else if (collision.gameObject.GetComponent<HealthPickup>())
             health.Raise(10);
     }
 }

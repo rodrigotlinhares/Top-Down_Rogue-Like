@@ -37,12 +37,16 @@ public class HealthPickup : MonoBehaviour
         body.velocity = Vector2.zero;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("Player"))
+            Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PickupRange"))
             enabled = true;
-        else
-            Destroy(gameObject);
     }
 
     private void OnApplicationQuit()

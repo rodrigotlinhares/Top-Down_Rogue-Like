@@ -79,6 +79,7 @@ public class BloodMage : Character
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
         GetComponent<SpriteRenderer>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 8);
+        Physics2D.IgnoreLayerCollision(6, 12);
         Instantiate(bloodPool, body.transform);
     }
 
@@ -87,5 +88,6 @@ public class BloodMage : Character
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
         GetComponent<SpriteRenderer>().enabled = true;
         Physics2D.IgnoreLayerCollision(6, 8, false);
+        Physics2D.IgnoreLayerCollision(6, 12, false);
     }
 }
