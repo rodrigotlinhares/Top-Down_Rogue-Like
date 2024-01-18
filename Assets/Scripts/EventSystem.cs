@@ -70,4 +70,16 @@ public class EventSystem : MonoBehaviour
     {
         OnClassClick?.Invoke(id);
     }
+
+    public Action OnStageCleared;
+    public void StageCleared()
+    {
+        OnStageCleared?.Invoke();
+    }
+
+    public Action OnPowerUpChosen;
+    public void PowerUpChosen()
+    {
+        OnPowerUpChosen?.Invoke();
+    }
 }

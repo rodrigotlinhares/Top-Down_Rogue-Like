@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\WarriorSlash.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\PowerUpChoice.cs" />
     <Compile Include="Assets\Scripts\DemonWallCollisionCheck.cs" />
     <Compile Include="Assets\Scripts\EnemyFollowMovement.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\BloodMage.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\ArcaneShield.cs" />
+    <Compile Include="Assets\Scripts\PowerUpMenu.cs" />
     <Compile Include="Assets\Scripts\StationaryEnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Parry.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />

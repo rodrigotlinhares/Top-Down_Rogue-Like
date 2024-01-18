@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy[] enemies;
     [SerializeField] private int minDistance;
+    private int deaths = 0;
     private Character player;
     private Bounds bounds;
 
@@ -17,11 +18,23 @@ public class EnemySpawner : MonoBehaviour
         MakeEnemy();
         MakeEnemy();
         EventSystem.events.OnEnemyDeath += MakeEnemy;
+        EventSystem.events.OnEnemyDeath += CountEnemyDeaths;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnEnemyDeath -= MakeEnemy;
+        EventSystem.events.OnEnemyDeath -= CountEnemyDeaths;
+    }
+
+    private void CountEnemyDeaths()
+    {
+        deaths++;
+        if (deaths >= 1)
+        {
+            deaths = 0;
+            EventSystem.events.StageCleared();
+        }
     }
 
     private void MakeEnemy()

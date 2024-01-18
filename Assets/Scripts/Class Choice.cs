@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class ClassChoice : MonoBehaviour
 {
-    [SerializeField]
-    private int classId;
-    [SerializeField]
-    private Color color;
+    [SerializeField] private int classId;
+    [SerializeField] private Color color;
 
     public void Enable()
     {

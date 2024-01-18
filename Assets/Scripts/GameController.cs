@@ -10,17 +10,35 @@ public class GameController : MonoBehaviour
         GameObject.Instantiate(classes[PlayerPrefs.GetInt("classID")]);
     }
 
+    private void Start()
+    {
+        EventSystem.events.OnStageCleared += Pause;
+        EventSystem.events.OnPowerUpChosen += Unpause;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnStageCleared -= Pause;
+        EventSystem.events.OnPowerUpChosen -= Unpause;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !paused)
-        {
-            Time.timeScale = 0f;
-            paused = true;
-        }
+            Pause();
         else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-        {
-            Time.timeScale = 1.0f;
-            paused = false;
-        }
+            Unpause();
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0f;
+        paused = true;
+    }
+
+    private void Unpause()
+    {
+        Time.timeScale = 1.0f;
+        paused = false;
     }
 }
