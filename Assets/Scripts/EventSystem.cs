@@ -77,9 +77,27 @@ public class EventSystem : MonoBehaviour
         OnStageCleared?.Invoke();
     }
 
-    public Action OnPowerUpChosen;
-    public void PowerUpChosen()
+    public Action OnGamePaused;
+    public void GamePaused()
     {
-        OnPowerUpChosen?.Invoke();
+        OnGamePaused?.Invoke();
+    }
+
+    public Action OnGameUnpaused;
+    public void GameUnpaused()
+    {
+        OnGameUnpaused?.Invoke();
+    }
+
+    public Action OnMenuClosed;
+    public void MenuClosed()
+    {
+        OnMenuClosed?.Invoke();
+    }
+
+    public Action<int> OnPowerUpChosen;
+    public void PowerUpChosen(int index)
+    {
+        OnPowerUpChosen?.Invoke(index);
     }
 }

@@ -13,13 +13,13 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         EventSystem.events.OnStageCleared += Pause;
-        EventSystem.events.OnPowerUpChosen += Unpause;
+        EventSystem.events.OnMenuClosed += Unpause;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnStageCleared -= Pause;
-        EventSystem.events.OnPowerUpChosen -= Unpause;
+        EventSystem.events.OnMenuClosed -= Unpause;
     }
 
     private void Update()
@@ -34,11 +34,13 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0f;
         paused = true;
+        EventSystem.events.GamePaused();
     }
 
     private void Unpause()
     {
         Time.timeScale = 1.0f;
         paused = false;
+        EventSystem.events.GameUnpaused();
     }
 }

@@ -15,6 +15,18 @@ public class PlayerMovement : MonoBehaviour
         stun = GetComponent<Stun>();
     }
 
+    private void Start()
+    {
+        EventSystem.events.OnGamePaused += Disable;
+        EventSystem.events.OnGameUnpaused += Enable;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnGamePaused -= Disable;
+        EventSystem.events.OnGameUnpaused -= Enable;
+    }
+
     private void Update()
     {
         velocity = Vector2.zero;
@@ -28,7 +40,18 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -movementSpeed;
         body.velocity = velocity;
     }
-    public IEnumerator Disable()
+
+    private void Enable()
+    {
+        enabled = true;
+    }
+
+    private void Disable()
+    {
+        enabled = false;
+    }
+
+    public IEnumerator Stun()
     {
         enabled = false;
         yield return new WaitForSeconds(stun.duration);

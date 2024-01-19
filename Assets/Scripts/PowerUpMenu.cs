@@ -23,7 +23,7 @@ public class PowerUpMenu : MonoBehaviour
         transform.GetChild(2).gameObject.SetActive(true);
     }
 
-    private void Hide()
+    private void Hide(int index)
     {
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);

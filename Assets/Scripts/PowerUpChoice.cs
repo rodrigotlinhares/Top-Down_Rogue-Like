@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpChoice : MonoBehaviour
 {
+    [SerializeField] private int index;
     [SerializeField] private Color color;
 
     public void Enable()
@@ -18,6 +19,7 @@ public class PowerUpChoice : MonoBehaviour
 
     public void ChoosePowerUp()
     {
-        EventSystem.events.PowerUpChosen();
+        EventSystem.events.PowerUpChosen(index);
+        EventSystem.events.MenuClosed();
     }
 }
