@@ -95,9 +95,15 @@ public class EventSystem : MonoBehaviour
         OnMenuClosed?.Invoke();
     }
 
-    public Action<int> OnPowerUpChosen;
-    public void PowerUpChosen(int index)
+    public Action OnPowerUpChosen;
+    public void PowerUpChosen()
     {
-        OnPowerUpChosen?.Invoke(index);
+        OnPowerUpChosen?.Invoke();
+    }
+
+    public Action<float> OnWarriorAttackSpeedChosen;
+    public void WarriorAttackSpeedChosen(float amount)
+    {
+        OnWarriorAttackSpeedChosen?.Invoke(amount);
     }
 }

@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PowerUpChoice : MonoBehaviour
 {
-    [SerializeField] private int index;
     [SerializeField] private Color color;
+    public PowerUp powerUp;
+
+    public void SetPowerUp(PowerUp pu)
+    {
+        powerUp = pu;
+        GetComponentInChildren<TextMeshProUGUI>().SetText(powerUp.description);
+    }
 
     public void Enable()
     {
@@ -19,7 +26,8 @@ public class PowerUpChoice : MonoBehaviour
 
     public void ChoosePowerUp()
     {
-        EventSystem.events.PowerUpChosen(index);
+        powerUp.eventCall(1f);
+        EventSystem.events.PowerUpChosen();
         EventSystem.events.MenuClosed();
     }
 }
