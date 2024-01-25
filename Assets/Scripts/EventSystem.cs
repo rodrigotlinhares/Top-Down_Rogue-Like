@@ -106,4 +106,196 @@ public class EventSystem : MonoBehaviour
     {
         OnWarriorAttackSpeedChosen?.Invoke(amount);
     }
+
+    public Action<float> OnWarriorAttackSizeChosen;
+    public void WarriorAttackSizeChosen(float amount)
+    {
+        OnWarriorAttackSizeChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarriorLeechChosen;
+    public void WarriorLeechChosen(float amount)
+    {
+        OnWarriorLeechChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarriorThornsChosen;
+    public void WarriorThornsChosen(float amount)
+    {
+        OnWarriorThornsChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarriorReflectChosen;
+    public void WarriorReflectChosen(float amount)
+    {
+        OnWarriorReflectChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageManaRegenChosen;
+    public void MageManaRegenChosen(float amount)
+    {
+        OnMageManaRegenChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageManaPickUpChosen;
+    public void MageManaPickUpChosen(float amount)
+    {
+        OnMageManaPickUpChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneBoltDamageChosen;
+    public void MageArcaneBoltDamageChosen(float amount)
+    {
+        OnMageArcaneBoltDamageChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneBlastSpeedChosen;
+    public void MageArcaneBlastSpeedChosen(float amount)
+    {
+        OnMageArcaneBlastSpeedChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneBlastDamageChosen;
+    public void MageArcaneBlastDamageChosen(float amount)
+    {
+        OnMageArcaneBlastDamageChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneShieldDurationChosen;
+    public void MageArcaneShieldDurationChosen(float amount)
+    {
+        OnMageArcaneShieldDurationChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneShieldCooldownChosen;
+    public void MageArcaneShieldCooldownChosen(float amount)
+    {
+        OnMageArcaneShieldCooldownChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnMageArcaneShieldManaRegenChosen;
+    public void MageArcaneShieldManaRegenChosen(float amount)
+    {
+        OnMageArcaneShieldManaRegenChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueAttackSpeedChosen;
+    public void RogueAttackSpeedChosen(float amount)
+    {
+        OnRogueAttackSpeedChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueAttackExplosionChosen;
+    public void RogueAttackExplosionChosen(float amount)
+    {
+        OnRogueAttackExplosionChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueMovementSpeedChosen;
+    public void RogueMovementSpeedChosen(float amount)
+    {
+        OnRogueMovementSpeedChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueDashCooldownChosen;
+    public void RogueDashCooldownChosen(float amount)
+    {
+        OnRogueDashCooldownChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueParryDurationChosen;
+    public void RogueParryDurationChosen(float amount)
+    {
+        OnRogueParryDurationChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueParryLeechChosen;
+    public void RogueParryLeechChosen(float amount)
+    {
+        OnRogueParryLeechChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnRogueParryStunChosen;
+    public void RogueParryStunChosen(float amount)
+    {
+        OnRogueParryStunChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageHealthRegenChosen;
+    public void BloodMageHealthRegenChosen(float amount)
+    {
+        OnBloodMageHealthRegenChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageLifeDrainStrengthChosen;
+    public void BloodMageLifeDrainStrengthChosen(float amount)
+    {
+        OnBloodMageLifeDrainStrengthChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageLifeDrainAreaChosen;
+    public void BloodMageLifeDrainAreaChosen(float amount)
+    {
+        OnBloodMageLifeDrainAreaChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageBloodOrbCostChosen;
+    public void BloodMageBloodOrbCostChosen(float amount)
+    {
+        OnBloodMageBloodOrbCostChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageBloodPoolDurationChosen;
+    public void BloodMageBloodPoolDurationChosen(float amount)
+    {
+        OnBloodMageBloodPoolDurationChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnBloodMageBloodPoolCooldownChosen;
+    public void BloodMageBloodPoolCooldownChosen(float amount)
+    {
+        OnBloodMageBloodPoolCooldownChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockCorruptionDamageChosen;
+    public void WarlockCorruptionDamageChosen(float amount)
+    {
+        OnWarlockCorruptionDamageChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockCorruptionCooldownChosen;
+    public void WarlockCorruptionCooldownChosen(float amount)
+    {
+        OnWarlockCorruptionCooldownChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockCorruptionLeechChosen;
+    public void WarlockCorruptionLeechChosen(float amount)
+    {
+        OnWarlockCorruptionLeechChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockExplosionSizeChosen;
+    public void WarlockExplosionSizeChosen(float amount)
+    {
+        OnWarlockExplosionSizeChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockExplosionCooldownChosen;
+    public void WarlockExplosionCooldownChosen(float amount)
+    {
+        OnWarlockExplosionCooldownChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockDemonSizeChosen;
+    public void WarlockDemonSizeChosen(float amount)
+    {
+        OnWarlockDemonSizeChosen?.Invoke(amount);
+    }
+
+    public Action<float> OnWarlockDemonKnockbackChosen;
+    public void WarlockDemonKnockbackChosen(float amount)
+    {
+        OnWarlockDemonKnockbackChosen?.Invoke(amount);
+    }
 }

@@ -20,7 +20,7 @@ public class PowerUpMenu : MonoBehaviour
     private void Show()
     {
 
-        List<PowerUp> powerUps = PowerUpPool.Get3RandomPowerUps();
+        List<PowerUp> powerUps = PowerUpPool.Draw3RandomPowerUps();
         for (int i = 0; i < powerUps.Count; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
