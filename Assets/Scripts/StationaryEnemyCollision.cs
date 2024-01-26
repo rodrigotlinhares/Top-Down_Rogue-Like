@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using UnityEngine;
 
 public class StationaryEnemyCollision : MonoBehaviour
@@ -18,7 +19,13 @@ public class StationaryEnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Projectile"))
+        Warrior warrior = collision.gameObject.GetComponent<Warrior>();
+        if (warrior && warrior.thorns > 0f)
+        {
+            health.Lower(warrior.thorns);
+            StartCoroutine(animation.ChangeColor());
+        }
+        else if (collision.gameObject.CompareTag("Projectile"))
         {
             health.Lower(collision.gameObject.GetComponent<PlayerAttack>().damage);
             StartCoroutine(animation.ChangeColor());

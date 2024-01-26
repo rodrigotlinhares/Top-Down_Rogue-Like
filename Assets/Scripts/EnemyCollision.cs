@@ -23,8 +23,27 @@ public class EnemyCollision : MonoBehaviour
     {
         Warrior warrior = collision.gameObject.GetComponent<Warrior>();
         Block block = collision.gameObject.GetComponent<Block>();
-        Parry parry = collision.gameObject.GetComponent<Parry>();
-        if ((warrior && warrior.GetComponent<ChargeCollision>().enabled) || block || parry)
+        if (warrior)
+        {
+            if (warrior.thorns > 0f)
+            {
+                health.Lower(warrior.thorns);
+                StartCoroutine(animation.ChangeColor());
+            }
+            if (warrior.GetComponent<ChargeCollision>().charging)
+                stun.Activate(collision.gameObject.transform.position);
+        }
+        else if (block)
+        {
+            warrior = collision.gameObject.GetComponentInParent<Warrior>();
+            if (warrior.thorns > 0f)
+            {
+                health.Lower(warrior.thorns);
+                StartCoroutine(animation.ChangeColor());
+            }
+            stun.Activate(collision.gameObject.transform.position);
+        }
+        else if (collision.gameObject.GetComponent<Parry>())
             stun.Activate(collision.gameObject.transform.position);
         else if (collision.gameObject.CompareTag("Projectile"))
         {

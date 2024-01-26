@@ -26,7 +26,7 @@ public class PowerUpChoice : MonoBehaviour
 
     public void ChoosePowerUp()
     {
-        powerUp.eventCall(1f);
+        powerUp.CallEvent();
         EventSystem.events.PowerUpChosen();
         EventSystem.events.MenuClosed();
     }

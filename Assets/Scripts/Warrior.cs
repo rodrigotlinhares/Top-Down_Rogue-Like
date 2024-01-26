@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Warrior : Character
 {
+    [NonSerialized] public float thorns = 0f;
+
     [SerializeField] private Block block;
     [SerializeField] private float chargeCooldown;
-    private bool slashOnCooldown = false, chargeOnCooldown = false;
+    private bool slashOnCooldown = false, chargeOnCooldown = false, blocking = false;
     private int chargeMultiplier = 4, chargeTime = 250;
-    private bool blocking = false;
     private Rigidbody2D body;
     private Block blockClone;
     private PlayerMovement movement;
-    private PlayerAttack slash;
+    private Slash slash;
     private Animator slashAnimator;
 
     [NonSerialized] public ChargeCollision chargeCollision;
@@ -22,8 +23,18 @@ public class Warrior : Character
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
         chargeCollision = gameObject.GetComponent<ChargeCollision>();
-        slash = GetComponentInChildren<PlayerAttack>();
+        slash = GetComponentInChildren<Slash>();
         slashAnimator = gameObject.GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
+        EventSystem.events.OnWarriorThornsChosen += IncreaseThorns;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnWarriorThornsChosen -= IncreaseThorns;
     }
 
     private void Update()
@@ -76,12 +87,17 @@ public class Warrior : Character
     {
         StartCoroutine(Utils.Cooldown(result => chargeOnCooldown = result, chargeCooldown));
         movement.enabled = false;
-        chargeCollision.enabled = true;
+        chargeCollision.charging = true;
         body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);
         DateTime start = DateTime.Now;
         while ((DateTime.Now - start).TotalMilliseconds < chargeTime)
             yield return null;
         movement.enabled = true;
-        chargeCollision.enabled = false;
+        chargeCollision.charging = false;
+    }
+
+    private void IncreaseThorns(float amount)
+    {
+        thorns += amount;
     }
 }

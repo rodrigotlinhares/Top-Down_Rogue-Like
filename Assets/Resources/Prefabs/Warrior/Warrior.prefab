@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 213067449156187937}
   - component: {fileID: 5698265073050007735}
   - component: {fileID: 1168492493317857736}
-  - component: {fileID: 5196032319811894434}
+  - component: {fileID: 7680640515971063562}
   m_Layer: 6
   m_Name: Slash
   m_TagString: Projectile
@@ -413,7 +413,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8750666923381256609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -451,7 +451,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43335137, y: 0.39885926}
   m_EdgeRadius: 0
---- !u!114 &5196032319811894434
+--- !u!114 &7680640515971063562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8750666923381256609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54da39d0877914fa39b05aac9b9b1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bcdbc4744b5a7648a1e6e73fce92b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
