@@ -16,7 +16,7 @@ public static class PowerUpPool
             new PowerUp("Increase attack size", 0.1f, EventSystem.events.WarriorAttackSizeChosen),
             new PowerUp("Attacks leech health", 5f, EventSystem.events.WarriorLeechChosen),
             new PowerUp("Geting hit / blocking reflects damage", 5f, EventSystem.events.WarriorThornsChosen),
-            new PowerUp("Blocking reflects projectiles", 0.1f, EventSystem.events.WarriorReflectChosen)
+            new PowerUp("Blocking reflects projectiles", 0.5f, EventSystem.events.WarriorReflectChosen)
         };
         List<PowerUp> magePowerUps = new List<PowerUp>
         {

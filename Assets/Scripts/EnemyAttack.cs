@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private EnemyProjectile projectile;
+    [SerializeField] private EnemyArrow projectile;
     [SerializeField] private int projectileForce;
     private Animator animator;
     private SpriteRenderer sprite;
@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
     {
         Vector2 direction = (playerBody.position - body.position).normalized;
         Quaternion rotation = Quaternion.FromToRotation(Vector3.right, direction);
-        EnemyProjectile clone = Instantiate(projectile, body.transform.position, rotation);
+        EnemyArrow clone = Instantiate(projectile, body.transform.position, rotation);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * projectileForce);
         animator.SetBool("shooting", false);
     }

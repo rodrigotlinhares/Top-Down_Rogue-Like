@@ -22,7 +22,7 @@ public class PlayerCollision : MonoBehaviour
             stun.Activate(collision.gameObject.transform.position);
             StartCoroutine(movement.Stun());
         }
-        else if (collision.gameObject.GetComponent<EnemyProjectile>())
+        else if (collision.gameObject.GetComponent<EnemyArrow>())
         {
             health.Lower(10);
             EventSystem.events.PlayerDamageTaken(10);

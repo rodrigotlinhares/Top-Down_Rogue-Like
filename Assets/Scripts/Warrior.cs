@@ -30,11 +30,13 @@ public class Warrior : Character
     private void Start()
     {
         EventSystem.events.OnWarriorThornsChosen += IncreaseThorns;
+        EventSystem.events.OnWarriorReflectChosen += EnableReflect;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnWarriorThornsChosen -= IncreaseThorns;
+        EventSystem.events.OnWarriorReflectChosen -= EnableReflect;
     }
 
     private void Update()
@@ -99,5 +101,10 @@ public class Warrior : Character
     private void IncreaseThorns(float amount)
     {
         thorns += amount;
+    }
+
+    private void EnableReflect(float f)
+    {
+        block.reflecting = true;
     }
 }
