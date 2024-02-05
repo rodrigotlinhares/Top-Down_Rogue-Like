@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee2b9232a4e45041a710a0f4bf12d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 20
   cooldown: 0
   manaCost: 10
   chargeTime: 0.5

@@ -20,14 +20,11 @@ public static class PowerUpPool
         };
         List<PowerUp> magePowerUps = new List<PowerUp>
         {
-            new PowerUp("Increase mana regeneration", 0.1f, EventSystem.events.MageManaRegenChosen),
-            new PowerUp("Increase mana pick-up range", 0.1f, EventSystem.events.MageManaPickUpChosen),
-            new PowerUp("Increase Arcane Bolt damage", 0.1f, EventSystem.events.MageArcaneBoltDamageChosen),
+            new PowerUp("Increase mana regeneration", 0.05f, EventSystem.events.MageManaRegenChosen),
+            new PowerUp("Increase Arcane Bolt quantity", 1f, EventSystem.events.MageArcaneBoltQuantityChosen),
             new PowerUp("Increase Arcane Blast cast speed", 0.1f, EventSystem.events.MageArcaneBlastSpeedChosen),
-            new PowerUp("Increase Arcane Blast damage", 0.1f, EventSystem.events.MageArcaneBlastDamageChosen),
-            new PowerUp("Increase Arcane Shield duration", 0.1f, EventSystem.events.MageArcaneShieldDurationChosen),
-            new PowerUp("Lower Arcane Shield cooldown", 0.1f, EventSystem.events.MageArcaneShieldCooldownChosen),
-            new PowerUp("Increase Arcane Shield mana recovery", 0.1f, EventSystem.events.MageArcaneShieldManaRegenChosen)
+            new PowerUp("Increase Arcane Blast damage", 5f, EventSystem.events.MageArcaneBlastDamageChosen),
+            new PowerUp("Lower Arcane Shield cooldown", 1f, EventSystem.events.MageArcaneShieldCooldownChosen)
         };
         List<PowerUp> roguePowerUps = new List<PowerUp>
         {

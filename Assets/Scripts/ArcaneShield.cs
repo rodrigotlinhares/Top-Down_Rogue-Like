@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ArcaneShield : MonoBehaviour
 {
+    public float cooldown = 5f;
+
     private void Update()
     {
         transform.position = transform.parent.position;

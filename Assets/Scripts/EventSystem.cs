@@ -137,16 +137,10 @@ public class EventSystem : MonoBehaviour
         OnMageManaRegenChosen?.Invoke(amount);
     }
 
-    public Action<float> OnMageManaPickUpChosen;
-    public void MageManaPickUpChosen(float amount)
+    public Action<float> OnMageArcaneBoltQuantityChosen;
+    public void MageArcaneBoltQuantityChosen(float amount)
     {
-        OnMageManaPickUpChosen?.Invoke(amount);
-    }
-
-    public Action<float> OnMageArcaneBoltDamageChosen;
-    public void MageArcaneBoltDamageChosen(float amount)
-    {
-        OnMageArcaneBoltDamageChosen?.Invoke(amount);
+        OnMageArcaneBoltQuantityChosen?.Invoke(amount);
     }
 
     public Action<float> OnMageArcaneBlastSpeedChosen;
@@ -161,22 +155,10 @@ public class EventSystem : MonoBehaviour
         OnMageArcaneBlastDamageChosen?.Invoke(amount);
     }
 
-    public Action<float> OnMageArcaneShieldDurationChosen;
-    public void MageArcaneShieldDurationChosen(float amount)
-    {
-        OnMageArcaneShieldDurationChosen?.Invoke(amount);
-    }
-
     public Action<float> OnMageArcaneShieldCooldownChosen;
     public void MageArcaneShieldCooldownChosen(float amount)
     {
         OnMageArcaneShieldCooldownChosen?.Invoke(amount);
-    }
-
-    public Action<float> OnMageArcaneShieldManaRegenChosen;
-    public void MageArcaneShieldManaRegenChosen(float amount)
-    {
-        OnMageArcaneShieldManaRegenChosen?.Invoke(amount);
     }
 
     public Action<float> OnRogueAttackSpeedChosen;

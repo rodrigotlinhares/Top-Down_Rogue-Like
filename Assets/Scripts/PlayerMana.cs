@@ -15,6 +15,16 @@ public class PlayerMana : MonoBehaviour
         StartCoroutine(RegenerateMana());
     }
 
+    private void Start()
+    {
+        EventSystem.events.OnMageManaRegenChosen += IncreaseRegen;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnMageManaRegenChosen -= IncreaseRegen;
+    }
+
     public void Lower(float amount)
     {
         currentMana -= amount;
@@ -27,6 +37,11 @@ public class PlayerMana : MonoBehaviour
         if (currentMana > maxMana)
             currentMana = maxMana;
         EventSystem.events.PlayerManaRecovered(amount);
+    }
+
+    private void IncreaseRegen(float amount)
+    {
+        regenAmount += amount;
     }
 
     private IEnumerator RegenerateMana()

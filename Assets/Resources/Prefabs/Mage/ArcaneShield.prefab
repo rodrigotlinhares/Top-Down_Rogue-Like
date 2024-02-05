@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36aa39a486d5a440b88686ae73d3ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 5
 --- !u!95 &71361733018671075
 Animator:
   serializedVersion: 5

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\ArcaneBlast.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Block.cs" />
+    <Compile Include="Assets\Scripts\ReflectedArrow.cs" />
     <Compile Include="Assets\Scripts\ResourceBar.cs" />
     <Compile Include="Assets\Scripts\Slash.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
@@ -94,7 +95,6 @@
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PowerUpChoice.cs" />
     <Compile Include="Assets\Scripts\DemonWallCollisionCheck.cs" />
-    <Compile Include="Assets\ReflectedArrow.cs" />
     <Compile Include="Assets\Scripts\EnemyFollowMovement.cs" />
     <Compile Include="Assets\Scripts\Mage.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
