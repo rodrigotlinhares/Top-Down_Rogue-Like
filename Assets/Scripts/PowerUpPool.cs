@@ -30,7 +30,7 @@ public static class PowerUpPool
         {
             new PowerUp("Increase attack speed", 0.1f, EventSystem.events.RogueAttackSpeedChosen),
             new PowerUp("Attacks may explode", 0.1f, EventSystem.events.RogueAttackExplosionChosen),
-            new PowerUp("Increase movement speed", 0.1f, EventSystem.events.WarriorAttackSpeedChosen),
+            new PowerUp("Increase movement speed", 0.1f, EventSystem.events.RogueMovementSpeedChosen),
             new PowerUp("Lower Dash cooldown", 0.1f, EventSystem.events.RogueDashCooldownChosen),
             new PowerUp("Increase Parry duration", 0.1f, EventSystem.events.RogueParryDurationChosen),
             new PowerUp("Parrying may restore health", 0.1f, EventSystem.events.RogueParryLeechChosen),

@@ -17,6 +17,9 @@ public class Mage : Character
 
     private void Awake()
     {
+        arcaneBlast.chargeTime = 0.5f;
+        arcaneBlast.damage = 20;
+        arcaneShield.cooldown = 5;
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
         mana = GetComponent<PlayerMana>();

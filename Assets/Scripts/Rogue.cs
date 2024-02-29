@@ -17,8 +17,19 @@ public class Rogue : Character
 
     private void Awake()
     {
+        stab.cooldown = 0.3f;
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
+    }
+
+    private void Start()
+    {
+        EventSystem.events.OnRogueAttackSpeedChosen += IncreaseAttackSpeed;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnRogueAttackSpeedChosen -= IncreaseAttackSpeed;
     }
 
     void Update()
@@ -79,5 +90,10 @@ public class Rogue : Character
         yield return new WaitForSeconds(dashTime);
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
         movement.enabled = true;
+    }
+
+    private void IncreaseAttackSpeed(float amount)
+    {
+        stab.cooldown *= 1 - amount;
     }
 }
