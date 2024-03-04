@@ -19,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
     {
         EventSystem.events.OnGamePaused += Disable;
         EventSystem.events.OnGameUnpaused += Enable;
+        EventSystem.events.OnRogueMovementSpeedChosen += Increase;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnGamePaused -= Disable;
         EventSystem.events.OnGameUnpaused -= Enable;
+        EventSystem.events.OnRogueMovementSpeedChosen -= Increase;
     }
 
     private void Update()
@@ -56,5 +58,10 @@ public class PlayerMovement : MonoBehaviour
         enabled = false;
         yield return new WaitForSeconds(stun.duration);
         enabled = true;
+    }
+
+    private void Increase(float amount)
+    {
+        movementSpeed *= 1 + amount;
     }
 }

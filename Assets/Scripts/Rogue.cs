@@ -9,8 +9,8 @@ public class Rogue : Character
     [SerializeField] private Parry parry;
     [SerializeField] private float dashCooldown;
     private bool stabOnCooldown = false, parryOnCooldown = false, dashOnCooldown = false;
-    private int stabForce = 600, stabSide = 1, parryFadeDuration = 300, dashMultiplier = 4;
-    private float dashTime = 0.25f;
+    private int stabForce = 600, stabSide = 1, dashMultiplier = 4;
+    private float dashTime = 0.25f, parryFadeDuration = 300f;
     private Rigidbody2D body;
     private Parry parryClone;
     private PlayerMovement movement;
@@ -18,6 +18,8 @@ public class Rogue : Character
     private void Awake()
     {
         stab.cooldown = 0.3f;
+        stab.explosionChance = 0f;
+        parry.leechChance = 0f;
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
     }
@@ -25,11 +27,19 @@ public class Rogue : Character
     private void Start()
     {
         EventSystem.events.OnRogueAttackSpeedChosen += IncreaseAttackSpeed;
+        EventSystem.events.OnRogueAttackExplosionChosen += IncreaseExplosionChance;
+        EventSystem.events.OnRogueDashCooldownChosen += LowerDashCooldown;
+        EventSystem.events.OnRogueParryDurationChosen += IncreaseParryDuration;
+        EventSystem.events.OnRogueParryLeechChosen += IncreaseParryLeechChance;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnRogueAttackSpeedChosen -= IncreaseAttackSpeed;
+        EventSystem.events.OnRogueAttackExplosionChosen -= IncreaseExplosionChance;
+        EventSystem.events.OnRogueDashCooldownChosen -= LowerDashCooldown;
+        EventSystem.events.OnRogueParryDurationChosen -= IncreaseParryDuration;
+        EventSystem.events.OnRogueParryLeechChosen -= IncreaseParryLeechChance;
     }
 
     void Update()
@@ -84,6 +94,7 @@ public class Rogue : Character
     {
         StartCoroutine(Utils.Cooldown(result => dashOnCooldown = result, dashCooldown));
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
         movement.enabled = false;
         body.velocity = new Vector2(body.velocity.x * dashMultiplier, body.velocity.y * dashMultiplier);
         DateTime start = DateTime.Now;
@@ -95,5 +106,25 @@ public class Rogue : Character
     private void IncreaseAttackSpeed(float amount)
     {
         stab.cooldown *= 1 - amount;
+    }
+
+    private void IncreaseExplosionChance(float amount)
+    {
+        stab.explosionChance += amount;
+    }
+
+    private void LowerDashCooldown(float amount)
+    {
+        dashCooldown *= 1 - amount;
+    }
+
+    private void IncreaseParryDuration(float amount)
+    {
+        parryFadeDuration *= 1 + amount;
+    }
+
+    private void IncreaseParryLeechChance(float amount)
+    {
+        parry.leechChance += amount;
     }
 }

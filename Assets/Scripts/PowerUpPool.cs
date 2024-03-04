@@ -32,9 +32,8 @@ public static class PowerUpPool
             new PowerUp("Attacks may explode", 0.1f, EventSystem.events.RogueAttackExplosionChosen),
             new PowerUp("Increase movement speed", 0.1f, EventSystem.events.RogueMovementSpeedChosen),
             new PowerUp("Lower Dash cooldown", 0.1f, EventSystem.events.RogueDashCooldownChosen),
-            new PowerUp("Increase Parry duration", 0.1f, EventSystem.events.RogueParryDurationChosen),
-            new PowerUp("Parrying may restore health", 0.1f, EventSystem.events.RogueParryLeechChosen),
-            new PowerUp("Parrying may stun enemies", 0.1f, EventSystem.events.RogueParryStunChosen)
+            new PowerUp("Increase Parry duration", 0.2f, EventSystem.events.RogueParryDurationChosen),
+            new PowerUp("Parrying may restore health", 0.1f, EventSystem.events.RogueParryLeechChosen)
         };
         List<PowerUp> bloodMagePowerUps = new List<PowerUp>
         {
