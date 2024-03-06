@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BloodPool : PlayerAttack
 {
+    public float duration;
     private bool tickOnCooldown = false;
 
     private void Awake()
@@ -28,7 +29,7 @@ public class BloodPool : PlayerAttack
         
     private IEnumerator Dissipate()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(duration);
         EventSystem.events.BloodPoolDissipate();
         Destroy(gameObject);
     }

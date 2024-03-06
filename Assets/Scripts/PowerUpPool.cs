@@ -37,12 +37,10 @@ public static class PowerUpPool
         };
         List<PowerUp> bloodMagePowerUps = new List<PowerUp>
         {
-            new PowerUp("Regenerate health over time", 0.1f, EventSystem.events.BloodMageHealthRegenChosen),
+            new PowerUp("Regenerate health over time", 0.05f, EventSystem.events.BloodMageHealthRegenChosen),
             new PowerUp("Increase Life Drain health drain", 0.1f, EventSystem.events.BloodMageLifeDrainStrengthChosen),
-            new PowerUp("Increase Life Drain area of effect", 0.1f, EventSystem.events.BloodMageLifeDrainAreaChosen),
             new PowerUp("Blood Orb consumes less health", 0.1f, EventSystem.events.BloodMageBloodOrbCostChosen),
-            new PowerUp("Increase Blood Pool duration", 0.1f, EventSystem.events.BloodMageBloodPoolDurationChosen),
-            new PowerUp("Lower Blood Pool cooldown", 0.1f, EventSystem.events.BloodMageBloodPoolCooldownChosen)
+            new PowerUp("Increase Blood Pool duration", 0.1f, EventSystem.events.BloodMageBloodPoolDurationChosen)
         };
         List<PowerUp> warlockPowerUps = new List<PowerUp>
         {

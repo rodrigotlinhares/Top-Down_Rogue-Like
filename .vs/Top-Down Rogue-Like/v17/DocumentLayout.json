@@ -7,12 +7,8 @@
       "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\rogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\parry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\parry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\bloodmage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bloodmage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,32 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Parry.cs",
-              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Parry.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Parry.cs",
-              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Parry.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Parry.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAACVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T13:47:16.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Rogue.cs",
-              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Rogue.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Rogue.cs",
-              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Rogue.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Rogue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAZAAAA",
+              "Title": "BloodMage.cs",
+              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\BloodMage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BloodMage.cs",
+              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\BloodMage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BloodMage.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAUwHIAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T13:53:36.958Z",
+              "WhenOpened": "2024-03-06T13:25:07.217Z",
               "EditorCaption": ""
             },
             {
@@ -62,14 +45,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUpPool.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\PowerUpPool.cs",
               "RelativeToolTip": "Assets\\Scripts\\PowerUpPool.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwCMAAABmAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCoAAAByAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-22T13:31:44.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "EventSystem.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\EventSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EventSystem.cs",

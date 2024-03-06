@@ -15,6 +15,9 @@ public class BloodMage : Character
 
     private void Awake()
     {
+        lifeDrain.damage = 0.5f;
+        bloodOrb.healthCost = 10;
+        bloodPool.duration = 3;
         body = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
         movement = GetComponent<PlayerMovement>();
@@ -23,11 +26,17 @@ public class BloodMage : Character
     private void Start()
     {
         EventSystem.events.OnBloodPoolDissipate += Solidify;
+        EventSystem.events.OnBloodMageLifeDrainStrengthChosen += IncreaseLifeDrainDamage;
+        EventSystem.events.OnBloodMageBloodOrbCostChosen += LowerBloodOrbCost;
+        EventSystem.events.OnBloodMageBloodPoolDurationChosen += IncreaseBloodPoolDuration;
     }
 
     private void OnDestroy()
     {
         EventSystem.events.OnBloodPoolDissipate -= Solidify;
+        EventSystem.events.OnBloodMageLifeDrainStrengthChosen -= IncreaseLifeDrainDamage;
+        EventSystem.events.OnBloodMageBloodOrbCostChosen -= LowerBloodOrbCost;
+        EventSystem.events.OnBloodMageBloodPoolDurationChosen -= IncreaseBloodPoolDuration;
     }
 
     void Update()
@@ -89,5 +98,20 @@ public class BloodMage : Character
         GetComponent<SpriteRenderer>().enabled = true;
         Physics2D.IgnoreLayerCollision(6, 8, false);
         Physics2D.IgnoreLayerCollision(6, 12, false);
+    }
+
+    private void IncreaseLifeDrainDamage(float amount)
+    {
+        lifeDrain.damage *= 1 + amount;
+    }
+
+    private void LowerBloodOrbCost(float amount)
+    {
+        bloodOrb.healthCost *= 1 - amount;
+    }
+
+    private void IncreaseBloodPoolDuration(float amount)
+    {
+        bloodPool.duration *= 1 + amount;
     }
 }

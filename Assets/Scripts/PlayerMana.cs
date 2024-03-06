@@ -48,7 +48,7 @@ public class PlayerMana : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(Utils.tickInterval);
             Raise(regenAmount);
         }
     }

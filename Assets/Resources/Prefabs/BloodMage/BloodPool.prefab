@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.5
-  cooldown: 5
+  cooldown: 10
+  duration: 3
 --- !u!95 &4082374976169700554
 Animator:
   serializedVersion: 5
