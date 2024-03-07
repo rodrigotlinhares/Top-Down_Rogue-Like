@@ -14,8 +14,29 @@ public class Warlock : Character
 
     private void Awake()
     {
+        corruption.damageOverTime = 0.15f;
+        corruption.cooldown = 0.25f;
+        demon.stunForce = 500;
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
+    }
+
+    private void Start()
+    {
+        EventSystem.events.OnWarlockCorruptionDamageChosen += IncreaseCorruptionDamage;
+        EventSystem.events.OnWarlockCorruptionCooldownChosen += LowerCorruptionCooldown;
+        EventSystem.events.OnWarlockExplosionCooldownChosen += LowerExplosionCooldown;
+        EventSystem.events.OnWarlockDemonSizeChosen += IncreaseDemonSize;
+        EventSystem.events.OnWarlockDemonKnockbackChosen += IncreaseDemonKnockback;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.events.OnWarlockCorruptionDamageChosen -= IncreaseCorruptionDamage;
+        EventSystem.events.OnWarlockCorruptionCooldownChosen -= LowerCorruptionCooldown;
+        EventSystem.events.OnWarlockExplosionCooldownChosen -= LowerExplosionCooldown;
+        EventSystem.events.OnWarlockDemonSizeChosen -= IncreaseDemonSize;
+        EventSystem.events.OnWarlockDemonKnockbackChosen -= IncreaseDemonKnockback;
     }
 
     private void Update()
@@ -53,5 +74,31 @@ public class Warlock : Character
         Demon clone = Instantiate(demon, body.transform);
         clone.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         clone.GetComponent<Rigidbody2D>().AddForce(direction * knockbackForce);
+    }
+
+    private void IncreaseCorruptionDamage(float amount)
+    {
+        corruption.damageOverTime *= 1 + amount;
+    }
+
+    private void LowerCorruptionCooldown(float amount)
+    {
+        corruption.cooldown *= 1 - amount;
+    }
+
+    private void LowerExplosionCooldown(float amount)
+    {
+        explosion.cooldown *= 1 - amount;
+    }
+
+    private void IncreaseDemonSize(float amount)
+    {
+        Vector3 scale = demon.transform.localScale;
+        demon.transform.localScale = new Vector3(scale.x * (1 + amount), scale.y * (1 + amount), 1);
+    }
+
+    private void IncreaseDemonKnockback(float amount)
+    {
+        demon.stunForce *= 1 - amount;
     }
 }

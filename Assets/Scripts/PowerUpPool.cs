@@ -46,8 +46,6 @@ public static class PowerUpPool
         {
             new PowerUp("Increase Corruption damage", 0.1f, EventSystem.events.WarlockCorruptionDamageChosen),
             new PowerUp("Lower Corruption cooldown", 0.1f, EventSystem.events.WarlockCorruptionCooldownChosen),
-            new PowerUp("Increase Corruption health drain", 0.1f, EventSystem.events.WarlockCorruptionLeechChosen),
-            new PowerUp("Increase Explosion size", 0.1f, EventSystem.events.WarlockExplosionSizeChosen),
             new PowerUp("Lower Explosion cooldown", 0.1f, EventSystem.events.WarlockExplosionCooldownChosen),
             new PowerUp("Increase Demon size", 0.1f, EventSystem.events.WarlockDemonSizeChosen),
             new PowerUp("Increase Demon knockback strength", 0.1f, EventSystem.events.WarlockDemonKnockbackChosen)

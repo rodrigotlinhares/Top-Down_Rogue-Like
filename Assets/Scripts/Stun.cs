@@ -18,4 +18,10 @@ public class Stun : MonoBehaviour
         Vector2 direction = (body.position - origin).normalized;
         body.AddForce(direction * force);
     }
+
+    public void Activate(Vector2 origin, float force)
+    {
+        Vector2 direction = (body.position - origin).normalized;
+        body.AddForce(direction * force);
+    }
 }

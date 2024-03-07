@@ -60,7 +60,7 @@ public class EnemyCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.GetComponent<Demon>())
-            stun.Activate(trigger.gameObject.transform.position);
+            stun.Activate(trigger.gameObject.transform.position, trigger.gameObject.GetComponent<Demon>().stunForce);
         else if (trigger.gameObject.CompareTag("Projectile"))
             health.Lower(trigger.gameObject.GetComponent<PlayerAttack>().damage);
         else if (trigger.gameObject.CompareTag("LifeDrain"))

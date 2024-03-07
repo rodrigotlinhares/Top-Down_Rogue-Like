@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\bloodmage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bloodmage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\mage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BloodMage.cs",
-              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\BloodMage.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BloodMage.cs",
-              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\BloodMage.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BloodMage.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAUwHIAAAApAAAA",
+              "Title": "Mage.cs",
+              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Mage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Mage.cs",
+              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Mage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Mage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T13:25:07.217Z",
+              "WhenOpened": "2024-03-07T13:42:45.594Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PowerUpPool.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\PowerUpPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUpPool.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\PowerUpPool.cs",
               "RelativeToolTip": "Assets\\Scripts\\PowerUpPool.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwCoAAAByAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAByAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-22T13:31:44.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "EventSystem.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\EventSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EventSystem.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\EventSystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\EventSystem.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAgwKUAAAAFAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2023-11-18T13:52:48.885Z"
+              "ViewState": "AQIAAC8AAAAAAAAAAAAuwP0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-18T13:52:48.885Z",
+              "EditorCaption": ""
             }
           ]
         }

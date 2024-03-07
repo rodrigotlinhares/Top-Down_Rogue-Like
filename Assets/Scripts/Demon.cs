@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class Demon : PlayerAttack
 {
+    public float stunForce;
 }

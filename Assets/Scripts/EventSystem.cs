@@ -197,12 +197,6 @@ public class EventSystem : MonoBehaviour
         OnRogueParryLeechChosen?.Invoke(amount);
     }
 
-    public Action<float> OnRogueParryStunChosen;
-    public void RogueParryStunChosen(float amount)
-    {
-        OnRogueParryStunChosen?.Invoke(amount);
-    }
-
     public Action<float> OnBloodMageHealthRegenChosen;
     public void BloodMageHealthRegenChosen(float amount)
     {
@@ -213,12 +207,6 @@ public class EventSystem : MonoBehaviour
     public void BloodMageLifeDrainStrengthChosen(float amount)
     {
         OnBloodMageLifeDrainStrengthChosen?.Invoke(amount);
-    }
-
-    public Action<float> OnBloodMageLifeDrainAreaChosen;
-    public void BloodMageLifeDrainAreaChosen(float amount)
-    {
-        OnBloodMageLifeDrainAreaChosen?.Invoke(amount);
     }
 
     public Action<float> OnBloodMageBloodOrbCostChosen;
@@ -233,12 +221,6 @@ public class EventSystem : MonoBehaviour
         OnBloodMageBloodPoolDurationChosen?.Invoke(amount);
     }
 
-    public Action<float> OnBloodMageBloodPoolCooldownChosen;
-    public void BloodMageBloodPoolCooldownChosen(float amount)
-    {
-        OnBloodMageBloodPoolCooldownChosen?.Invoke(amount);
-    }
-
     public Action<float> OnWarlockCorruptionDamageChosen;
     public void WarlockCorruptionDamageChosen(float amount)
     {
@@ -249,18 +231,6 @@ public class EventSystem : MonoBehaviour
     public void WarlockCorruptionCooldownChosen(float amount)
     {
         OnWarlockCorruptionCooldownChosen?.Invoke(amount);
-    }
-
-    public Action<float> OnWarlockCorruptionLeechChosen;
-    public void WarlockCorruptionLeechChosen(float amount)
-    {
-        OnWarlockCorruptionLeechChosen?.Invoke(amount);
-    }
-
-    public Action<float> OnWarlockExplosionSizeChosen;
-    public void WarlockExplosionSizeChosen(float amount)
-    {
-        OnWarlockExplosionSizeChosen?.Invoke(amount);
     }
 
     public Action<float> OnWarlockExplosionCooldownChosen;
