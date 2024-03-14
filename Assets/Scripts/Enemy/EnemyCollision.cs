@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     private EnemyHealth health;
-    private Stun stun;
+    private Knockback knockback;
     private Enemy enemy;
     private DamageAnimation dAnimation;
 
@@ -15,7 +15,7 @@ public class EnemyCollision : MonoBehaviour
     {
         health = GetComponent<EnemyHealth>();
         dAnimation = GetComponent<DamageAnimation>();
-        stun = GetComponent<Stun>();
+        knockback = GetComponent<Knockback>();
         enemy = GetComponent<Enemy>();
     }
 
@@ -31,7 +31,7 @@ public class EnemyCollision : MonoBehaviour
                 StartCoroutine(dAnimation.ChangeColor());
             }
             if (warrior.GetComponent<ChargeCollision>().charging)
-                stun.Activate(collision.gameObject.transform.position);
+                knockback.Activate(collision.gameObject.transform.position);
         }
         else if (block)
         {
@@ -41,10 +41,10 @@ public class EnemyCollision : MonoBehaviour
                 health.Lower(warrior.thorns);
                 StartCoroutine(dAnimation.ChangeColor());
             }
-            stun.Activate(collision.gameObject.transform.position);
+            knockback.Activate(collision.gameObject.transform.position);
         }
         else if (collision.gameObject.GetComponent<Parry>())
-            stun.Activate(collision.gameObject.transform.position);
+            knockback.Activate(collision.gameObject.transform.position);
         else if (collision.gameObject.CompareTag("Projectile"))
         {
             health.Lower(collision.gameObject.GetComponent<PlayerAttack>().damage);
@@ -60,7 +60,7 @@ public class EnemyCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.GetComponent<Demon>())
-            stun.Activate(trigger.gameObject.transform.position, trigger.gameObject.GetComponent<Demon>().stunForce);
+            knockback.Activate(trigger.gameObject.transform.position, trigger.gameObject.GetComponent<Demon>().stunForce);
         else if (trigger.gameObject.CompareTag("Projectile"))
         {
             health.Lower(trigger.gameObject.GetComponent<PlayerAttack>().damage);

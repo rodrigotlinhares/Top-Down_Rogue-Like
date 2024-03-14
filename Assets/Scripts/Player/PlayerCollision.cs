@@ -4,13 +4,13 @@ public class PlayerCollision : MonoBehaviour
 {
     private PlayerHealth health;
     private PlayerMovement movement;
-    private Stun stun;
+    private Knockback knockback;
 
     protected void Awake()
     {
         health = GetComponent<PlayerHealth>();
         movement = GetComponent<PlayerMovement>();
-        stun = GetComponent<Stun>();
+        knockback = GetComponent<Knockback>();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -19,8 +19,8 @@ public class PlayerCollision : MonoBehaviour
         {
             health.Lower(10);
             EventSystem.events.PlayerDamageTaken(10);
-            stun.Activate(collision.gameObject.transform.position);
-            StartCoroutine(movement.Stun());
+            knockback.Activate(collision.gameObject.transform.position);
+            StartCoroutine(movement.Pause(knockback.duration));
         }
         else if (collision.gameObject.GetComponent<EnemyArrow>())
         {

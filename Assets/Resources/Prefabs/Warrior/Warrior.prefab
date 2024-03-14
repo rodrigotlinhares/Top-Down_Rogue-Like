@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fe8284e70fe2c47b21a8009881d1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  maxSpeed: 4
 --- !u!114 &7186508415708701187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,11 +221,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6511413843932905308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51ddc206fbb8f594ebf65ccf9aad3fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 350fcda5830fea74e8b0cac37f0af109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 500
-  duration: 0.25
+  duration: 0.3
 --- !u!50 &3496433042855379834
 Rigidbody2D:
   serializedVersion: 4

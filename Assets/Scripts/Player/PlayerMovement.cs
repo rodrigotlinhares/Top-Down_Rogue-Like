@@ -1,18 +1,18 @@
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] protected float movementSpeed;
+    [SerializeField] private float maxSpeed;
+    private float acceleration = 0.05f;
     private Vector2 velocity;
     private Rigidbody2D body;
-    private Stun stun;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        stun = GetComponent<Stun>();
     }
 
     private void Start()
@@ -31,16 +31,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        velocity = Vector2.zero;
         if (Input.GetKey(KeyCode.A))
-            velocity.x = -movementSpeed;
-        if (Input.GetKey(KeyCode.D))
-            velocity.x = movementSpeed;
-        if (Input.GetKey(KeyCode.W))
-            velocity.y = movementSpeed;
+            velocity.x -= acceleration;
+        else if (Input.GetKey(KeyCode.D))
+            velocity.x += acceleration;
+        else
+            velocity.x = Math.Sign(velocity.x) * (Math.Abs(velocity.x) - acceleration);
+        velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
+
         if (Input.GetKey(KeyCode.S))
-            velocity.y = -movementSpeed;
+            velocity.y -= acceleration;
+        else if (Input.GetKey(KeyCode.W))
+            velocity.y += acceleration;
+        else
+            velocity.y = Math.Sign(velocity.y) * (Math.Abs(velocity.y) - acceleration);
+        velocity.y = Mathf.Clamp(velocity.y, -maxSpeed, maxSpeed);
+
         body.velocity = velocity;
+    }
+
+    public Vector2 CurrentInput()
+    {
+        Vector2 v = new Vector2(0, 0);
+        if (Input.GetKey(KeyCode.A))
+            v.x = -1;
+        if (Input.GetKey(KeyCode.D))
+            v.x = 1;
+        if (Input.GetKey(KeyCode.S))
+            v.y = -1;
+        if (Input.GetKey(KeyCode.W))
+            v.y = 1;
+        return v;
     }
 
     private void Enable()
@@ -53,15 +74,15 @@ public class PlayerMovement : MonoBehaviour
         enabled = false;
     }
 
-    public IEnumerator Stun()
+    public IEnumerator Pause(float duration)
     {
         enabled = false;
-        yield return new WaitForSeconds(stun.duration);
+        yield return new WaitForSeconds(duration);
         enabled = true;
     }
 
     private void Increase(float amount)
     {
-        movementSpeed *= 1 + amount;
+        maxSpeed *= 1 + amount;
     }
 }

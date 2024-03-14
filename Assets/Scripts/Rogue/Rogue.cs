@@ -9,8 +9,8 @@ public class Rogue : Character
     [SerializeField] private Parry parry;
     [SerializeField] private float dashCooldown;
     private bool stabOnCooldown = false, parryOnCooldown = false, dashOnCooldown = false;
-    private int stabForce = 600, stabSide = 1, dashMultiplier = 4;
-    private float dashTime = 0.25f, parryFadeDuration = 300f;
+    private int stabForce = 600, stabSide = 1, dashMultiplier = 16;
+    private float dashTime = 0.2f, parryFadeDuration = 300f;
     private Rigidbody2D body;
     private Parry parryClone;
     private PlayerMovement movement;
@@ -96,7 +96,7 @@ public class Rogue : Character
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
         movement.enabled = false;
-        body.velocity = new Vector2(body.velocity.x * dashMultiplier, body.velocity.y * dashMultiplier);
+        body.velocity = new Vector2(movement.CurrentInput().x * dashMultiplier, movement.CurrentInput().y * dashMultiplier);
         DateTime start = DateTime.Now;
         yield return new WaitForSeconds(dashTime);
         GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();

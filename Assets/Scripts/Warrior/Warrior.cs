@@ -9,7 +9,8 @@ public class Warrior : Character
     [SerializeField] private Block block;
     [SerializeField] private float chargeCooldown;
     private bool slashOnCooldown = false, chargeOnCooldown = false, blocking = false;
-    private int chargeMultiplier = 4, chargeTime = 250;
+    private int chargeMultiplier = 16;
+    private float chargeTime = 0.2f;
     private Rigidbody2D body;
     private Block blockClone;
     private PlayerMovement movement;
@@ -90,10 +91,9 @@ public class Warrior : Character
         StartCoroutine(Utils.Cooldown(result => chargeOnCooldown = result, chargeCooldown));
         movement.enabled = false;
         chargeCollision.charging = true;
-        body.velocity = new Vector2(body.velocity.x * chargeMultiplier, body.velocity.y * chargeMultiplier);
+        body.velocity = new Vector2(movement.CurrentInput().x * chargeMultiplier, movement.CurrentInput().y * chargeMultiplier);
         DateTime start = DateTime.Now;
-        while ((DateTime.Now - start).TotalMilliseconds < chargeTime)
-            yield return null;
+        yield return new WaitForSeconds(chargeTime);
         movement.enabled = true;
         chargeCollision.charging = false;
     }

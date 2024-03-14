@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\Stun.cs" />
     <Compile Include="Assets\Scripts\DamageAnimation.cs" />
     <Compile Include="Assets\Scripts\Warlock\DemonWallCollisionCheck.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
@@ -107,6 +106,7 @@
     <Compile Include="Assets\Scripts\Warlock\Corruption.cs" />
     <Compile Include="Assets\Scripts\BloodMage\BloodPool.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Knockback.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyArrow.cs" />
     <Compile Include="Assets\Scripts\UI\PowerUpChoice.cs" />
     <Compile Include="Assets\Scripts\Mage\ArcaneBolt.cs" />
