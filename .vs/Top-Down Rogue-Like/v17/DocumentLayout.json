@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\ui\\poweruppool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -36,27 +32,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAWAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwDIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T13:57:26.12Z",
+              "WhenOpened": "2024-03-27T13:59:30.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T13:39:24.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "PowerUpPool.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\UI\\PowerUpPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\PowerUpPool.cs",
@@ -64,12 +47,11 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\PowerUpPool.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T14:08:25.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-11T14:08:25.195Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "EventSystem.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\EventSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EventSystem.cs",

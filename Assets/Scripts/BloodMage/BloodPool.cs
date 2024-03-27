@@ -19,7 +19,7 @@ public class BloodPool : PlayerAttack
     private void Update()
     {
         transform.position = transform.parent.position;
-        if (!tickOnCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy", "Knight")))
+        if (!tickOnCooldown && GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             EventSystem.events.OnEnemyLeechDamageTaken(damage);
             StartCoroutine(Utils.Cooldown(result => tickOnCooldown = result, Utils.tickInterval));

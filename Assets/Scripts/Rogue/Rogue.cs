@@ -93,8 +93,7 @@ public class Rogue : Character
     IEnumerator Dash()
     {
         StartCoroutine(Utils.Cooldown(result => dashOnCooldown = result, dashCooldown));
-        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
-        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy Projectile");
+        GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Enemy", "Enemy Projectile");
         movement.enabled = false;
         body.velocity = new Vector2(movement.CurrentInput().x * dashMultiplier, movement.CurrentInput().y * dashMultiplier);
         DateTime start = DateTime.Now;

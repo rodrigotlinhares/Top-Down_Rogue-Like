@@ -40,7 +40,7 @@ public abstract class EnemyMovement : MonoBehaviour
             StartCoroutine(Disable(disableDuration));
     }
 
-    protected void Disable()
+    public void Disable()
     {
         enabled = false;
         body.velocity = Vector2.zero;
