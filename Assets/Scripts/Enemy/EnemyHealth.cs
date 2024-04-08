@@ -3,24 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] public float maxHealth;
     protected float currentHealth;
-    private Animator animator;
     private bool dead = false;
+    private Slider slider;
     private Coroutine routine;
 
     protected void Awake()
     {
         currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
+        slider = GetComponentInChildren<Slider>();
+        slider.maxValue = currentHealth;
+        slider.value = currentHealth;
     }
 
     public void Lower(float amount)
     {
         currentHealth -= amount;
+        slider.value = currentHealth;
         if (currentHealth <= 0)
             Death();
     }

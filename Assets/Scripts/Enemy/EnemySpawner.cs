@@ -47,5 +47,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)], position, Quaternion.identity);
+        //Instantiate(enemies[0], position, Quaternion.identity);
     }
 }
