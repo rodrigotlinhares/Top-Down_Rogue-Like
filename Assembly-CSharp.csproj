@@ -66,8 +66,8 @@
     <Compile Include="Assets\Scripts\Warlock\Warlock.cs" />
     <Compile Include="Assets\Scripts\UI\Class Choice.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceBar.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyDeath.cs" />
     <Compile Include="Assets\Scripts\Rogue\Rogue.cs" />
-    <Compile Include="Assets\Scripts\Enemy\KnightDeath.cs" />
     <Compile Include="Assets\Scripts\UI\PowerUp.cs" />
     <Compile Include="Assets\Scripts\UI\PowerUpPool.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMana.cs" />
@@ -93,7 +93,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Mage\ArcaneShield.cs" />
     <Compile Include="Assets\Scripts\Mage\Mage.cs" />
-    <Compile Include="Assets\Scripts\Enemy\ArcherDeath.cs" />
+    <Compile Include="Assets\Scripts\Enemy\MobileEnemyDeath.cs" />
     <Compile Include="Assets\Scripts\Mage\ArcaneBlast.cs" />
     <Compile Include="Assets\Scripts\Mage\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Warrior\Warrior.cs" />

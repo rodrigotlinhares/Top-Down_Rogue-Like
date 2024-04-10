@@ -35,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         {
             dead = true;
             EventSystem.events.EnemyDeath();
+            GetComponent<EnemyDeath>().Trigger();
         }
     }
 

@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
         player = FindObjectOfType<Character>();
         bounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
         MakeEnemy();
-        //MakeEnemy();
+        MakeEnemy();
         EventSystem.events.OnEnemyDeath += MakeEnemy;
         EventSystem.events.OnEnemyDeath += CountEnemyDeaths;
     }
@@ -47,6 +47,5 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)], position, Quaternion.identity);
-        //Instantiate(enemies[0], position, Quaternion.identity);
     }
 }
