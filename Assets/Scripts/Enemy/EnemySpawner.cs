@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy[] enemies;
     [SerializeField] private int minDistance;
     private int deaths = 0;
+    private int difficulty = 1;
     private Character player;
     private Bounds bounds;
 
@@ -15,7 +16,6 @@ public class EnemySpawner : MonoBehaviour
     {
         player = FindObjectOfType<Character>();
         bounds = GameObject.Find("SpawnBounds").GetComponent<SpriteRenderer>().bounds;
-        MakeEnemy();
         MakeEnemy();
         EventSystem.events.OnEnemyDeath += MakeEnemy;
         EventSystem.events.OnEnemyDeath += CountEnemyDeaths;
@@ -30,9 +30,11 @@ public class EnemySpawner : MonoBehaviour
     private void CountEnemyDeaths()
     {
         deaths++;
-        if (deaths >= 1)
+        if (deaths%10 == 0)
         {
-            deaths = 0;
+            if (difficulty < enemies.Length)
+                difficulty++;
+            MakeEnemy();
             EventSystem.events.StageCleared();
         }
     }
@@ -46,6 +48,6 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
         }
 
-        Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)], position, Quaternion.identity);
+        Instantiate(enemies[UnityEngine.Random.Range(0, difficulty)], position, Quaternion.identity);
     }
 }
