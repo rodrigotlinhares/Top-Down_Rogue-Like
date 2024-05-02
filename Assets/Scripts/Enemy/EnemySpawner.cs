@@ -48,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
         }
 
-        Instantiate(enemies[UnityEngine.Random.Range(0, difficulty)], position, Quaternion.identity);
+        //Instantiate(enemies[UnityEngine.Random.Range(0, difficulty)], position, Quaternion.identity);
+        Instantiate(enemies[1], position, Quaternion.identity);
     }
 }

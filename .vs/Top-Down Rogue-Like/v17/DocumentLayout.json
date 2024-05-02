@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\mobileenemydeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\mobileenemydeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|C:\\home\\unity_projects\\Top-Down Rogue-Like\\assets\\scripts\\enemy\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|c:\\home\\unity_projects\\top-down rogue-like\\assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8650A719-F6A2-FD2C-3B1A-21F03ECFDB6E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,37 +30,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MobileEnemyDeath.cs",
+              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\MobileEnemyDeath.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\MobileEnemyDeath.cs",
+              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\MobileEnemyDeath.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\MobileEnemyDeath.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:27:34.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyHealth.cs",
+              "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemyHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyHealth.cs",
+              "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemyHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyHealth.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:23:08.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EnemyAttack.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemyAttack.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyAttack.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemyAttack.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyAttack.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAAXAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACsAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T13:39:03.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
               "ToolTip": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\Enemy\\EnemySpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemySpawner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAYAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwDMAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T13:25:07.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "EventSystem.cs",
               "DocumentMoniker": "C:\\home\\unity_projects\\Top-Down Rogue-Like\\Assets\\Scripts\\EventSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EventSystem.cs",

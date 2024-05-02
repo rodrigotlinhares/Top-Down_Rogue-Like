@@ -8,6 +8,7 @@ public class MobileEnemyDeath : EnemyDeath
     {
         GetComponent<BoxCollider2D>().excludeLayers = Physics.AllLayers;
         GetComponent<EnemyMovement>().Disable();
+        GetComponent<Animator>().fireEvents = false;
         GetComponent<Animator>().SetBool("dead", true);
     }
 }
