@@ -9,9 +9,9 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] public float maxHealth;
     protected float currentHealth;
-    private bool dead = false;
-    private Slider slider;
-    private Coroutine routine;
+    protected bool dead = false;
+    protected Slider slider;
+    protected Coroutine routine;
 
     protected void Awake()
     {
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
             Death();
     }
 
-    private void Death()
+    protected virtual void Death()
     {
         if (!dead)
         {

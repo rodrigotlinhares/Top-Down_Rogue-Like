@@ -17,7 +17,7 @@ public class EnemyCollision : MonoBehaviour
         dAnimation = GetComponent<DamageAnimation>();
         knockback = GetComponent<Knockback>();
         enemy = GetComponent<Enemy>();
-    }
+}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

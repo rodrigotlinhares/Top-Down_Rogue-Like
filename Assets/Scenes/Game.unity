@@ -1314,6 +1314,10 @@ MonoBehaviour:
   - {fileID: 3315206737804338905, guid: bcbcb2b13c72f99498a0d28ec560ae7d, type: 3}
   - {fileID: 3315206737804338905, guid: bdd675dfad711c7468785acd1d37f993, type: 3}
   - {fileID: 3315206737804338905, guid: ec20f380e4070fb439c2ed2cd8262686, type: 3}
+  bosses:
+  - {fileID: 3315206737804338905, guid: 01c414ebb5e53224d9c51ffd4cf7d433, type: 3}
+  - {fileID: 3315206737804338905, guid: abff4b2b32e9a3e41b2a3276a2ac61f1, type: 3}
+  - {fileID: 3315206737804338905, guid: dad82b4f787406a4d97056df828fe12f, type: 3}
   minDistance: 5
 --- !u!1 &912841740
 GameObject:

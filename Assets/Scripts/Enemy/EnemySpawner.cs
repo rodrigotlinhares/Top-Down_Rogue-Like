@@ -6,9 +6,11 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy[] enemies;
+    [SerializeField] private Enemy[] bosses;
     [SerializeField] private int minDistance;
     private int deaths = 0;
     private int difficulty = 1;
+    private int nextBoss = 0;
     private Character player;
     private Bounds bounds;
 
@@ -32,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         deaths++;
         if (deaths%10 == 0)
         {
+            MakeBoss();
             if (difficulty < enemies.Length)
                 difficulty++;
             MakeEnemy();
@@ -48,7 +51,19 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
         }
 
-        //Instantiate(enemies[UnityEngine.Random.Range(0, difficulty)], position, Quaternion.identity);
-        Instantiate(enemies[1], position, Quaternion.identity);
+        Instantiate(enemies[UnityEngine.Random.Range(0, difficulty)], position, Quaternion.identity);
+    }
+
+    private void MakeBoss()
+    {
+        Vector2 position = new Vector2(UnityEngine.Random.Range(bounds.min.x, bounds.max.x), UnityEngine.Random.Range(bounds.min.y, bounds.max.y));
+        while (Vector2.Distance(position, player.GetComponent<Rigidbody2D>().position) < minDistance)
+        {
+            position.x = UnityEngine.Random.Range(bounds.min.x, bounds.max.y);
+            position.y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
+        }
+
+        Instantiate(bosses[nextBoss], position, Quaternion.identity);
+        nextBoss = (nextBoss + 1) % bosses.Length;
     }
 }

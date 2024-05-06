@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a29a8f99d61d74ea75a8a5c1dd72ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 2923332368440187494, guid: 01813d32f44d0f3479a0462a24b1336a, type: 3}
+  projectile: {fileID: 2923332368440187494, guid: 1af10f0740d51c5429178edbca800776, type: 3}
   projectileForce: 200
 --- !u!114 &-6530923980433952204
 MonoBehaviour:

@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Rogue\Rogue.cs" />
     <Compile Include="Assets\Scripts\UI\PowerUp.cs" />
     <Compile Include="Assets\Scripts\UI\PowerUpPool.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBossHealth.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMana.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Enemy\ReflectedArrow.cs" />
